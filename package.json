@@ -9,16 +9,20 @@
     "preview": "nuxt preview"
   },
   "dependencies": {
-    "@nuxt/content": "^3.10.0",
-    "@vueuse/core": "^14.1.0",
-    "@vueuse/nuxt": "^14.1.0",
-    "better-sqlite3": "^12.5.0"
+    "@nuxt/content": "catalog:build",
+    "@nuxt/image": "catalog:build",
+    "@tailwindcss/vite": "catalog:frontend",
+    "@vueuse/core": "catalog:frontend",
+    "@vueuse/nuxt": "catalog:frontend",
+    "better-sqlite3": "catalog:backend",
+    "nuxt": "catalog:frontend",
+    "tailwindcss": "catalog:frontend"
   },
   "devDependencies": {
-    "@nuxt/eslint": "1.12.1",
-    "@nuxt/image": "2.0.0",
-    "eslint": "^9.39.2",
-    "typescript": "^5.9.3",
-    "nuxt": "^4.2.2"
-  }
+    "@nuxt/eslint": "catalog:dev",
+    "eslint": "catalog:dev",
+    "pnpm": "catalog:dev",
+    "typescript": "catalog:dev"
+  },
+  "packageManager": "pnpm@10.27.0"
 }
