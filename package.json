@@ -1,0 +1,24 @@
+{
+  "name": "rastuharem-dev",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "dependencies": {
+    "@nuxt/content": "^3.10.0",
+    "@vueuse/core": "^14.1.0",
+    "@vueuse/nuxt": "^14.1.0",
+    "better-sqlite3": "^12.5.0"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "1.12.1",
+    "@nuxt/image": "2.0.0",
+    "eslint": "^9.39.2",
+    "typescript": "^5.9.3",
+    "nuxt": "^4.2.2"
+  }
+}
