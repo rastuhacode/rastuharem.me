@@ -15,5 +15,8 @@ if (!page.value) {
 </script>
 
 <template>
-  <ContentRenderer v-if="page" :value="page" />
+  <main class="bg-black size-screen">
+    <MainGradient />
+    <ContentRenderer v-if="page" :value="page" class="text-white" />
+  </main>
 </template>
