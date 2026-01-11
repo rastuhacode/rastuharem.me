@@ -2,6 +2,7 @@
 const US_FLAG_ICON = "twemoji:flag-united-states";
 const RU_FLAG_ICON = "twemoji:flag-russia";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const { locale, setLocale, availableLocales } = useI18n();
 
 const icon = computed(() => {
