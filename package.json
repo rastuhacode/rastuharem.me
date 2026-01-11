@@ -9,20 +9,29 @@
     "preview": "nuxt preview"
   },
   "dependencies": {
-    "@nuxt/content": "catalog:build",
-    "@nuxt/image": "catalog:build",
-    "@tailwindcss/vite": "catalog:frontend",
+    "@nuxtjs/i18n": "catalog:frontend",
     "@vueuse/core": "catalog:frontend",
     "@vueuse/nuxt": "catalog:frontend",
     "better-sqlite3": "catalog:backend",
+    "clsx": "catalog:frontend",
     "nuxt": "catalog:frontend",
-    "tailwindcss": "catalog:frontend"
+    "reka-ui": "catalog:frontend",
+    "tailwind-merge": "catalog:frontend",
+    "tailwindcss": "catalog:frontend",
+    "ufo": "catalog:frontend"
   },
   "devDependencies": {
+    "@iconify-json/simple-icons": "catalog:build",
+    "@iconify-json/twemoji": "catalog:build",
+    "@nuxt/content": "catalog:build",
     "@nuxt/eslint": "catalog:dev",
+    "@nuxt/icon": "catalog:build",
+    "@nuxt/image": "catalog:build",
+    "@tailwindcss/typography": "catalog:frontend",
+    "@tailwindcss/vite": "catalog:frontend",
     "eslint": "catalog:dev",
     "pnpm": "catalog:dev",
     "typescript": "catalog:dev"
   },
-  "packageManager": "pnpm@10.27.0"
+  "packageManager": "pnpm@10.28.0"
 }

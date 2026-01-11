@@ -1,9 +1,20 @@
 <script setup lang="ts">
-const route = useRoute();
+import type { Collections } from "@nuxt/content";
 
-const { data: page } = await useAsyncData("page-" + route.path, () => {
-  return queryCollection("content").path(route.path).first();
-});
+const route = useRoute();
+const { locale } = useI18n();
+
+const { data: page } = await useAsyncData(
+  "page-" + route.path,
+  async () => {
+    // Build collection name based on current locale
+    const collection = ("content_" + locale.value) as keyof Collections;
+    return await queryCollection(collection).path(route.path).first();
+  },
+  {
+    watch: [locale], // Refetch when locale changes
+  }
+);
 
 if (!page.value) {
   throw createError({
@@ -15,8 +26,9 @@ if (!page.value) {
 </script>
 
 <template>
-  <main class="bg-black size-screen">
-    <MainGradient />
-    <ContentRenderer v-if="page" :value="page" class="text-white" />
-  </main>
+  <ContentRenderer
+    v-if="page"
+    :value="page"
+    class="slide-enter-content prose dark:prose-invert m-auto"
+  />
 </template>
