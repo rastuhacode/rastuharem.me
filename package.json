@@ -1,6 +1,7 @@
 {
-  "name": "rastuharem-dev",
+  "name": "rastuharem-me",
   "private": true,
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "build": "nuxt build",
@@ -9,28 +10,27 @@
     "preview": "nuxt preview"
   },
   "dependencies": {
-    "@nuxtjs/i18n": "catalog:frontend",
     "@vueuse/core": "catalog:frontend",
     "@vueuse/nuxt": "catalog:frontend",
     "better-sqlite3": "catalog:backend",
     "clsx": "catalog:frontend",
-    "nuxt": "catalog:frontend",
     "reka-ui": "catalog:frontend",
-    "tailwind-merge": "catalog:frontend",
-    "tailwindcss": "catalog:frontend",
-    "ufo": "catalog:frontend"
+    "tailwind-merge": "catalog:frontend"
   },
   "devDependencies": {
+    "@nuxtjs/i18n": "catalog:build",
     "@iconify-json/simple-icons": "catalog:build",
     "@iconify-json/twemoji": "catalog:build",
     "@nuxt/content": "catalog:build",
     "@nuxt/eslint": "catalog:dev",
     "@nuxt/icon": "catalog:build",
     "@nuxt/image": "catalog:build",
-    "@tailwindcss/typography": "catalog:frontend",
-    "@tailwindcss/vite": "catalog:frontend",
+    "@tailwindcss/typography": "catalog:build",
+    "@tailwindcss/vite": "catalog:build",
     "eslint": "catalog:dev",
     "pnpm": "catalog:dev",
+    "nuxt": "catalog:build",
+    "tailwindcss": "catalog:build",
     "typescript": "catalog:dev"
   },
   "packageManager": "pnpm@10.28.0"

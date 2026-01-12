@@ -11,23 +11,22 @@ catalogs:
     '@nuxt/content': ^3.10.0
     '@nuxt/icon': ^2.2.0
     '@nuxt/image': ^2.0.0
+    '@nuxtjs/i18n': ^10.2.1
+    '@tailwindcss/typography': ^0.5.19
+    '@tailwindcss/vite': ^4.1.18
+    nuxt: ^4.2.2
+    tailwindcss: ^4.1.18
   dev:
     '@nuxt/eslint': ^1.12.1
     eslint: ^9.39.2
     pnpm: ^10.28.0
     typescript: ~5.9.3
   frontend:
-    '@nuxtjs/i18n': ^10.2.1
-    '@tailwindcss/typography': ^0.5.19
-    '@tailwindcss/vite': ^4.1.18
     '@vueuse/core': ^14.1.0
     '@vueuse/nuxt': ^14.1.0
     clsx: ^2.1.1
-    nuxt: ^4.2.2
     reka-ui: ^2.7.0
     tailwind-merge: ^3.4.0
-    tailwindcss: ^4.1.18
-    ufo: ^1.6.2
 
 onlyBuiltDependencies:
   - better-sqlite3
