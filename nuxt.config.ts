@@ -14,6 +14,9 @@ export default defineNuxtConfig({
   css: ["./app/assets/css/main.css"],
   vite: {
     plugins: [tailwindcss()],
+    optimizeDeps: {
+      include: ["reka-ui", "clsx", "tailwind-merge"],
+    },
   },
   components: [
     {
@@ -49,5 +52,5 @@ export default defineNuxtConfig({
     defaultLocale: "en",
   },
 
-  devtools: { enabled: true },
+  devtools: { enabled: false },
 });
