@@ -15,20 +15,40 @@ const { data: posts } = await useAsyncData("posts", () => {
     .where("path", "<>", "/posts/index")
     .all();
 });
+
+const allPostYears = computed<string[]>(() => {
+  return (
+    posts.value?.map((post) => String(post.meta.date).split("-")[0]!) ?? []
+  );
+});
+
+function filterPostsByYear(year: string) {
+  return posts.value?.filter((post) => {
+    return String(post.meta.date).split("-")[0] === year;
+  });
+}
 </script>
 
 <template>
-  <ul class="h-fit">
-    <li
-      v-for="post in posts"
-      :key="post.id"
-      class="flex gap-4 items-center h-fit"
-    >
-      <div class="rounded-full w-2 h-2 bg-gray-300"></div>
-      <NuxtLink :to="post.path">{{ post.title }}</NuxtLink>
-      <span>{{ post.description }}</span>
-      <span>{{ post.meta.date }}</span>
-      <span>{{ post.meta.duration }}</span>
-    </li>
-  </ul>
+  <div v-for="year in allPostYears" :key="year">
+    <span>{{ year }}</span>
+    <ul class="h-fit">
+      <li v-for="post in filterPostsByYear(year)" :key="post.id">
+        <NuxtLink
+          :to="post.path"
+          class="no-underline flex gap-4 items-center h-fit"
+        >
+          <span>{{ post.title }}</span>
+          <NuxtTime
+            :locale="locale"
+            :datetime="String(post.meta.date)"
+            month="short"
+            day="numeric"
+            >{{ post.meta.date }}</NuxtTime
+          >
+          <span>~ {{ post.meta.duration }}</span>
+        </NuxtLink>
+      </li>
+    </ul>
+  </div>
 </template>
