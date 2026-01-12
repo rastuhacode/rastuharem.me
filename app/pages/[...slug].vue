@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import type { Collections } from "@nuxt/content";
 
-import { LiquidWeb } from "liquid-web/vue";
-
 const route = useRoute();
 const { locale } = useI18n();
 const isGraphicsEnabled = useGraphicsStore();
@@ -30,23 +28,18 @@ if (!page.value) {
 
 <template>
   <div>
-    <LiquidWeb
+    <LiquidContainer
       v-show="isGraphicsEnabled"
-      :options="{
-        scale: 50,
-        blur: 5,
-      }"
-      selector="div"
-      class="min-w-fit w-1/2 p-5 m-auto border border-white/10 rounded-xl"
+      class="min-w-fit w-1/2 p-5 m-auto rounded-xl"
     >
       <ContentRenderer
         v-if="page"
         :value="page"
         class="slide-enter-content prose dark:prose-invert w-full m-auto rounded-xl"
       />
-    </LiquidWeb>
+    </LiquidContainer>
 
-    <div v-if="!isGraphicsEnabled" class="min-w-fit w-2/3 p-4 m-auto">
+    <div v-if="!isGraphicsEnabled" class="min-w-fit w-1/2 p-5 m-auto">
       <ContentRenderer
         v-if="page"
         :value="page"
