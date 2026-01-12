@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import type { Collections } from "@nuxt/content";
 
+import { LiquidWeb } from "liquid-web/vue";
+
 const route = useRoute();
 const { locale } = useI18n();
+const isGraphicsEnabled = useGraphicsStore();
 
 const { data: page } = await useAsyncData(
   "page-" + route.path,
@@ -26,9 +29,29 @@ if (!page.value) {
 </script>
 
 <template>
-  <ContentRenderer
-    v-if="page"
-    :value="page"
-    class="slide-enter-content prose dark:prose-invert m-auto"
-  />
+  <div>
+    <LiquidWeb
+      v-show="isGraphicsEnabled"
+      :options="{
+        scale: 50,
+        blur: 5,
+      }"
+      selector="div"
+      class="min-w-fit w-1/2 p-5 m-auto border border-white/10 rounded-xl"
+    >
+      <ContentRenderer
+        v-if="page"
+        :value="page"
+        class="slide-enter-content prose dark:prose-invert w-full m-auto rounded-xl"
+      />
+    </LiquidWeb>
+
+    <div v-if="!isGraphicsEnabled" class="min-w-fit w-2/3 p-4 m-auto">
+      <ContentRenderer
+        v-if="page"
+        :value="page"
+        class="slide-enter-content prose dark:prose-invert w-full m-auto"
+      />
+    </div>
+  </div>
 </template>
