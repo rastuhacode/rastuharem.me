@@ -16,6 +16,9 @@
           <a href="/posts">{{ $t("blog") }}</a>
         </li>
         <li class="h-full flex items-center">
+          <GraphicSwitch />
+        </li>
+        <li class="h-full flex items-center">
           <LocaleButton />
         </li>
       </ul>

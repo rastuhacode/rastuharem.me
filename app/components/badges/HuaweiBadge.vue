@@ -5,7 +5,10 @@ const props = defineProps<{
 </script>
 
 <template>
-  <UiBadge :class="cn(props.class)" href="https://www.huawei.com/en/">
+  <UiBadge
+    :class="cn('hover:bg-red-600 hover:text-white', props.class)"
+    href="https://www.huawei.com/en/"
+  >
     <Icon name="simple-icons:huawei" />
     <span class="px-0.5">Huawei</span>
   </UiBadge>

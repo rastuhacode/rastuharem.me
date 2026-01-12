@@ -6,7 +6,7 @@ const props = defineProps<{
 
 <template>
   <UiBadge
-    :class="cn(props.class)"
+    :class="cn('hover:text-blue-700 hover:bg-white', props.class)"
     href="https://astra.ru/software-services/astra-consulting/"
   >
     <AstraIcon class="size-4" />

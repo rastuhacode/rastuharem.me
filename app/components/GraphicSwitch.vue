@@ -3,5 +3,5 @@ const isGraphicsEnabled = useGraphicsStore();
 </script>
 
 <template>
-  <UiSwitch v-model="isGraphicsEnabled" class="absolute bottom-4 left-4 z-20" />
+  <UiSwitch v-model="isGraphicsEnabled" />
 </template>

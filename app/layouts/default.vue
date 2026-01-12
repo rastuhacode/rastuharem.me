@@ -11,7 +11,5 @@ const isGraphicsEnabled = useGraphicsStore();
     <main class="grow overflow-y-auto overflow-x-hidden z-10">
       <slot />
     </main>
-
-    <GraphicSwitch />
   </div>
 </template>
