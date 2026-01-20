@@ -3,5 +3,5 @@ const isGraphicsEnabled = useGraphicsStore();
 </script>
 
 <template>
-  <UiSwitch v-model="isGraphicsEnabled" />
+  <RSwitch v-model="isGraphicsEnabled" />
 </template>

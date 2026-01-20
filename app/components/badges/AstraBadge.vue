@@ -5,11 +5,11 @@ const props = defineProps<{
 </script>
 
 <template>
-  <UiBadge
+  <RBadge
     :class="cn('hover:text-blue-700 hover:bg-white', props.class)"
     href="https://astra.ru/software-services/astra-consulting/"
   >
     <AstraIcon class="size-4" />
     <span class="px-0.5">Astra Consulting</span>
-  </UiBadge>
+  </RBadge>
 </template>
