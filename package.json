@@ -7,7 +7,8 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "taze": "pnpm dlx taze@latest"
   },
   "dependencies": {
     "@vueuse/core": "catalog:frontend",
@@ -36,5 +37,5 @@
     "tailwindcss": "catalog:build",
     "typescript": "catalog:dev"
   },
-  "packageManager": "pnpm@10.28.0"
+  "packageManager": "pnpm@10.28.1"
 }
