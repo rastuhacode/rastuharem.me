@@ -1,4 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const { availableLocales, setLocale } = useI18n();
+
+function handleLocaleChange(locale: NuxtLocale) {
+  setLocale(locale);
+}
+</script>
 
 <template>
   <header class="z-40 flex justify-between items-center p-5">
@@ -16,10 +22,22 @@
           <a href="/posts">{{ $t("blog") }}</a>
         </li>
         <li class="h-full flex items-center">
-          <GraphicSwitch />
-        </li>
-        <li class="h-full flex items-center">
-          <LocaleButton />
+          <RDropdownMenu>
+            <RDropdownMenuTrigger>
+              <CurrentLocaleButton />
+            </RDropdownMenuTrigger>
+            <RDropdownMenuContent>
+              <RDropdownMenuItem
+                v-for="locale in availableLocales"
+                :key="locale"
+              >
+                <LocaleButton
+                  :locale="locale"
+                  @click="handleLocaleChange(locale)"
+                />
+              </RDropdownMenuItem>
+            </RDropdownMenuContent>
+          </RDropdownMenu>
         </li>
       </ul>
     </nav>

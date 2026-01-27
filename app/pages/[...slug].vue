@@ -3,7 +3,6 @@ import type { Collections } from "@nuxt/content";
 
 const route = useRoute();
 const { locale } = useI18n();
-const isGraphicsEnabled = useGraphicsStore();
 
 const { data: page } = await useAsyncData(
   "page-" + route.path,
@@ -27,24 +26,9 @@ if (!page.value) {
 </script>
 
 <template>
-  <div>
-    <LiquidContainer
-      v-show="isGraphicsEnabled"
-      class="min-w-fit w-1/2 p-5 m-auto rounded-xl"
-    >
-      <ContentRenderer
-        v-if="page"
-        :value="page"
-        class="slide-enter-content prose dark:prose-invert w-full m-auto rounded-xl"
-      />
-    </LiquidContainer>
-
-    <div v-if="!isGraphicsEnabled" class="min-w-fit w-1/2 p-5 m-auto">
-      <ContentRenderer
-        v-if="page"
-        :value="page"
-        class="slide-enter-content prose dark:prose-invert w-full m-auto"
-      />
-    </div>
-  </div>
+  <ContentRenderer
+    v-if="page"
+    :value="page"
+    class="slide-enter-content prose dark:prose-invert w-full m-auto"
+  />
 </template>

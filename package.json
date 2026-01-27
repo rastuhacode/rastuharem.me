@@ -14,11 +14,10 @@
     "@vueuse/core": "catalog:frontend",
     "@vueuse/nuxt": "catalog:frontend",
     "better-sqlite3": "catalog:backend",
+    "class-variance-authority": "catalog:frontend",
     "clsx": "catalog:frontend",
-    "liquid-web": "catalog:frontend",
     "reka-ui": "catalog:frontend",
-    "tailwind-merge": "catalog:frontend",
-    "webgl-fluid-enhanced": "catalog:frontend"
+    "tailwind-merge": "catalog:frontend"
   },
   "devDependencies": {
     "@iconify-json/simple-icons": "catalog:build",
@@ -35,7 +34,8 @@
     "nuxt": "catalog:build",
     "pnpm": "catalog:dev",
     "tailwindcss": "catalog:build",
+    "tw-animate-css": "catalog:build",
     "typescript": "catalog:dev"
   },
-  "packageManager": "pnpm@10.28.1"
+  "packageManager": "pnpm@10.28.2"
 }
