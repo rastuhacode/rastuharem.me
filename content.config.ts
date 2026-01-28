@@ -2,6 +2,7 @@ import { defineContentConfig, defineCollection } from "@nuxt/content";
 
 export default defineContentConfig({
   collections: {
+    // English content collection
     content_en: defineCollection({
       type: "page",
       source: {
@@ -9,7 +10,7 @@ export default defineContentConfig({
         prefix: "",
       },
     }),
-
+    // Russian content collection
     content_ru: defineCollection({
       type: "page",
       source: {

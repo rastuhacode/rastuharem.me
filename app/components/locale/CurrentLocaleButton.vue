@@ -8,19 +8,17 @@ const props = defineProps<
 
 const { locale } = useI18n();
 
-const LocaleIcons = {
-  en: "twemoji:flag-united-states",
-  ru: "twemoji:flag-russia",
-} as const;
-
 const delegatedProps = reactiveOmit(props, "class");
 const forwarded = useForwardProps(delegatedProps);
 </script>
 
 <template>
-  <Primitive v-bind="forwarded" :class="cn('size-5', props.class)">
+  <Primitive
+    v-bind="forwarded"
+    :class="cn('[&_span]:size-5 flex items-center', props.class)"
+  >
     <slot :locale="locale">
-      <Icon :name="LocaleIcons[locale]" />
+      <Icon :name="LocaleToIcon[locale]" />
     </slot>
   </Primitive>
 </template>

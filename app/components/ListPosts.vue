@@ -2,14 +2,10 @@
 const { locale } = useI18n();
 
 const collection = computed(() => {
-  if (locale.value === "en") {
-    return "content_en";
-  } else {
-    return "content_ru";
-  }
+  return locale.value === "en" ? "content_en" : "content_ru";
 });
 
-const { data: posts } = await useAsyncData("posts", () => {
+const { data: posts } = await useAsyncData(`posts-${locale.value}`, () => {
   return queryCollection(collection.value)
     .where("path", "LIKE", "/posts/%")
     .where("path", "<>", "/posts/index")
@@ -34,7 +30,7 @@ function filterPostsByYear(year: string) {
     <span>{{ year }}</span>
     <ul class="h-fit">
       <li v-for="post in filterPostsByYear(year)" :key="post.id">
-        <NuxtLink
+        <NuxtLinkLocale
           :to="post.path"
           class="no-underline flex gap-4 items-center h-fit"
         >
@@ -44,10 +40,11 @@ function filterPostsByYear(year: string) {
             :datetime="String(post.meta.date)"
             month="short"
             day="numeric"
-            >{{ post.meta.date }}</NuxtTime
           >
+            {{ post.meta.date }}
+          </NuxtTime>
           <span>~ {{ post.meta.duration }}</span>
-        </NuxtLink>
+        </NuxtLinkLocale>
       </li>
     </ul>
   </div>
