@@ -10,7 +10,7 @@
     "preview": "nuxt preview",
     "build:ssg": "npx nuxi generate",
     "preview:ssg": "npx serve .output/public",
-    "dev:ssg": "pnpm build:ssg && pnpm preview:ssg",
+    "dev:ssg": "pnpm generate && pnpm preview:ssg",
     "taze": "pnpm dlx taze@latest"
   },
   "dependencies": {
