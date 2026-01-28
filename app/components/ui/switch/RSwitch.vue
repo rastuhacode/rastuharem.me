@@ -22,7 +22,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
     :class="
       cn(
         'peer inline-flex h-[1.15rem] w-8 shrink-0 items-center rounded-full border border-transparent shadow-xs transition-all outline-none',
-        'data-[state=checked]:bg-linear-to-r from-blue-600 to-purple-600 data-[state=unchecked]:bg-gray-100 dark:data-[state=unchecked]:bg-gray-100/80',
+        'data-[state=checked]:bg-foreground data-[state=unchecked]:bg-input',
         'focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]',
         'disabled:cursor-not-allowed disabled:opacity-50',
         props.class
@@ -33,8 +33,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
       data-slot="switch-thumb"
       :class="
         cn(
-          'bg-white pointer-events-none block size-4 rounded-full ring-0 transition-transform',
-          'dark:data-[state=unchecked]:bg-white dark:data-[state=checked]:bg-white',
+          'bg-background pointer-events-none block size-4 rounded-full ring-0 transition-transform',
           'data-[state=checked]:translate-x-[calc(100%-2px)] data-[state=unchecked]:translate-x-0'
         )
       "
