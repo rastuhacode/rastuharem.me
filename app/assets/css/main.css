@@ -46,7 +46,9 @@
 }
 
 :root {
+  --font-manrope: "Manrope", sans-serif;
   --radius: 0.625rem;
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -118,19 +120,23 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
 
-body {
-  font-family: "Manrope", sans-serif;
-  @apply bg-black text-white;
+  body {
+    @apply bg-background text-foreground font-manrope;
+  }
 }
 
 @utility size-screen {
   height: 100dvh;
   width: 100dvw;
+}
+
+@utility font-manrope {
+  font-family: var(--font-manrope);
+}
+
+@utility border-underline {
+  @apply no-underline border-b hover:border-foreground transition-colors duration-300;
 }
 
 @keyframes slide-enter {

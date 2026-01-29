@@ -22,7 +22,7 @@ const { data: page } = await useAsyncData(
     }
 
     return content;
-  }
+  },
 );
 
 if (!page.value) {
@@ -38,6 +38,6 @@ if (!page.value) {
   <ContentRenderer
     v-if="page"
     :value="page"
-    class="slide-enter-content prose dark:prose-invert w-full m-auto p-5"
+    class="w-full m-auto p-5 slide-enter-content prose dark:prose-invert"
   />
 </template>

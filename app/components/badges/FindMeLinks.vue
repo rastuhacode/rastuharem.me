@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const { locale } = useI18n();
+</script>
+
 <template>
   <div class="flex gap-2 flex-wrap mt-2">
     <RBadge href="https://github.com/rastuhacode">
