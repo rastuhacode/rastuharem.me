@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import type {
+  ContentEnCollectionItem,
+  ContentRuCollectionItem,
+} from "@nuxt/content";
+
 const { locale } = useI18n();
 
 const collection = computed(() => {
@@ -23,6 +28,12 @@ function filterPostsByYear(year: string) {
     return String(post.meta.date).split("-")[0] === year;
   });
 }
+
+function getTags(post: ContentEnCollectionItem | ContentRuCollectionItem) {
+  // TODO: fix types (guard or schema)
+  const tags = (post.meta.tags as TPostTags[]) ?? [];
+  return tags;
+}
 </script>
 
 <template>
@@ -45,6 +56,8 @@ function filterPostsByYear(year: string) {
           </NuxtTime>
           <span>~ {{ post.meta.duration }}</span>
         </NuxtLinkLocale>
+
+        <PostsTags v-if="post.meta.tags" :tags="getTags(post)" />
       </li>
     </ul>
   </div>
