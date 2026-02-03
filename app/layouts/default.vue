@@ -14,6 +14,7 @@ function toTop() {
 <template>
   <div class="size-screen flex flex-col">
     <LayoutCanvas />
+    <LayoutGradient />
 
     <LayoutHeader />
     <main

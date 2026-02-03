@@ -15,6 +15,23 @@ const PARTICLE_OPACITY = 0.6;
 const LINE_OPACITY = 0.15;
 const BASE_SPEED = 0.3;
 
+// Reactive color from CSS variables (for theme support)
+const particleColor = reactive({ r: 100, g: 100, b: 100 });
+
+function updateColorFromCSS(): void {
+  const styles = getComputedStyle(document.documentElement);
+  particleColor.r =
+    parseInt(styles.getPropertyValue("--canvas-particle-r").trim()) || 100;
+  particleColor.g =
+    parseInt(styles.getPropertyValue("--canvas-particle-g").trim()) || 100;
+  particleColor.b =
+    parseInt(styles.getPropertyValue("--canvas-particle-b").trim()) || 100;
+}
+
+function getParticleRgba(opacity: number): string {
+  return `rgba(${particleColor.r}, ${particleColor.g}, ${particleColor.b}, ${opacity})`;
+}
+
 const el = useTemplateRef("canvasRef");
 const particles = ref<Particle[]>([]);
 
@@ -141,7 +158,7 @@ function drawConnections(
         // Opacity based on distance
         const opacity = (1 - distance / CONNECTION_DISTANCE) * LINE_OPACITY;
         ctx.beginPath();
-        ctx.strokeStyle = `rgba(136, 136, 136, ${opacity})`;
+        ctx.strokeStyle = getParticleRgba(opacity);
         ctx.lineWidth = 1;
         ctx.moveTo(p1.x, p1.y);
         ctx.lineTo(p2.x, p2.y);
@@ -159,7 +176,7 @@ function drawConnections(
     if (distance < MOUSE_RADIUS) {
       const opacity = (1 - distance / MOUSE_RADIUS) * LINE_OPACITY * 1.5;
       ctx.beginPath();
-      ctx.strokeStyle = `rgba(136, 136, 136, ${opacity})`;
+      ctx.strokeStyle = getParticleRgba(opacity);
       ctx.lineWidth = 1;
       ctx.moveTo(particle.x, particle.y);
       ctx.lineTo(mouse.x, mouse.y);
@@ -172,7 +189,7 @@ function drawParticles(
   ctx: CanvasRenderingContext2D,
   particleList: Particle[]
 ): void {
-  ctx.fillStyle = `rgba(136, 136, 136, ${PARTICLE_OPACITY})`;
+  ctx.fillStyle = getParticleRgba(PARTICLE_OPACITY);
 
   for (const particle of particleList) {
     ctx.beginPath();
@@ -188,6 +205,18 @@ onMounted(() => {
   const size = reactive(useWindowSize());
 
   const { ctx } = initCanvas(canvas, size.width, size.height);
+
+  // Initialize color from CSS variables
+  updateColorFromCSS();
+
+  // Watch for theme changes (class changes on html element)
+  const themeObserver = new MutationObserver(() => {
+    updateColorFromCSS();
+  });
+  themeObserver.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
 
   // Initialize particles
   particles.value = initParticles(size.width, size.height);
@@ -255,6 +284,7 @@ onMounted(() => {
 
   onUnmounted(() => {
     controls.pause();
+    themeObserver.disconnect();
     window.removeEventListener("mousemove", handleMouseMove);
     window.removeEventListener("mouseleave", handleMouseLeave);
   });
@@ -262,5 +292,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <canvas ref="canvasRef" class="-z-10 fixed top-0 left-0 size-screen" />
+  <canvas
+    ref="canvasRef"
+    class="-z-10 fixed top-0 left-0 size-screen slide-enter"
+  />
 </template>
