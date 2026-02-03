@@ -53,19 +53,11 @@ export default defineNuxtConfig({
   },
 
   content: {
-    experimental: {
-      sqliteConnector: "native",
-    },
     build: {
       markdown: {
         remarkPlugins: {
           "remark-gfm": false,
         },
-      },
-    },
-    renderer: {
-      alias: {
-        hr: "RSeparator",
       },
     },
   },

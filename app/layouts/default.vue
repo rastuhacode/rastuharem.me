@@ -13,7 +13,7 @@ function toTop() {
 
 <template>
   <div class="size-screen flex flex-col">
-    <LayoutGradient grainy />
+    <LayoutCanvas />
 
     <LayoutHeader />
     <main
