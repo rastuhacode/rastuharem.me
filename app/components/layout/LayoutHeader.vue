@@ -3,7 +3,7 @@ const { availableLocales } = useI18n();
 </script>
 
 <template>
-  <header class="z-40 flex justify-between items-center p-5">
+  <header class="flex justify-between items-center p-5">
     <nav>
       <ul class="flex items-center gap-4">
         <li class="h-full flex items-center">

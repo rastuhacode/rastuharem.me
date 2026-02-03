@@ -3,8 +3,6 @@ packages: []
 catalogMode: prefer
 
 catalogs:
-  backend:
-    better-sqlite3: ^12.6.2
   build:
     '@iconify-json/simple-icons': ^1.2.68
     '@iconify-json/twemoji': ^1.2.5
@@ -23,17 +21,16 @@ catalogs:
     pnpm: ^10.28.2
     typescript: ~5.9.3
   frontend:
-    '@vueuse/core': ^14.1.0
+    '@vueuse/core': catalog:frontend
     '@vueuse/nuxt': ^14.1.0
     class-variance-authority: ^0.7.1
     clsx: ^2.1.1
-    reka-ui: ^2.8.0
+    reka-ui: catalog:frontend
     tailwind-merge: ^3.4.0
   types:
     '@types/node': ^25.1.0
 
 onlyBuiltDependencies:
-  - better-sqlite3
   - esbuild
   - sharp
 

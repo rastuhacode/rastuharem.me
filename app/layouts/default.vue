@@ -16,7 +16,10 @@ function toTop() {
     <LayoutGradient grainy />
 
     <LayoutHeader />
-    <main ref="mainRef" class="grow overflow-y-auto overflow-x-hidden z-10">
+    <main
+      ref="mainRef"
+      class="grow overflow-y-auto overflow-x-hidden flex flex-col justify-between"
+    >
       <slot />
       <LayoutFooter />
 
@@ -28,7 +31,7 @@ function toTop() {
             'bg-background p-2 rounded-full transition-opacity duration-300',
             scrollY > 300
               ? 'opacity-50 hover:opacity-100'
-              : 'pointer-events-none opacity-0',
+              : 'pointer-events-none opacity-0'
           )
         "
         @click="toTop"

@@ -1,22 +1,28 @@
 ---
 title: Rasten Remizov
-description: Rasten Remizov's Portfolio
 ---
 
 # {{ title }}
 
-Hey! I'm Rasten Remizov, a software engineer - mostly involved in web and frontend development.
+Hi! I’m Rasten Remizov, a software engineer mostly focused on web and frontend development.
 
-Working at <AstraBadge class="ml-1" ></AstraBadge>
+Currently, I work at <AstraBadge class="ml-1"></AstraBadge>
 <br>
-Before at <HuaweiBadge class="ml-1" ></HuaweiBadge>
+Previously at <HuaweiBadge class="ml-1"></HuaweiBadge>
 
-<div flex-auto />
+I enjoy building performant, accessible, and beautiful interfaces, exploring new web standards, frameworks and solving difficult problems. Somitimes in my free time I also contribute to open-source projects.
+
+I write <a class="border-underline" href="/posts">blog posts</a> about my thoughts on software, life, and basically anything I find interesting.
+
+Outside of programming, I enjoy making <a class="border-underline" target="_blank" href='https://soundcloud.com/rastuharem'>music</a>, doing photographhy, playing games, watching movies, anime, and some TV series.
+
+I'm currently based at Moscow.
 
 ---
 
 Find me on
 
-<FindMeLinks />
+<ContactMeLinks></ContactMeLinks>
+<FindMeLinks></FindMeLinks>
 
----
+Or email me at <span class="font-mono">hi@rastuharem.me</span>
