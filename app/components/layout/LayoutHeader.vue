@@ -15,24 +15,30 @@ const { availableLocales } = useI18n();
       </ul>
     </nav>
 
-    <ClientOnly>
-      <RDropdownMenu>
-        <RDropdownMenuTrigger as-child>
+    <div class="flex items-center gap-5">
+      <ClientOnly>
+        <GraphicSwitch />
+      </ClientOnly>
+      <ColorModeButton />
+      <ClientOnly>
+        <RDropdownMenu>
+          <RDropdownMenuTrigger as-child>
+            <CurrentLocaleButton />
+          </RDropdownMenuTrigger>
+          <RDropdownMenuContent>
+            <RDropdownMenuItem
+              v-for="locale in availableLocales"
+              :key="locale"
+              as-child
+            >
+              <LocaleSwitchLink :locale="locale" />
+            </RDropdownMenuItem>
+          </RDropdownMenuContent>
+        </RDropdownMenu>
+        <template #fallback>
           <CurrentLocaleButton />
-        </RDropdownMenuTrigger>
-        <RDropdownMenuContent>
-          <RDropdownMenuItem
-            v-for="locale in availableLocales"
-            :key="locale"
-            as-child
-          >
-            <LocaleSwitchLink :locale="locale" />
-          </RDropdownMenuItem>
-        </RDropdownMenuContent>
-      </RDropdownMenu>
-      <template #fallback>
-        <CurrentLocaleButton />
-      </template>
-    </ClientOnly>
+        </template>
+      </ClientOnly>
+    </div>
   </header>
 </template>

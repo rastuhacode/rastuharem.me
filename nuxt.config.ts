@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "@nuxt/image",
     "@nuxt/eslint",
+    "@nuxtjs/color-mode",
     "@nuxtjs/i18n",
     "@vueuse/nuxt",
   ],
@@ -24,7 +25,6 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
-
   app: {
     head: {
       link: [
@@ -42,7 +42,10 @@ export default defineNuxtConfig({
       ],
     },
   },
-
+  colorMode: {
+    preference: "system",
+    fallback: "dark",
+  },
   i18n: {
     locales: [
       { code: "en", name: "English", language: "en-US", file: "en.json" },

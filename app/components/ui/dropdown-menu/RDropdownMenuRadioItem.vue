@@ -37,7 +37,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
     >
       <DropdownMenuItemIndicator>
         <slot name="indicator-icon">
-          <Icon name="simple-icons:circle" class="size-2 fill-current" />
+          <Icon name="lucide:circle" class="size-2 fill-current" />
         </slot>
       </DropdownMenuItemIndicator>
     </span>

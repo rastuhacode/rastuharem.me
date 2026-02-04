@@ -18,7 +18,7 @@ const BASE_SPEED = 0.3;
 // Reactive color from CSS variables (for theme support)
 const particleColor = reactive({ r: 100, g: 100, b: 100 });
 
-function updateColorFromCSS(): void {
+function updateColorFromCSS() {
   const styles = getComputedStyle(document.documentElement);
   particleColor.r =
     parseInt(styles.getPropertyValue("--canvas-particle-r").trim()) || 100;
@@ -45,19 +45,23 @@ function getParticleCount(width: number, height: number): number {
   return Math.max(30, Math.min(count, 150));
 }
 
-function createParticle(width: number, height: number): Particle {
-  return {
+function createParticle(width: number, height: number) {
+  const particle: Particle = {
     x: Math.random() * width,
     y: Math.random() * height,
     vx: (Math.random() - 0.5) * BASE_SPEED * 2,
     vy: (Math.random() - 0.5) * BASE_SPEED * 2,
     radius: Math.random() * 1.5 + 1,
   };
+  return particle;
 }
 
-function initParticles(width: number, height: number): Particle[] {
+function initParticles(width: number, height: number) {
   const count = getParticleCount(width, height);
-  return Array.from({ length: count }, () => createParticle(width, height));
+  const particles: Particle[] = Array.from({ length: count }, () =>
+    createParticle(width, height)
+  );
+  return particles;
 }
 
 function initCanvas(
@@ -96,11 +100,7 @@ function initCanvas(
   return { ctx, dpi };
 }
 
-function updateParticle(
-  particle: Particle,
-  width: number,
-  height: number
-): void {
+function updateParticle(particle: Particle, width: number, height: number) {
   // Apply mouse interaction
   const dx = mouse.x - particle.x;
   const dy = mouse.y - particle.y;
@@ -144,7 +144,7 @@ function updateParticle(
 function drawConnections(
   ctx: CanvasRenderingContext2D,
   particleList: Particle[]
-): void {
+) {
   for (let i = 0; i < particleList.length; i++) {
     const p1 = particleList[i]!;
     for (let j = i + 1; j < particleList.length; j++) {
@@ -188,7 +188,7 @@ function drawConnections(
 function drawParticles(
   ctx: CanvasRenderingContext2D,
   particleList: Particle[]
-): void {
+) {
   ctx.fillStyle = getParticleRgba(PARTICLE_OPACITY);
 
   for (const particle of particleList) {
@@ -292,8 +292,5 @@ onMounted(() => {
 </script>
 
 <template>
-  <canvas
-    ref="canvasRef"
-    class="-z-10 fixed top-0 left-0 size-screen slide-enter"
-  />
+  <canvas ref="canvasRef" class="-z-10 fixed top-0 left-0 size-screen" />
 </template>

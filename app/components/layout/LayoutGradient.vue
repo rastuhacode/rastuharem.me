@@ -28,7 +28,7 @@ const props = withDefaults(defineProps<{ grainy?: boolean }>(), {
         background-size: 109px;
         background-repeat: repeat;
         background-image: url('/grain.png');
-        opacity: 0.06;
+        opacity: 0.03;
         border-radius: 0px;
       "
     >

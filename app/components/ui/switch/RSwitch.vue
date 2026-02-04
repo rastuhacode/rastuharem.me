@@ -33,7 +33,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
       data-slot="switch-thumb"
       :class="
         cn(
-          'bg-background pointer-events-none block size-4 rounded-full ring-0 transition-transform',
+          'bg-background pointer-events-none size-4 rounded-full ring-0 transition-transform relative flex items-center justify-center',
           'data-[state=checked]:translate-x-[calc(100%-2px)] data-[state=unchecked]:translate-x-0'
         )
       "

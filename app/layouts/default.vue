@@ -2,6 +2,7 @@
 const mainRef = useTemplateRef("mainRef");
 
 const { y: scrollY } = useScroll(mainRef);
+const graphics = useGraphicsStore();
 
 function toTop() {
   mainRef.value?.scrollTo({
@@ -13,14 +14,19 @@ function toTop() {
 
 <template>
   <div class="size-screen flex flex-col">
-    <LayoutCanvas />
-    <LayoutGradient />
+    <LayoutGradient grainy />
 
-    <LayoutHeader />
+    <ClientOnly>
+      <Transition name="slide" appear>
+        <LayoutCanvas v-if="graphics" />
+      </Transition>
+    </ClientOnly>
+
     <main
       ref="mainRef"
       class="grow overflow-y-auto overflow-x-hidden flex flex-col justify-between"
     >
+      <LayoutHeader />
       <slot />
       <LayoutFooter />
 
@@ -42,3 +48,12 @@ function toTop() {
     </main>
   </div>
 </template>
+
+<style scoped>
+.slide-enter-active {
+  animation: slide-enter 1s both;
+}
+.slide-leave-active {
+  animation: slide-enter 1s reverse both;
+}
+</style>
