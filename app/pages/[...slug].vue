@@ -38,6 +38,6 @@ if (!page.value) {
   <ContentRenderer
     v-if="page"
     :value="page"
-    class="w-full h-full mx-auto p-5 slide-enter-content prose dark:prose-invert"
+    class="w-full min-h-fit h-full mx-auto p-5 slide-enter-content prose dark:prose-invert"
   />
 </template>

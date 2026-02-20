@@ -40,7 +40,7 @@ function toggleDark(event: MouseEvent) {
         clipPath: isDark.value ? [...clipPath].reverse() : clipPath,
       },
       {
-        duration: 400,
+        duration: 300,
         easing: "ease-out",
         fill: "forwards",
         pseudoElement: isDark.value

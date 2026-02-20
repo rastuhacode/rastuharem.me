@@ -3,10 +3,9 @@ const props = withDefaults(
   defineProps<{
     tags: TPostTags[];
     max?: number;
+    class?: string;
   }>(),
-  {
-    max: 3,
-  },
+  { max: 3, class: "" },
 );
 
 const emits = defineEmits<{
@@ -26,7 +25,7 @@ const hiddenTagsCount = computed(() => {
 </script>
 
 <template>
-  <div class="flex gap-2 overflow-hidden max-w-full">
+  <div :class="cn('flex gap-2 overflow-hidden max-w-full', props.class)">
     <RBadge
       v-for="tag in visibleTags"
       :key="tag"

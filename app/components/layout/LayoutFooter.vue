@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mt-10 mb-6 prose dark:prose-invert mx-auto flex slide-enter copyright p-5"
+    class="mt-10 mb-6 prose dark:prose-invert w-full mx-auto flex slide-enter copyright p-5"
   >
     <span class="text-sm opacity-50">
       <a
