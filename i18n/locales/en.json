@@ -1,5 +1,8 @@
 {
   "blog": "Blog",
   "home": "Home",
-  "scroll_to_top": "Scroll to top"
+  "scroll_to_top": "Scroll to top",
+  "download_pdf": "Download PDF",
+  "built_with": "Built with",
+  "resume": "Resume"
 }

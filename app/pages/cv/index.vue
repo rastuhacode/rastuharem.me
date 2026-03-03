@@ -1,0 +1,33 @@
+<script setup lang="ts">
+const { locale } = useI18n();
+
+const cvContent =
+  locale.value === "en" ? "/Rasten-Remizov-en.pdf" : "/Rasten-Remizov-ru.pdf";
+
+const cv = ref<string>();
+
+onMounted(async () => {
+  const data = await fetch(cvContent);
+  cv.value = await data.text();
+});
+</script>
+
+<template>
+  <div class="mx-auto w-1/3 h-full flex flex-col gap-2">
+    <div class="flex justify-end items-center">
+      <span>
+        {{ $t("built_with") }}
+        <RBadge
+          href="https://cv-html-dev.netlify.app/"
+          target="_blank"
+          class="font-mono"
+        >
+          CV.html
+        </RBadge>
+      </span>
+    </div>
+    <div class="relative h-full w-full overflow-hidden">
+      <iframe :src="cvContent" class="absolute top-0 left-0 w-full h-full" />
+    </div>
+  </div>
+</template>

@@ -12,6 +12,9 @@ const { availableLocales } = useI18n();
         <li class="h-full flex items-center">
           <NuxtLinkLocale to="/posts">{{ $t("blog") }}</NuxtLinkLocale>
         </li>
+        <li class="h-full flex items-center">
+          <NuxtLinkLocale to="/cv">{{ $t("resume") }}</NuxtLinkLocale>
+        </li>
       </ul>
     </nav>
 

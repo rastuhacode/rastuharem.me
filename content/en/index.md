@@ -10,7 +10,7 @@ Currently, I work at <AstraBadge class="ml-1"></AstraBadge>
 <br>
 Previously at <HuaweiBadge class="ml-1"></HuaweiBadge>
 
-I enjoy building performant, accessible, and beautiful interfaces, exploring new web standards, frameworks and solving difficult problems. Somitimes in my free time I also contribute to open-source projects.
+I enjoy building performant, accessible, and beautiful interfaces, exploring new web standards, frameworks and solving difficult problems. Sometimes in my free time I also contribute to open-source projects.
 
 I write <a class="border-underline" href="/posts">blog posts</a> about my thoughts on software, life, and basically anything I find interesting.
 

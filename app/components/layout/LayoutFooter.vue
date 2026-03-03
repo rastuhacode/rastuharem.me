@@ -2,7 +2,7 @@
   <div
     class="mt-10 mb-6 prose dark:prose-invert w-full mx-auto flex slide-enter copyright p-5"
   >
-    <span class="text-sm opacity-50">
+    <span class="text-sm opacity-50 text-center w-full">
       <a
         class="border-underline text-inherit"
         target="_blank"

@@ -1,5 +1,8 @@
 {
   "blog": "Блог",
   "home": "Главная",
-  "scroll_to_top": "Наверх"
+  "scroll_to_top": "Наверх",
+  "download_pdf": "Скачать PDF",
+  "built_with": "Сделано с помощью",
+  "resume": "Резюме"
 }
