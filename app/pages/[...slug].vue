@@ -22,7 +22,7 @@ const { data: page } = await useAsyncData(
     }
 
     return content;
-  }
+  },
 );
 
 if (!page.value) {
@@ -32,12 +32,20 @@ if (!page.value) {
     fatal: true,
   });
 }
+
+const isTocVisible = computed(() => page.value?.meta?.toc);
 </script>
 
 <template>
-  <ContentRenderer
-    v-if="page"
-    :value="page"
-    class="w-full min-h-fit h-full mx-auto p-5 slide-enter-content prose dark:prose-invert"
-  />
+  <div v-if="page" class="grow">
+    <RToc
+      v-if="isTocVisible && page.body?.toc?.links"
+      :links="page.body.toc.links"
+      class="hidden lg:flex"
+    />
+    <ContentRenderer
+      :value="page"
+      class="w-full min-h-fit h-full mx-auto p-5 slide-enter-content prose dark:prose-invert"
+    />
+  </div>
 </template>

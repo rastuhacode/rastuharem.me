@@ -3,6 +3,7 @@ title: "Stop using Word for your resume"
 description: "A practical comparison of resume formats"
 date: "2026-03-03 00:00:01 UTC"
 duration: "6 min"
+toc: true
 tags:
   - dev
 ---
