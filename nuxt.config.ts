@@ -14,7 +14,9 @@ export default defineNuxtConfig({
   ],
   css: ["./app/assets/css/main.css"],
   vite: {
-    plugins: [tailwindcss()],
+    // TODO: Fix types
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    plugins: [tailwindcss() as any],
     optimizeDeps: {
       include: ["reka-ui", "clsx", "tailwind-merge"],
     },

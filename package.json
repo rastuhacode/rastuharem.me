@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@10.28.2",
+  "packageManager": "pnpm@10.30.3",
   "engines": {
     "node": ">=22.5.0"
   },
@@ -14,7 +14,9 @@
     "preview": "nuxt preview",
     "preview:ssg": "npx serve .output/public",
     "dev:ssg": "pnpm generate && pnpm preview:ssg",
-    "taze": "pnpm dlx taze@latest"
+    "taze": "pnpm dlx taze@latest",
+    "lint": "eslint . --fix",
+    "typecheck": "nuxt typecheck"
   },
   "dependencies": {
     "@vueuse/core": "catalog:frontend",
