@@ -25,7 +25,7 @@ const isFuture = (date: Date | string | number) => new Date(date) > new Date();
 // TODO: Replace it with schema typing
 const stringMetaDate = (post: Post) => String(post.meta.date);
 
-const selectedTag = ref<TPostTags>();
+const selectedTags = ref<TPostTags[]>([]);
 
 const posts = computed(() =>
   rawPosts.value
@@ -34,8 +34,8 @@ const posts = computed(() =>
     )
     .filter((post) => !isFuture(stringMetaDate(post)))
     .filter((post) => {
-      if (selectedTag.value) {
-        return getTags(post).includes(selectedTag.value);
+      if (selectedTags.value.length > 0) {
+        return selectedTags.value.every((tag) => getTags(post).includes(tag));
       }
       return true;
     }),
@@ -67,10 +67,35 @@ function formatDate(date: string) {
     day: "numeric",
   });
 }
+
+function handleTagSelect(tag: TPostTags) {
+  if (selectedTags.value.includes(tag)) return;
+  selectedTags.value = [...selectedTags.value, tag];
+}
 </script>
 
 <template>
   <template v-if="posts && posts.length > 0">
+    <div
+      class="flex gap-2 h-12 mb-2 items-center max-w-full overflow-x-auto overflow-y-hidden not-hover:scrollbar-hide transition-all duration-300"
+    >
+      <template v-if="selectedTags.length > 0">
+        <div
+          v-for="tag in selectedTags"
+          :key="tag"
+          class="group flex items-center h-fit gap-0.5"
+        >
+          <span>#{{ tag }}</span>
+          <button
+            class="flex items-center size-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            @click="selectedTags = selectedTags.filter((t) => t !== tag)"
+          >
+            <Icon name="mdi:close" class="size-4" />
+          </button>
+        </div>
+      </template>
+    </div>
+
     <section v-for="year in allPostYears" :key="year">
       <div class="relative flex items-center">
         <span
@@ -89,7 +114,7 @@ function formatDate(date: string) {
         >
           <NuxtLinkLocale
             :to="post.path"
-            class="group px-4 py-3 no-underline rounded-lg transition-colors duration-300 hover:bg-muted flex flex-col gap-1"
+            class="group px-4 py-3 no-underline rounded-lg transition-colors duration-300 dark:hover:bg-muted hover:bg-background flex flex-col gap-1"
           >
             <div class="flex sm:flex-row flex-col items-start gap-0.5">
               <div class="grow min-w-0 max-w-full">
@@ -99,15 +124,6 @@ function formatDate(date: string) {
                   >
                     {{ post.title }}
                   </span>
-
-                  <PostsTags
-                    v-if="post.meta.tags"
-                    :tags="getTags(post)"
-                    :max="3"
-                    class="text-sm text-primary pointer-events-none"
-                    @click.stop.prevent
-                    @tag:select="(tag) => (selectedTag = tag)"
-                  />
                 </div>
               </div>
 
@@ -130,6 +146,15 @@ function formatDate(date: string) {
             >
               {{ post.description }}
             </p>
+
+            <PostsTags
+              v-if="post.meta.tags"
+              :tags="getTags(post)"
+              :max="3"
+              class="text-sm text-primary"
+              @click.stop.prevent
+              @tag:select="handleTagSelect"
+            />
           </NuxtLinkLocale>
         </li>
       </ul>

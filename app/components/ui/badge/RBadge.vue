@@ -10,7 +10,7 @@ const props = withDefaults(
       class?: HTMLAttributes["class"];
     }
   >(),
-  { as: "a", class: "" }
+  { as: "a", class: "" },
 );
 
 const delegatedProps = reactiveOmit(props, "class");
@@ -25,10 +25,11 @@ const target = computed(() => {
     data-slot="badge"
     :class="
       cn(
+        'group/badge',
         'leading-none font-semibold whitespace-nowrap text-ellipsis',
         'inline-flex items-center p-1 gap-1 rounded-md no-underline h-6 transition-colors duration-300',
         'border border-border bg-background hover:bg-accent',
-        props.class
+        props.class,
       )
     "
     :target="target"

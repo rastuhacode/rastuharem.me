@@ -3,8 +3,6 @@ title: "Привет, блог!"
 description: ""
 date: "2026-03-03 00:00:00 UTC"
 duration: "1 min"
-tags:
-  - Жизнь
 ---
 
 # {{ title }}

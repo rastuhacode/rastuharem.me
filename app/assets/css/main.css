@@ -172,6 +172,10 @@
   font-family: var(--font-manrope);
 }
 
+@utility scrollbar-hide {
+  scrollbar-color: transparent transparent;
+}
+
 @utility border-underline {
   @apply no-underline border-b hover:border-foreground transition-colors duration-300;
 }
