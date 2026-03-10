@@ -162,7 +162,9 @@ function handleTagSelect(tag: TPostTags) {
 
   <template v-else>
     <div class="flex items-center justify-center h-full">
-      <span class="text-2xl text-muted-foreground"> No posts found :( </span>
+      <span class="text-2xl text-muted-foreground">
+        {{ $t("no_posts_found") }} :(
+      </span>
     </div>
   </template>
 </template>
