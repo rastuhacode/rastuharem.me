@@ -6,7 +6,8 @@ const { locale } = useI18n();
 
 const slug = computed(() => {
   const path = String(route.params.slug);
-  return "/" + path.replace(/,/g, "/");
+  const normalized = path.replace(/,/g, "/").replace(/\/+$/, "");
+  return "/" + normalized;
 });
 
 const { data: page } = await useAsyncData(
