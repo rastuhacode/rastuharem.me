@@ -25,7 +25,12 @@ const { data: page } = await useAsyncData(
   },
 );
 
-if (!page.value) {
+const isUnreleased =
+  page.value?.path?.startsWith("/posts/") &&
+  page.value?.meta?.date &&
+  !isPostReleased(page.value);
+
+if (!page.value || isUnreleased) {
   throw createError({
     statusCode: 404,
     statusMessage: "Page not found",

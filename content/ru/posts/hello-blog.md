@@ -1,7 +1,7 @@
 ---
 title: "Привет, блог!"
 description: ""
-date: "2026-03-03 00:00:00 UTC"
+date: "2026-03-13 00:00:00 UTC"
 duration: "1 min"
 ---
 

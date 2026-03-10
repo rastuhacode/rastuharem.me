@@ -1,11 +1,4 @@
 <script setup lang="ts">
-import type {
-  ContentEnCollectionItem,
-  ContentRuCollectionItem,
-} from "@nuxt/content";
-
-type Post = ContentEnCollectionItem | ContentRuCollectionItem;
-
 const { locale } = useI18n();
 const router = useRouter();
 const route = useRoute();
@@ -22,10 +15,6 @@ const { data: rawPosts } = await useAsyncData(`posts-${locale.value}`, () => {
 });
 
 const getYear = (date: string) => new Date(date).getFullYear();
-const isFuture = (date: Date | string | number) => new Date(date) > new Date();
-
-// TODO: Replace it with schema typing
-const stringMetaDate = (post: Post) => String(post.meta.date);
 
 const selectedTags = computed<TPostTags[]>({
   get() {
@@ -47,10 +36,8 @@ const selectedTags = computed<TPostTags[]>({
 
 const posts = computed(() =>
   rawPosts.value
-    ?.toSorted(
-      (a, b) => +new Date(stringMetaDate(b)) - +new Date(stringMetaDate(a)),
-    )
-    .filter((post) => !isFuture(stringMetaDate(post)))
+    ?.toSorted((a, b) => +new Date(getPostDate(b)) - +new Date(getPostDate(a)))
+    .filter(isPostReleased)
     .filter((post) => {
       if (selectedTags.value.length > 0) {
         return selectedTags.value.every((tag) => getTags(post).includes(tag));
@@ -69,14 +56,8 @@ const allPostYears = computed<number[]>(() => {
 
 function filterPostsByYear(year: number) {
   return posts.value?.filter((post) => {
-    return getYear(stringMetaDate(post)) === year;
+    return getYear(getPostDate(post)) === year;
   });
-}
-
-function getTags(post: Post) {
-  // TODO: fix types (guard or schema)
-  const tags = (post.meta.tags as TPostTags[]) ?? [];
-  return tags;
 }
 
 function formatDate(date: string) {
@@ -148,8 +129,8 @@ function handleTagSelect(tag: TPostTags) {
               <div
                 class="flex items-center gap-4 shrink-0 text-sm text-muted-foreground tabular-nums my-auto"
               >
-                <time :datetime="stringMetaDate(post)">
-                  {{ formatDate(stringMetaDate(post)) }}
+                <time :datetime="getPostDate(post)">
+                  {{ formatDate(getPostDate(post)) }}
                 </time>
                 <span class="opacity-30">&middot;</span>
                 <span class="whitespace-nowrap"

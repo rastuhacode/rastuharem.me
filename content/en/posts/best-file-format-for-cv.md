@@ -1,7 +1,7 @@
 ---
 title: "Stop using Word for your resume"
 description: "A practical comparison of resume formats"
-date: "2026-03-03 00:00:01 UTC"
+date: "2026-03-20 00:00:00 UTC"
 duration: "6 min"
 toc: true
 tags:
@@ -175,7 +175,7 @@ But nothing quite fit. I couldn't find a tool that gave you direct, full control
 
 The other obvious approach was editing HTML directly in VS Code, but constantly switching to a browser is tedious. Page breaks are only visible in print preview, and you have to manually export every time.
 
-So I decided to build the tool myself. I called it [**CV.html**](https://cv-html-dev.netlify.app/).
+So I decided to build the tool myself. I called it <cv-html-badge class="ml-1"></cv-html-badge>.
 
 It's a Monaco Editor with a live preview, packed with features like:
 
@@ -186,7 +186,7 @@ It's a Monaco Editor with a live preview, packed with features like:
 - **Handy extras** like A4 page outline, utility styles, customizable `<head>` for fonts, and more
 - **Completely free and open source**
 
-If you've read this far and are interested, check it out [live](https://cv-html-dev.netlify.app/) or on [GitHub](https://github.com/rastuhacode/cv.html). I'd be glad if you find it useful and appreciate any feedback!
+If you've read this far and are interested, check it out [hosted](https://cv-html-dev.netlify.app) or on [GitHub](https://github.com/rastuhacode/cv.html). I'd be glad if you find it useful and appreciate any feedback!
 
 There's still plenty of room for improvement. For instance, text replacement isn't straightforward because `<span>` tags and other markup get mixed with content. I plan to decompose the template and data layers in a future.
 
