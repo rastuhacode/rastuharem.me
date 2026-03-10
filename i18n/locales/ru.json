@@ -3,6 +3,7 @@
   "home": "Главная",
   "scroll_to_top": "Наверх",
   "download_pdf": "Скачать PDF",
-  "built_with": "Сделано с помощью",
-  "resume": "Резюме"
+  "built_with": "Сделано c помощью",
+  "resume": "Резюме",
+  "image_preview": "Предпросмотр изображения"
 }

@@ -6,14 +6,20 @@ const { availableLocales } = useI18n();
   <header class="flex justify-between items-center p-5">
     <nav>
       <ul class="flex items-center gap-4">
-        <li class="h-full flex items-center">
-          <NuxtLinkLocale to="/">{{ $t("home") }}</NuxtLinkLocale>
+        <li class="flex items-center">
+          <NuxtLinkLocale :aria-label="$t('home')" to="/">
+            <RLogo class="size-8" />
+          </NuxtLinkLocale>
         </li>
-        <li class="h-full flex items-center">
-          <NuxtLinkLocale to="/posts">{{ $t("blog") }}</NuxtLinkLocale>
+        <li class="flex items-center">
+          <NuxtLinkLocale :aria-label="$t('blog')" to="/posts">
+            {{ $t("blog") }}
+          </NuxtLinkLocale>
         </li>
-        <li class="h-full flex items-center">
-          <NuxtLinkLocale to="/cv">{{ $t("resume") }}</NuxtLinkLocale>
+        <li class="flex items-center">
+          <NuxtLinkLocale :aria-label="$t('resume')" to="/cv">
+            {{ $t("resume") }}
+          </NuxtLinkLocale>
         </li>
       </ul>
     </nav>

@@ -1,0 +1,19 @@
+<script setup lang="ts">
+import type { LinkHTMLAttributes } from "vue";
+
+const props = defineProps<{
+  id: LinkHTMLAttributes["id"];
+}>();
+</script>
+
+<template>
+  <h3 :id="props.id" class="text-xl font-semibold group flex gap-2">
+    <slot />
+    <a
+      :href="`#${props.id}`"
+      class="no-underline float-right opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+    >
+      <Icon name="lucide:link" class="size-4 m-auto" />
+    </a>
+  </h3>
+</template>

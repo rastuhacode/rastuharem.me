@@ -7,13 +7,15 @@ description: Растен Ремизов - Портфолио
 
 Привет! Меня зовут Растен Ремизов, я инженер-программист, в основном занимаюсь веб- и фронтенд-разработкой.
 
-Сейчас работаю в <AstraBadge class="ml-1"></AstraBadge>
+Создатель <cv-html-badge class="ml-1"></cv-html-badge>
+
+Сейчас работаю в <astra-badge class="ml-1"></astra-badge>
 <br>
-Ранее — в <HuaweiBadge class="ml-1"></HuaweiBadge>
+Ранее — в <huawei-badge class="ml-1"></huawei-badge>
 
 Я люблю создавать производительные, доступные и красивые интерфейсы, изучать новые веб-стандарты и фреймворки, а также решать сложные задачи. Также иногда в свободное время вношу вклад в open-source проекты.
 
-Я пишу [статьи](/ru/posts) о программировании, жизни и в целом о вещах, которые мне интересны.
+Я пишу <prose-a href="/ru/posts" target="_self">статьи</prose-a> о программировании, жизни и в целом о вещах, которые мне интересны.
 
 Вне программирования я иногда пишу [музыку](https://soundcloud.com/rastuharem), занимаюсь фотографией, играю, смотрю фильмы, аниме и некоторые сериалы.
 
@@ -21,9 +23,12 @@ description: Растен Ремизов - Портфолио
 
 ---
 
-Вы можете найти меня в
+Вы можете связаться со мной
 
-<ContactMeLinks></ContactMeLinks>
-<FindMeLinks></FindMeLinks>
+<contact-links></contact-links>
 
-Или написать мне на <span class="font-mono">hi@rastuharem.me</span>
+А также найти меня в
+
+<find-links></find-links>
+
+Или написать мне на `rasten.remizov@gmail.com`

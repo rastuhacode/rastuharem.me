@@ -45,44 +45,34 @@ const flat = computed(() => flatLinks(props.links));
 <template>
   <nav
     v-if="links.length"
-    class="table-of-contents fixed left-4 top-20 z-50 flex flex-col items-start"
+    class="table-of-contents fixed left-5 top-20 z-50 flex flex-col items-start group/toc"
     @mouseenter="onEnter"
     @mouseleave="onLeave"
   >
     <button
-      class="p-2 rounded-md text-muted-foreground hover:text-foreground transition-colors duration-200"
+      class="rounded-md text-muted-foreground group-hover/toc:text-foreground transition-colors duration-200"
       :aria-expanded="isOpen"
       aria-label="Table of contents"
     >
       <Icon name="lucide:align-left" class="size-5" />
     </button>
 
-    <Transition
-      enter-active-class="transition-all duration-300 ease-out"
-      enter-from-class="opacity-0 -translate-y-2"
-      enter-to-class="opacity-100 translate-y-0"
-      leave-active-class="transition-all duration-300 ease-in"
-      leave-from-class="opacity-100 translate-y-0"
-      leave-to-class="opacity-0 -translate-y-2"
+    <ul
+      class="mt-1 flex flex-col gap-2 text-sm max-h-[70vh] overflow-y-auto pr-2 opacity-0 transition-opacity duration-300 group-hover/toc:opacity-100"
     >
-      <ul
-        v-show="isOpen"
-        class="mt-1 flex flex-col gap-2 text-sm max-h-[70vh] overflow-y-auto pr-2"
+      <li
+        v-for="link in flat"
+        :key="link.id"
+        :style="{ paddingLeft: `${(link.depth - 2) * 16}px` }"
       >
-        <li
-          v-for="link in flat"
-          :key="link.id"
-          :style="{ paddingLeft: `${(link.depth - 2) * 16}px` }"
+        <a
+          :href="`#${link.id}`"
+          class="text-muted-foreground hover:text-foreground transition-colors duration-300 leading-relaxed"
+          @click="isOpen = false"
         >
-          <a
-            :href="`#${link.id}`"
-            class="text-muted-foreground hover:text-foreground transition-colors duration-300 leading-relaxed"
-            @click="isOpen = false"
-          >
-            {{ link.text }}
-          </a>
-        </li>
-      </ul>
-    </Transition>
+          {{ link.text }}
+        </a>
+      </li>
+    </ul>
   </nav>
 </template>

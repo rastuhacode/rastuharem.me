@@ -17,13 +17,7 @@ onMounted(async () => {
     <div class="flex justify-end items-center">
       <span>
         {{ $t("built_with") }}
-        <RBadge
-          href="https://cv-html-dev.netlify.app/"
-          target="_blank"
-          class="font-mono"
-        >
-          CV.html
-        </RBadge>
+        <CvHtmlBadge class="ml-1" />
       </span>
     </div>
     <div class="relative h-full w-full overflow-hidden">

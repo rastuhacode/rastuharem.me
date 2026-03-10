@@ -30,6 +30,8 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [
+        // Favicon
+        { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
         // Font
         { rel: "preconnect", href: "https://fonts.googleapis.com" },
         {

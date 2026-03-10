@@ -7,6 +7,8 @@ import type {
 type Post = ContentEnCollectionItem | ContentRuCollectionItem;
 
 const { locale } = useI18n();
+const router = useRouter();
+const route = useRoute();
 
 const collection = computed(() => {
   return locale.value === "en" ? "content_en" : "content_ru";
@@ -25,7 +27,23 @@ const isFuture = (date: Date | string | number) => new Date(date) > new Date();
 // TODO: Replace it with schema typing
 const stringMetaDate = (post: Post) => String(post.meta.date);
 
-const selectedTags = ref<TPostTags[]>([]);
+const selectedTags = computed<TPostTags[]>({
+  get() {
+    const tags = route.query.tags;
+    if (!tags) return [];
+    if (Array.isArray(tags)) {
+      return tags.filter(
+        (tag): tag is TPostTags => typeof tag === "string" && isPostTag(tag),
+      );
+    }
+    return tags.split(",").filter((tag): tag is TPostTags => isPostTag(tag));
+  },
+  set(value) {
+    router.push({
+      query: { tags: value.length > 0 ? value.join(",") : undefined },
+    });
+  },
+});
 
 const posts = computed(() =>
   rawPosts.value

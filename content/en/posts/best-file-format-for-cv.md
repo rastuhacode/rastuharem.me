@@ -139,7 +139,10 @@ Having worked with HTML resumes for a while, I've encountered a few less obvious
 
   Take a look at these two renderings of the same HTML resume on different systems:
 
-  // Pictures here
+  <div class="flex gap-2 md:flex-row flex-col">
+    <posts-image src="/images/resume-macos.png" alt="HTML resume on macos" caption="HTML on macOS"></posts-image>
+    <posts-image src="/images/resume-windows.png" alt="HTML resume on windows" caption="Same HTML on Windows"></posts-image>
+  </div>
 
   The font appears different even though the CSS properties are identical. I spent a long time researching this, and unfortunately it can't be fully fixed. The good news is that once rendered to PDF, the result looks the same everywhere.
 
@@ -172,7 +175,7 @@ But nothing quite fit. I couldn't find a tool that gave you direct, full control
 
 The other obvious approach was editing HTML directly in VS Code, but constantly switching to a browser is tedious. Page breaks are only visible in print preview, and you have to manually export every time.
 
-So I decided to build the tool myself. I called it **[CV.html](https://cv-html-dev.netlify.app/)**.
+So I decided to build the tool myself. I called it [**CV.html**](https://cv-html-dev.netlify.app/).
 
 It's a Monaco Editor with a live preview, packed with features like:
 

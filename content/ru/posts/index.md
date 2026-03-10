@@ -2,4 +2,4 @@
 title: Блог - Растен Ремизов
 ---
 
-<PostsList />
+<posts-list></posts-list>

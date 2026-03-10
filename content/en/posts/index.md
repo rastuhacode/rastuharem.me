@@ -1,6 +1,5 @@
 ---
 title: Blog - Rasten Remizov
-art: plum
 ---
 
-<PostsList />
+<posts-list></posts-list>

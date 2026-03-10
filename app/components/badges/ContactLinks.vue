@@ -9,6 +9,11 @@ const { locale } = useI18n();
         <Icon name="simple-icons:telegram" />
         <span class="px-0.5">Telegram</span>
       </RBadge>
+
+      <RBadge href="https://www.linkedin.com/in/rasten-remizov">
+        <Icon name="simple-icons:linkedin" />
+        <span class="px-0.5">LinkedIn</span>
+      </RBadge>
     </template>
   </div>
 </template>

@@ -65,7 +65,7 @@ const overlayClass =
     data-slot="root"
     :class="
       cn(
-        'group/marquee relative flex items-center overflow-hidden gap-(--gap) [--gap:--spacing(16)] [--duration:20s]',
+        'group/marquee relative flex items-center overflow-hidden gap-(--gap) [--gap:--spacing(16)] [--duration:10s]',
         orientation === 'horizontal' ? 'w-full' : 'h-full',
         overlay ? overlayClass : '',
         reverse ? 'direction-[reverse]!' : '',
