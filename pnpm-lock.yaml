@@ -13,9 +13,6 @@ catalogs:
     '@iconify-json/lucide':
       specifier: ^1.2.95
       version: 1.2.95
-    '@iconify-json/simple-icons':
-      specifier: ^1.2.72
-      version: 1.2.72
     '@iconify-json/twemoji':
       specifier: ^1.2.5
       version: 1.2.5
@@ -49,6 +46,10 @@ catalogs:
     tw-animate-css:
       specifier: ^1.4.0
       version: 1.4.0
+  default:
+    '@iconify-json/simple-icons':
+      specifier: 1.2.73
+      version: 1.2.73
   dev:
     '@nuxt/eslint':
       specifier: ^1.15.2
@@ -117,7 +118,7 @@ importers:
         version: 1.2.95
       '@iconify-json/simple-icons':
         specifier: catalog:build
-        version: 1.2.72
+        version: 1.2.73
       '@iconify-json/twemoji':
         specifier: catalog:build
         version: 1.2.5
@@ -742,8 +743,8 @@ packages:
   '@iconify-json/lucide@1.2.95':
     resolution: {integrity: sha512-SxDM/NEJtcGGAiLAnaZ7rcmVxkJI8esswTZLCm5BfNcoPf/yawIImb4nNfsu4dtFzP/Cl6KRg+vZq521zOUOnQ==}
 
-  '@iconify-json/simple-icons@1.2.72':
-    resolution: {integrity: sha512-wkcixntHvaCoqPqerGrNFcHQ3Yx1ux4ZkhscCDK0DEHpP62XCH+cxq1HTsRjbUiQl/M9K8bj03HF6Wgn5iE2rQ==}
+  '@iconify-json/simple-icons@1.2.73':
+    resolution: {integrity: sha512-nQZTwul4c2zBqH/aLP4zMOiElj93T6HawbrP+sFQKpxmBdS5x1duCK3cAnkj6dntHz84EYkzaQRM83V2pj4qxA==}
 
   '@iconify-json/twemoji@1.2.5':
     resolution: {integrity: sha512-uKpuIEV0v6K5BW3Mjdyl+XKFVAbbcPxAgifKvEMtZoUZB5+YiY5zaMm2uNNCxyXzAWU9yNLlj41WU6/mvgALsw==}
@@ -6472,7 +6473,7 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/simple-icons@1.2.72':
+  '@iconify-json/simple-icons@1.2.73':
     dependencies:
       '@iconify/types': 2.0.0
 
