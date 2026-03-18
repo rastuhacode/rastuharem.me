@@ -1,7 +1,10 @@
 {
-  "extends": ["config:recommended"],
-
+  "extends": [
+    "config:recommended"
+  ],
   "dependencyDashboard": true,
   "dependencyDashboardApproval": true,
-  "baseBranches": ["develop"]
+  "baseBranchPatterns": [
+    "develop"
+  ]
 }
