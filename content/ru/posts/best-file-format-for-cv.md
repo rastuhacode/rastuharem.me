@@ -1,8 +1,8 @@
 ---
 title: "Не используйте Word для резюме"
 description: "Практическое сравнение форматов для резюме"
-date: "2026-03-20 00:00:01 UTC"
-duration: "6 мин"
+date: "2026-03-20 00:00:00 UTC"
+duration: "10 мин"
 toc: true
 tags:
   - dev
