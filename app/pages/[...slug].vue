@@ -26,12 +26,17 @@ const { data: page } = await useAsyncData(
   },
 );
 
-const isUnreleased =
-  page.value?.path?.startsWith("/posts/") &&
-  page.value?.meta?.date &&
-  !isPostReleased(page.value);
+const isTocVisible = computed(() => page.value?.meta?.toc);
+const title = computed(() => page.value?.title);
 
-if (!page.value || isUnreleased) {
+const isUnreleased = computed(
+  () =>
+    page.value?.path?.startsWith("/posts/") &&
+    page.value?.meta?.date &&
+    !isPostReleased(page.value),
+);
+
+if (!page.value || isUnreleased.value) {
   throw createError({
     statusCode: 404,
     statusMessage: "Page not found",
@@ -39,7 +44,15 @@ if (!page.value || isUnreleased) {
   });
 }
 
-const isTocVisible = computed(() => page.value?.meta?.toc);
+useSeoMeta({
+  title,
+  ogTitle: title.value,
+
+  ...(page.value?.description && {
+    description: page.value.description,
+    ogDescription: page.value.description,
+  }),
+});
 </script>
 
 <template>

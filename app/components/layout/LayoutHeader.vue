@@ -17,7 +17,7 @@ const { availableLocales } = useI18n();
           </NuxtLinkLocale>
         </li>
         <li class="flex items-center">
-          <NuxtLinkLocale :aria-label="$t('resume')" to="/cv">
+          <NuxtLinkLocale :aria-label="$t('resume')" to="/resume">
             {{ $t("resume") }}
           </NuxtLinkLocale>
         </li>

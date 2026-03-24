@@ -14,9 +14,7 @@ export default defineNuxtConfig({
   ],
   css: ["./app/assets/css/main.css"],
   vite: {
-    // TODO: Fix types
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    plugins: [tailwindcss() as any],
+    plugins: [tailwindcss()],
     optimizeDeps: {
       include: ["reka-ui", "clsx", "tailwind-merge"],
     },
@@ -29,6 +27,7 @@ export default defineNuxtConfig({
   ],
   app: {
     head: {
+      meta: [{ name: "author", content: "Rasten Remizov" }],
       link: [
         // Favicon
         { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
