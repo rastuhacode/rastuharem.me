@@ -13,7 +13,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="mx-auto w-1/3 h-full flex flex-col gap-2">
+  <div class="mx-auto w-full h-full flex flex-col gap-2">
     <div class="flex justify-end items-center">
       <span>
         {{ $t("built_with") }}
