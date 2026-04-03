@@ -2,7 +2,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: "2026-01-10",
+  compatibilityDate: "2026-04-03",
   modules: [
     "@nuxt/content",
     "@nuxt/icon",
@@ -16,15 +16,24 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
     optimizeDeps: {
-      include: ["@nuxtjs/mdc", "reka-ui", "clsx", "tailwind-merge"],
+      include: [
+        "@nuxtjs/mdc",
+        "reka-ui",
+        "clsx",
+        "tailwind-merge",
+        "remark-gfm",
+        "remark-emoji",
+        "remark-mdc",
+        "remark-rehype",
+        "rehype-raw",
+        "parse5",
+        "unist-util-visit",
+        "unified",
+        "debug",
+      ],
     },
   },
-  components: [
-    {
-      path: "~/components",
-      pathPrefix: false,
-    },
-  ],
+  components: [{ path: "~/components", pathPrefix: false }],
   app: {
     head: {
       meta: [{ name: "author", content: "Rasten Remizov" }],
@@ -45,10 +54,7 @@ export default defineNuxtConfig({
       ],
     },
   },
-  colorMode: {
-    preference: "system",
-    fallback: "dark",
-  },
+  colorMode: { preference: "system", fallback: "dark" },
   i18n: {
     locales: [
       { code: "en", name: "English", language: "en-US", file: "en.json" },
@@ -59,13 +65,8 @@ export default defineNuxtConfig({
   },
 
   content: {
-    build: {
-      markdown: {
-        remarkPlugins: {
-          "remark-gfm": false,
-        },
-      },
-    },
+    build: { markdown: { remarkPlugins: { "remark-gfm": false } } },
+    experimental: { sqliteConnector: "native" },
   },
 
   devtools: { enabled: false },
