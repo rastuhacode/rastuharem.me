@@ -3,8 +3,6 @@ packages: []
 catalogMode: prefer
 
 catalogs:
-  backend:
-    better-sqlite3: ^12.8.0
   build:
     "@iconify-json/lucide": ^1.2.101
     "@iconify-json/simple-icons": ^1.2.76
@@ -35,7 +33,6 @@ catalogs:
     "@types/node": ^25.5.2
 
 onlyBuiltDependencies:
-  - better-sqlite3
   - esbuild
   - sharp
 
