@@ -76,7 +76,7 @@ function handleTagSelect(tag: TPostTags) {
 <template>
   <template v-if="posts && posts.length > 0">
     <div
-      class="flex gap-2 h-12 mb-2 items-center max-w-full overflow-x-auto overflow-y-hidden not-hover:scrollbar-hide transition-all duration-300"
+      class="flex gap-2 h-12 mb-2 items-center max-w-full overflow-x-auto overflow-y-hidden not-hover:scrollbar-hide transition-all duration-300 w-full"
     >
       <template v-if="selectedTags.length > 0">
         <div
@@ -106,56 +106,58 @@ function handleTagSelect(tag: TPostTags) {
       </div>
 
       <ul class="flex flex-col gap-1">
-        <li
-          v-for="post in filterPostsByYear(year)"
-          :key="post.id"
-          class="list-none"
-        >
-          <NuxtLinkLocale
-            :to="post.path"
-            class="group px-4 py-3 no-underline rounded-lg transition-colors duration-300 dark:hover:bg-muted hover:bg-background flex flex-col gap-1"
+        <TransitionGroup name="list">
+          <li
+            v-for="post in filterPostsByYear(year)"
+            :key="post.id"
+            class="list-none"
           >
-            <div class="flex sm:flex-row flex-col items-start gap-0.5">
-              <div class="grow min-w-0 max-w-full">
-                <div class="flex items-center gap-3 flex-wrap">
-                  <span
-                    class="text-base font-medium text-foreground overflow-hidden text-ellipsis"
+            <NuxtLinkLocale
+              :to="post.path"
+              class="group px-4 py-3 no-underline rounded-lg transition-colors duration-300 dark:hover:bg-muted hover:bg-background flex flex-col gap-1"
+            >
+              <div class="flex sm:flex-row flex-col items-start gap-3">
+                <div class="grow min-w-0 max-w-full">
+                  <div class="flex items-center gap-3 flex-wrap">
+                    <span
+                      class="text-2xl font-medium text-foreground overflow-hidden text-ellipsis"
+                    >
+                      {{ post.title }}
+                    </span>
+                  </div>
+                </div>
+
+                <div
+                  class="flex items-center gap-2 shrink-0 text-sm text-muted-foreground tabular-nums my-auto"
+                >
+                  <time :datetime="getPostDate(post)">
+                    {{ formatDate(getPostDate(post)) }}
+                  </time>
+                  <span class="opacity-30">&middot;</span>
+                  <span class="whitespace-nowrap"
+                    >~ {{ post.meta.duration }}</span
                   >
-                    {{ post.title }}
-                  </span>
                 </div>
               </div>
 
-              <div
-                class="flex items-center gap-4 shrink-0 text-sm text-muted-foreground tabular-nums my-auto"
+              <p
+                v-if="post.description"
+                class="mt-1 mb-1 text-sm text-muted-foreground line-clamp-1"
               >
-                <time :datetime="getPostDate(post)">
-                  {{ formatDate(getPostDate(post)) }}
-                </time>
-                <span class="opacity-30">&middot;</span>
-                <span class="whitespace-nowrap"
-                  >~ {{ post.meta.duration }}</span
-                >
-              </div>
-            </div>
+                {{ post.description }}
+              </p>
 
-            <p
-              v-if="post.description"
-              class="mt-1 mb-1 text-sm text-muted-foreground line-clamp-1"
-            >
-              {{ post.description }}
-            </p>
-
-            <PostsTags
-              v-if="post.meta.tags"
-              :tags="getTags(post)"
-              :max="3"
-              class="text-sm text-primary"
-              @click.stop.prevent
-              @tag:select="handleTagSelect"
-            />
-          </NuxtLinkLocale>
-        </li>
+              <PostsTags
+                v-if="post.meta.tags"
+                :tags="getTags(post)"
+                :max="3"
+                class="text-sm text-primary"
+                @click.stop.prevent
+                @tag:select="handleTagSelect"
+              />
+            </NuxtLinkLocale>
+          </li>
+        </TransitionGroup>
       </ul>
     </section>
   </template>
@@ -168,3 +170,15 @@ function handleTagSelect(tag: TPostTags) {
     </div>
   </template>
 </template>
+
+<style scoped>
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.3s ease;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(100px);
+}
+</style>

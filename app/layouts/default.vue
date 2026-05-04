@@ -18,7 +18,7 @@ function toTop() {
 
     <ClientOnly>
       <Transition name="slide" appear>
-        <LayoutCanvas v-if="graphics" />
+        <ParticlesBg v-if="graphics" />
       </Transition>
     </ClientOnly>
 
@@ -38,7 +38,7 @@ function toTop() {
             'bg-background p-2 rounded-full transition-opacity duration-300',
             scrollY > 300
               ? 'opacity-50 hover:opacity-100'
-              : 'pointer-events-none opacity-0'
+              : 'pointer-events-none opacity-0',
           )
         "
         @click="toTop"

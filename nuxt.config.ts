@@ -16,21 +16,7 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
     optimizeDeps: {
-      include: [
-        "@nuxtjs/mdc",
-        "reka-ui",
-        "clsx",
-        "tailwind-merge",
-        "remark-gfm",
-        "remark-emoji",
-        "remark-mdc",
-        "remark-rehype",
-        "rehype-raw",
-        "parse5",
-        "unist-util-visit",
-        "unified",
-        "debug",
-      ],
+      include: ["@nuxtjs/mdc", "reka-ui", "clsx", "tailwind-merge"],
     },
   },
   components: [{ path: "~/components", pathPrefix: false }],

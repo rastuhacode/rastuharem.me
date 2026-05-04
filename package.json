@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@10.33.0",
+  "packageManager": "pnpm@10.33.2",
   "engines": {
     "node": ">=24.14.1"
   },
@@ -23,6 +23,7 @@
     "@vueuse/nuxt": "catalog:frontend",
     "class-variance-authority": "catalog:frontend",
     "clsx": "catalog:frontend",
+    "motion-v": "catalog:frontend",
     "reka-ui": "catalog:frontend",
     "tailwind-merge": "catalog:frontend"
   },
