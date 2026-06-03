@@ -5,7 +5,10 @@ const route = useRoute();
 const { locale } = useI18n();
 
 const slug = computed(() => {
-  const path = String(route.params.slug);
+  const rawSlug = route.params.slug;
+  if (rawSlug === undefined) return "/";
+
+  const path = String(rawSlug);
   const normalized = path.replace(/,/g, "/").replace(/\/+$/, "");
   return "/" + normalized;
 });

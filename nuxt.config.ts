@@ -1,6 +1,9 @@
 import tailwindcss from "@tailwindcss/vite";
+import { defineNuxtConfig } from "nuxt/config";
 
-// https://nuxt.com/docs/api/configuration/nuxt-config
+// TODO: unlock nuxt version after issue is fixed
+// https://github.com/nuxt/framework/issues/11642
+
 export default defineNuxtConfig({
   compatibilityDate: "2026-04-03",
   modules: [
