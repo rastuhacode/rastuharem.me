@@ -7,7 +7,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <h2 :id="props.id" class="text-3xl font-bold group flex gap-3">
+  <h2 :id="props.id" class="text-2xl group flex gap-2 text-foreground-bold">
     <slot />
     <a
       :href="`#${props.id}`"

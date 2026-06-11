@@ -10,6 +10,8 @@ tags:
 
 # {{ title }}
 
+<posts-date-duration :duration="meta.duration" :date="meta.date" class="-mt-6"></posts-date-duration>
+
 If you are good developer, but looking for an opportunity to grow professionaly, you **should start contribute to open-source**. And the reason goes beyond benefiting the community — it's much more beneficial for you directly.
 
 For a long time I was really interested in contributing, but I both underestimated the value I'd get from contributions and overestimated the complexity of the process. In this article I want to touch on both of these themes and maybe make you reconsider your perspective on OSS.

@@ -1,13 +1,15 @@
 <script setup lang="ts">
-import type { ImgHTMLAttributes } from "vue";
+import type { ImgHTMLAttributes, HTMLAttributes } from "vue";
 
 const props = withDefaults(
   defineProps<{
     src: string;
     alt?: ImgHTMLAttributes["alt"];
     caption?: string;
+    class?: HTMLAttributes["class"];
   }>(),
   {
+    class: "",
     alt: "",
     caption: "",
   },
@@ -31,14 +33,25 @@ watch(isPreview, (newVal) => {
 </script>
 
 <template>
-  <figure class="flex flex-col w-fit h-fit">
+  <figure class="flex flex-col w-fit max-w-full min-w-0">
     <button
       type="button"
+      data-slot="post-image-button"
       :aria-label="alt || $t('image_preview')"
-      class="border border-transparent hover:border-muted-foreground transition-colors duration-300"
+      :class="
+        cn(
+          'flex items-center justify-center w-full border border-transparent hover:border-muted-foreground transition-colors duration-300',
+          props.class,
+        )
+      "
       @click="isPreview = true"
     >
-      <img :src="props.src" :alt="props.alt" class="object-contain" />
+      <img
+        data-slot="post-image"
+        :src="props.src"
+        :alt="props.alt"
+        class="max-h-full max-w-full object-contain"
+      />
     </button>
     <figcaption v-if="caption" class="text-center">{{ caption }}</figcaption>
   </figure>

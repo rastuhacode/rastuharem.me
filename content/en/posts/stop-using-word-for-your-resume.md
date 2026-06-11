@@ -10,6 +10,8 @@ tags:
 
 # {{ title }}
 
+<posts-date-duration :duration="meta.duration" :date="meta.date" class="-mt-6"></posts-date-duration>
+
 Every professional needs a resume. It's the most impactful document you have — one that shapes the first _impression_ of you.
 
 When I started working in IT, the easiest and most obvious option was to use job-search platforms. All popular hiring websites offer a form that, once completed, generates a downloadable document for any HR person or recruiter to review.

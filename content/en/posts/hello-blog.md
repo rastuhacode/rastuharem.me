@@ -7,6 +7,8 @@ duration: "1 min"
 
 # {{ title }}
 
+<posts-date-duration :duration="meta.duration" :date="meta.date" class="-mt-6"></posts-date-duration>
+
 At some point, I noticed that the most interesting conversations I have — about technology, about life, about why things are the way they are — disappear the moment they end. I wanted a place where I could hold onto those thoughts, even if just for myself, and come back to them when needed.
 
 As for the blog, I genuinely think it will help me move forward. I want to improve my writing, learn to structure my thoughts better and collect them all in one place. I don't think it will stick to any particular topic. I'm going to write about anything I find interesting. But you can always use _tags_ to filter for what you care about the most.

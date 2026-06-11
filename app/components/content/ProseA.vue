@@ -11,7 +11,10 @@ const props = withDefaults(
 </script>
 
 <template>
-  <a :class="cn('border-underline', props.class)" :target="props.target">
+  <a
+    :class="cn('border-underline inline-block', props.class)"
+    :target="props.target"
+  >
     <slot />
   </a>
 </template>
