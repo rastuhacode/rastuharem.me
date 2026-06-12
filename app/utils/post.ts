@@ -10,6 +10,11 @@ export function getPostDate(post: Post) {
   return String(post.meta.date);
 }
 
+export function getPostDuration(post: Post) {
+  // TODO: Replace with schema typing
+  return String(post.meta.duration);
+}
+
 export function isPostReleased(post: Post) {
   return new Date(getPostDate(post)) <= new Date();
 }

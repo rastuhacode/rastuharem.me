@@ -3,9 +3,9 @@ const { locale } = useI18n();
 const router = useRouter();
 const route = useRoute();
 
-const collection = computed(() => {
-  return locale.value === "en" ? "content_en" : "content_ru";
-});
+const collection = computed(() =>
+  locale.value === "en" ? "content_en" : "content_ru",
+);
 
 const { data: rawPosts } = await useAsyncData(`posts-${locale.value}`, () => {
   return queryCollection(collection.value)
@@ -57,13 +57,6 @@ const allPostYears = computed<number[]>(() => {
 function filterPostsByYear(year: number) {
   return posts.value?.filter((post) => {
     return getYear(getPostDate(post)) === year;
-  });
-}
-
-function formatDate(date: string) {
-  return new Date(date).toLocaleDateString(locale.value, {
-    month: "short",
-    day: "numeric",
   });
 }
 
@@ -127,17 +120,10 @@ function handleTagSelect(tag: TPostTags) {
                   </div>
                 </div>
 
-                <div
-                  class="flex items-center gap-2 shrink-0 text-sm text-muted-foreground tabular-nums my-auto"
-                >
-                  <time :datetime="getPostDate(post)">
-                    {{ formatDate(getPostDate(post)) }}
-                  </time>
-                  <span class="opacity-30">&middot;</span>
-                  <span class="whitespace-nowrap"
-                    >~ {{ post.meta.duration }}</span
-                  >
-                </div>
+                <PostsDateDuration
+                  :date="getPostDate(post)"
+                  :duration="getPostDuration(post)"
+                />
               </div>
 
               <p

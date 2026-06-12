@@ -7,13 +7,16 @@ const props = defineProps<{
 </script>
 
 <template>
-  <h2 :id="props.id" class="text-2xl group flex gap-2 text-foreground-bold">
+  <h4
+    :id="props.id"
+    class="text-lg font-semibold group flex gap-1 text-foreground-bold"
+  >
     <slot />
     <a
       :href="`#${props.id}`"
       class="no-underline float-right opacity-0 group-hover:opacity-100 transition-opacity duration-300"
     >
-      <Icon name="lucide:link" class="size-5 m-auto" />
+      <Icon name="lucide:link" class="size-3 m-auto" />
     </a>
-  </h2>
+  </h4>
 </template>
