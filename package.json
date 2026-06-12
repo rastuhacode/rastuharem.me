@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@11.5.2",
+  "packageManager": "pnpm@11.6.0",
   "engines": {
     "node": ">=24.14.1"
   },
@@ -12,11 +12,12 @@
     "dev": "nuxt dev --port 3001",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "preview:ssg": "npx serve .output/public",
+    "preview:ssg": "pnpm dlx serve .output/public",
     "dev:ssg": "pnpm generate && pnpm preview:ssg",
     "taze": "pnpm dlx taze@latest",
     "lint": "eslint . --fix",
-    "typecheck": "nuxt typecheck"
+    "typecheck": "nuxt typecheck",
+    "compress": "tsx scripts/img-compress-staged.ts"
   },
   "dependencies": {
     "@vueuse/core": "catalog:frontend",
@@ -40,9 +41,14 @@
     "@tailwindcss/typography": "catalog:build",
     "@tailwindcss/vite": "catalog:build",
     "@types/node": "catalog:types",
+    "ansis": "catalog:scripts",
     "eslint": "catalog:dev",
     "nuxt": "catalog:build",
     "pnpm": "catalog:dev",
+    "prompts": "catalog:scripts",
+    "sharp": "catalog:scripts",
+    "simple-git": "catalog:scripts",
+    "tsx": "catalog:scripts",
     "tailwindcss": "catalog:build",
     "tw-animate-css": "catalog:build",
     "typescript": "catalog:dev"
