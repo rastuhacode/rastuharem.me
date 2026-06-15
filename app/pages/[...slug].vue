@@ -13,7 +13,7 @@ const slug = computed(() => {
   return "/" + normalized;
 });
 
-const { data: page } = await useAsyncData(
+const { data: page, status } = await useAsyncData(
   `page-${locale.value}-${slug.value}`,
   async () => {
     // Build collection name based on current locale
@@ -39,7 +39,7 @@ const isUnreleased = computed(
     !isPostReleased(page.value),
 );
 
-if (!page.value || isUnreleased.value) {
+if ((status.value === "success" && !page.value) || isUnreleased.value) {
   throw createError({
     statusCode: 404,
     statusMessage: "Page not found",
