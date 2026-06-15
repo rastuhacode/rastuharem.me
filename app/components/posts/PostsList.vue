@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import type { PostTags } from "#shared/types/posts";
+import { isPostTag } from "#shared/types/posts/tags";
+
 const { locale } = useI18n();
 const router = useRouter();
 const route = useRoute();
@@ -16,16 +19,16 @@ const { data: rawPosts } = await useAsyncData(`posts-${locale.value}`, () => {
 
 const getYear = (date: string) => new Date(date).getFullYear();
 
-const selectedTags = computed<TPostTags[]>({
+const selectedTags = computed<PostTags[]>({
   get() {
     const tags = route.query.tags;
     if (!tags) return [];
     if (Array.isArray(tags)) {
       return tags.filter(
-        (tag): tag is TPostTags => typeof tag === "string" && isPostTag(tag),
+        (tag): tag is PostTags => typeof tag === "string" && isPostTag(tag),
       );
     }
-    return tags.split(",").filter((tag): tag is TPostTags => isPostTag(tag));
+    return tags.split(",").filter((tag): tag is PostTags => isPostTag(tag));
   },
   set(value) {
     router.push({
@@ -36,11 +39,11 @@ const selectedTags = computed<TPostTags[]>({
 
 const posts = computed(() =>
   rawPosts.value
-    ?.toSorted((a, b) => +new Date(getPostDate(b)) - +new Date(getPostDate(a)))
+    ?.toSorted((a, b) => +new Date(b.date) - +new Date(a.date))
     .filter(isPostReleased)
     .filter((post) => {
       if (selectedTags.value.length > 0) {
-        return selectedTags.value.every((tag) => getTags(post).includes(tag));
+        return selectedTags.value.every((tag) => post.tags?.includes(tag));
       }
       return true;
     }),
@@ -49,18 +52,18 @@ const posts = computed(() =>
 const allPostYears = computed<number[]>(() => {
   const years = new Set<number>();
   posts.value?.forEach((post) => {
-    years.add(getYear(String(post.meta.date)));
+    years.add(getYear(post.date));
   });
   return Array.from(years).sort((a, b) => b - a);
 });
 
 function filterPostsByYear(year: number) {
   return posts.value?.filter((post) => {
-    return getYear(getPostDate(post)) === year;
+    return getYear(post.date) === year;
   });
 }
 
-function handleTagSelect(tag: TPostTags) {
+function handleTagSelect(tag: PostTags) {
   if (selectedTags.value.includes(tag)) return;
   selectedTags.value = [...selectedTags.value, tag];
 }
@@ -121,8 +124,8 @@ function handleTagSelect(tag: TPostTags) {
                 </div>
 
                 <PostsDateDuration
-                  :date="getPostDate(post)"
-                  :duration="getPostDuration(post)"
+                  :date="post.date"
+                  :duration="post.duration"
                 />
               </div>
 
@@ -134,8 +137,8 @@ function handleTagSelect(tag: TPostTags) {
               </p>
 
               <PostsTags
-                v-if="post.meta.tags"
-                :tags="getTags(post)"
+                v-if="post.tags"
+                :tags="post.tags"
                 :max="3"
                 class="text-sm text-primary"
                 @click.stop.prevent
@@ -151,7 +154,7 @@ function handleTagSelect(tag: TPostTags) {
   <template v-else>
     <div class="flex items-center justify-center h-full">
       <span class="text-2xl text-muted-foreground">
-        {{ $t("no_posts_found") }} :(
+        {{ $t("no_posts_found") + " :(" }}
       </span>
     </div>
   </template>

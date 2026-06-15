@@ -10,7 +10,7 @@ tags:
 
 # {{ title }}
 
-<posts-date-duration :duration="meta.duration" :date="meta.date" class="-mt-6"></posts-date-duration>
+<posts-date-duration :duration="duration" :date="date" class="-mt-6"></posts-date-duration>
 
 Если ты хороший разработчик, но ищешь возможность развиваться дальше, **стоит начать контрибьютить в open-source**. И причина не только в пользе для сообщества — это в первую очередь выгодно лично тебе.
 

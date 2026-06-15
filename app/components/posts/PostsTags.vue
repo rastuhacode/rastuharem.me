@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import type { PostTags } from "#shared/types/posts";
+
 const props = withDefaults(
   defineProps<{
-    tags: TPostTags[];
+    tags: PostTags[];
     max?: number;
     class?: string;
   }>(),
@@ -9,7 +11,7 @@ const props = withDefaults(
 );
 
 const emits = defineEmits<{
-  "tag:select": [tag: TPostTags];
+  "tag:select": [tag: PostTags];
 }>();
 
 const { tags } = toRefs(props);

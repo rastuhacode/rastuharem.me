@@ -1,4 +1,11 @@
 import { defineContentConfig, defineCollection } from "@nuxt/content";
+import { defineRobotsSchema } from "@nuxtjs/robots/content";
+
+import { postMetaSchema } from "./shared/types/posts";
+
+const postSchema = postMetaSchema.extend({
+  robots: defineRobotsSchema(),
+});
 
 export default defineContentConfig({
   collections: {
@@ -9,6 +16,7 @@ export default defineContentConfig({
         include: "en/**",
         prefix: "",
       },
+      schema: postSchema,
     }),
     // Russian content collection
     content_ru: defineCollection({
@@ -17,6 +25,7 @@ export default defineContentConfig({
         include: "ru/**",
         prefix: "",
       },
+      schema: postSchema,
     }),
   },
 });

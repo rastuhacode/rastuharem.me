@@ -7,7 +7,7 @@ duration: "1 min"
 
 # {{ title }}
 
-<posts-date-duration :duration="meta.duration" :date="meta.date" class="-mt-6"></posts-date-duration>
+<posts-date-duration :duration="duration" :date="date" class="-mt-6"></posts-date-duration>
 
 В какой-то момент я заметил, что самые интересные рассуждения — о технологиях, о жизни, о том, почему всё устроено так, а не иначе — исчезают. Мне захотелось место, где можно сохранять эти мысли, хотя бы для себя, и возвращаться к ним, когда понадобится.
 

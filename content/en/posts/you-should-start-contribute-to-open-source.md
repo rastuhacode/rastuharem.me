@@ -10,7 +10,7 @@ tags:
 
 # {{ title }}
 
-<posts-date-duration :duration="meta.duration" :date="meta.date" class="-mt-6"></posts-date-duration>
+<posts-date-duration :duration="duration" :date="date" class="-mt-6"></posts-date-duration>
 
 If you are good developer, but looking for an opportunity to grow professionaly, you **should start contribute to open-source**. And the reason goes beyond benefiting the community — it's much more beneficial for you directly.
 

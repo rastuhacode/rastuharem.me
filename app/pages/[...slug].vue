@@ -29,13 +29,10 @@ const { data: page, status } = await useAsyncData(
   },
 );
 
-const isTocVisible = computed(() => page.value?.meta?.toc);
-const title = computed(() => page.value?.title);
-
 const isUnreleased = computed(
   () =>
     page.value?.path?.startsWith("/posts/") &&
-    page.value?.meta?.date &&
+    page.value?.date &&
     !isPostReleased(page.value),
 );
 
@@ -48,20 +45,16 @@ if ((status.value === "success" && !page.value) || isUnreleased.value) {
 }
 
 useSeoMeta({
-  title,
-  ogTitle: title.value,
-
-  ...(page.value?.description && {
-    description: page.value.description,
-    ogDescription: page.value.description,
-  }),
+  ...page.value?.seo,
+  ogTitle: page.value?.title,
+  ogDescription: page.value?.description,
 });
 </script>
 
 <template>
   <div v-if="page" class="grow">
     <RToc
-      v-if="isTocVisible && page.body?.toc?.links"
+      v-if="page?.toc && page.body?.toc?.links"
       :links="page.body.toc.links"
       class="hidden lg:flex"
     />
