@@ -1,9 +1,10 @@
 import { defineContentConfig, defineCollection } from "@nuxt/content";
 import { defineRobotsSchema } from "@nuxtjs/robots/content";
+import { defineSitemapSchema } from "@nuxtjs/sitemap/content";
 
 import { postMetaSchema } from "./shared/types/posts";
 
-const postSchema = postMetaSchema.extend({
+const basePostSchema = postMetaSchema.extend({
   robots: defineRobotsSchema(),
 });
 
@@ -16,7 +17,9 @@ export default defineContentConfig({
         include: "en/**",
         prefix: "",
       },
-      schema: postSchema,
+      schema: basePostSchema.extend({
+        sitemap: defineSitemapSchema(),
+      }),
     }),
     // Russian content collection
     content_ru: defineCollection({
@@ -25,7 +28,14 @@ export default defineContentConfig({
         include: "ru/**",
         prefix: "",
       },
-      schema: postSchema,
+      schema: basePostSchema.extend({
+        sitemap: defineSitemapSchema({
+          name: "content_ru",
+          onUrl: (url) => {
+            url.loc = url.loc === "/" ? "/ru" : "/ru" + url.loc;
+          },
+        }),
+      }),
     }),
   },
 });

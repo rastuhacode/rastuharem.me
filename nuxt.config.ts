@@ -2,22 +2,26 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineNuxtConfig } from "nuxt/config";
 
 // TODO: make fully external via environment variables
+// For now it's enough as we have only one host instance
 const siteUrl = "https://rastuharem.netlify.app";
 
 export default defineNuxtConfig({
   compatibilityDate: "2026-04-03",
   site: {
     url: siteUrl,
+    name: "Rasten Remizov",
   },
 
   modules: [
     "@nuxtjs/robots",
+    "@nuxtjs/sitemap",
     "@nuxt/content",
     "@nuxt/icon",
     "@nuxt/image",
     "@nuxt/eslint",
     "@nuxtjs/color-mode",
     "@nuxtjs/i18n",
+    "nuxt-link-checker",
     "nuxt-site-config",
     "@vueuse/nuxt",
   ],
@@ -57,6 +61,9 @@ export default defineNuxtConfig({
     },
   },
   colorMode: { preference: "system", fallback: "dark" },
+  sitemap: {
+    zeroRuntime: true,
+  },
   i18n: {
     baseUrl: siteUrl,
     locales: [
