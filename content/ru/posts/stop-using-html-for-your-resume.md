@@ -1,6 +1,6 @@
 ---
 title: "Не используйте HTML для резюме"
-description: "Пролжение темы резюме и крупные улучшения в CV.html"
+description: "Продолжение темы резюме и крупные улучшения в CV.html"
 date: "2026-06-13 00:00:00 UTC"
 duration: "8 мин"
 toc: true
@@ -10,7 +10,7 @@ tags:
 
 # {{ title }}
 
-<posts-date-duration :duration="meta.duration" :date="meta.date" class="-mt-6"></posts-date-duration>
+<posts-date-duration :duration="duration" :date="date" class="-mt-6"></posts-date-duration>
 
 ## Дисклеймер
 

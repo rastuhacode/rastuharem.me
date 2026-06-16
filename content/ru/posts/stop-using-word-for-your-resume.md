@@ -10,7 +10,7 @@ tags:
 
 # {{ title }}
 
-<posts-date-duration :duration="meta.duration" :date="meta.date" class="-mt-6"></posts-date-duration>
+<posts-date-duration :duration="duration" :date="date" class="-mt-6"></posts-date-duration>
 
 Каждому проффесионалу нужно резюме. Это самый важный документ — именно он формирует первое _впечатление_ о вас у рекрутера.
 

@@ -26,7 +26,8 @@
     "clsx": "catalog:frontend",
     "motion-v": "catalog:frontend",
     "reka-ui": "catalog:frontend",
-    "tailwind-merge": "catalog:frontend"
+    "tailwind-merge": "catalog:frontend",
+    "zod": "catalog:frontend"
   },
   "devDependencies": {
     "@iconify-json/lucide": "catalog:build",
@@ -38,18 +39,22 @@
     "@nuxt/image": "catalog:build",
     "@nuxtjs/color-mode": "catalog:build",
     "@nuxtjs/i18n": "catalog:build",
+    "@nuxtjs/robots": "catalog:build",
+    "@nuxtjs/sitemap": "catalog:build",
     "@tailwindcss/typography": "catalog:build",
     "@tailwindcss/vite": "catalog:build",
     "@types/node": "catalog:types",
     "ansis": "catalog:scripts",
     "eslint": "catalog:dev",
     "nuxt": "catalog:build",
+    "nuxt-link-checker": "catalog:build",
+    "nuxt-site-config": "catalog:build",
     "pnpm": "catalog:dev",
     "prompts": "catalog:scripts",
     "sharp": "catalog:scripts",
     "simple-git": "catalog:scripts",
-    "tsx": "catalog:scripts",
     "tailwindcss": "catalog:build",
+    "tsx": "catalog:scripts",
     "tw-animate-css": "catalog:build",
     "typescript": "catalog:dev"
   }

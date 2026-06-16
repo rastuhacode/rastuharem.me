@@ -10,7 +10,7 @@ tags:
 
 # {{ title }}
 
-<posts-date-duration :duration="meta.duration" :date="meta.date" class="-mt-6"></posts-date-duration>
+<posts-date-duration :duration="duration" :date="date" class="-mt-6"></posts-date-duration>
 
 Every professional needs a resume. It's the most impactful document you have — one that shapes the first _impression_ of you.
 

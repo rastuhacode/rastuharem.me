@@ -7,7 +7,7 @@ duration: "1 min"
 
 # {{ title }}
 
-<posts-date-duration :duration="meta.duration" :date="meta.date" class="-mt-6"></posts-date-duration>
+<posts-date-duration :duration="duration" :date="date" class="-mt-6"></posts-date-duration>
 
 At some point, I noticed that the most interesting conversations I have — about technology, about life, about why things are the way they are — disappear the moment they end. I wanted a place where I could hold onto those thoughts, even if just for myself, and come back to them when needed.
 
