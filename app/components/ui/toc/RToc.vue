@@ -1,45 +1,45 @@
 <script lang="ts">
 export interface TocLink {
-  id: string
-  text: string
-  depth: number
-  children?: TocLink[]
+  id: string;
+  text: string;
+  depth: number;
+  children?: TocLink[];
 }
 
 export interface RTocProps {
-  links: TocLink[]
+  links: TocLink[];
 }
 </script>
 
 <script setup lang="ts">
-const props = defineProps<RTocProps>()
+const props = defineProps<RTocProps>();
 
-const isOpen = ref(false)
-let closeTimeout: ReturnType<typeof setTimeout> | undefined
+const isOpen = ref(false);
+let closeTimeout: ReturnType<typeof setTimeout> | undefined;
 
 function onEnter() {
-  clearTimeout(closeTimeout)
-  isOpen.value = true
+  clearTimeout(closeTimeout);
+  isOpen.value = true;
 }
 
 function onLeave() {
   closeTimeout = setTimeout(() => {
-    isOpen.value = false
-  }, 300)
+    isOpen.value = false;
+  }, 300);
 }
 
 function flatLinks(links: TocLink[]): TocLink[] {
-  const result: TocLink[] = []
+  const result: TocLink[] = [];
   for (const link of links) {
-    result.push(link)
+    result.push(link);
     if (link.children?.length) {
-      result.push(...flatLinks(link.children))
+      result.push(...flatLinks(link.children));
     }
   }
-  return result
+  return result;
 }
 
-const flat = computed(() => flatLinks(props.links))
+const flat = computed(() => flatLinks(props.links));
 </script>
 
 <template>

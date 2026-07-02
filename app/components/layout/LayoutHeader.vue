@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { availableLocales } = useI18n()
+const { availableLocales } = useI18n();
 </script>
 
 <template>

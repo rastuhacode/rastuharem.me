@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { HTMLAttributes } from 'vue'
+import type { HTMLAttributes } from "vue";
 
-const props = withDefaults(defineProps<{ class?: HTMLAttributes['class'] }>(), {
-  class: '',
-})
+const props = withDefaults(defineProps<{ class?: HTMLAttributes["class"] }>(), {
+  class: "",
+});
 </script>
 
 <template>

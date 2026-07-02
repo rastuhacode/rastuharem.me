@@ -1,14 +1,14 @@
 <script setup lang="ts">
-const mainRef = useTemplateRef('mainRef')
+const mainRef = useTemplateRef("mainRef");
 
-const { y: scrollY } = useScroll(mainRef)
-const graphics = useGraphicsStore()
+const { y: scrollY } = useScroll(mainRef);
+const graphics = useGraphicsStore();
 
 function toTop() {
   mainRef.value?.scrollTo({
     top: 0,
-    behavior: 'smooth',
-  })
+    behavior: "smooth",
+  });
 }
 </script>
 

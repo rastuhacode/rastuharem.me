@@ -1,9 +1,9 @@
 <script setup lang="ts">
 const props = defineProps<{
-  locale: NuxtLocale
-}>()
+  locale: NuxtLocale;
+}>();
 
-const icon = computed(() => LocaleToIcon[props.locale])
+const icon = computed(() => LocaleToIcon[props.locale]);
 </script>
 
 <template>

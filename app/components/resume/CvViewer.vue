@@ -1,15 +1,15 @@
 <script setup lang="ts">
-const { locale } = useI18n()
+const { locale } = useI18n();
 
 const cvContent
-  = locale.value === 'en' ? '/Rasten-Remizov-en.pdf' : '/Rasten-Remizov-ru.pdf'
+  = locale.value === "en" ? "/Rasten-Remizov-en.pdf" : "/Rasten-Remizov-ru.pdf";
 
-const cv = ref<string>()
+const cv = ref<string>();
 
 onMounted(async () => {
-  const data = await fetch(cvContent)
-  cv.value = await data.text()
-})
+  const data = await fetch(cvContent);
+  cv.value = await data.text();
+});
 </script>
 
 <template>

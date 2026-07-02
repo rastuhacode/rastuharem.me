@@ -1,29 +1,29 @@
 <script setup lang="ts">
-const colorMode = useColorMode()
+const colorMode = useColorMode();
 
 const isDark = computed({
   get() {
-    return colorMode.preference === 'dark'
+    return colorMode.preference === "dark";
   },
   set(value: boolean) {
-    colorMode.preference = value ? 'dark' : 'light'
+    colorMode.preference = value ? "dark" : "light";
   },
-})
+});
 
 function toggleDark() {
   const isAppearanceTransition = !window.matchMedia(
-    '(prefers-reduced-motion: reduce)',
-  ).matches
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
 
   if (!isAppearanceTransition) {
-    isDark.value = !isDark.value
-    return
+    isDark.value = !isDark.value;
+    return;
   }
 
   document.startViewTransition(async () => {
-    isDark.value = !isDark.value
-    await nextTick()
-  })
+    isDark.value = !isDark.value;
+    await nextTick();
+  });
 }
 </script>
 

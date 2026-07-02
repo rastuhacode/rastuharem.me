@@ -1,21 +1,21 @@
-import { defineContentConfig, defineCollection } from '@nuxt/content'
-import { defineRobotsSchema } from '@nuxtjs/robots/content'
-import { defineSitemapSchema } from '@nuxtjs/sitemap/content'
+import { defineContentConfig, defineCollection } from "@nuxt/content";
+import { defineRobotsSchema } from "@nuxtjs/robots/content";
+import { defineSitemapSchema } from "@nuxtjs/sitemap/content";
 
-import { postMetaSchema } from './shared/types/posts'
+import { postMetaSchema } from "./shared/types/posts";
 
 const basePostSchema = postMetaSchema.extend({
   robots: defineRobotsSchema(),
-})
+});
 
 export default defineContentConfig({
   collections: {
     // English content collection
     content_en: defineCollection({
-      type: 'page',
+      type: "page",
       source: {
-        include: 'en/**',
-        prefix: '',
+        include: "en/**",
+        prefix: "",
       },
       schema: basePostSchema.extend({
         sitemap: defineSitemapSchema(),
@@ -23,19 +23,19 @@ export default defineContentConfig({
     }),
     // Russian content collection
     content_ru: defineCollection({
-      type: 'page',
+      type: "page",
       source: {
-        include: 'ru/**',
-        prefix: '',
+        include: "ru/**",
+        prefix: "",
       },
       schema: basePostSchema.extend({
         sitemap: defineSitemapSchema({
-          name: 'content_ru',
+          name: "content_ru",
           onUrl: (url) => {
-            url.loc = url.loc === '/' ? '/ru' : '/ru' + url.loc
+            url.loc = url.loc === "/" ? "/ru" : "/ru" + url.loc;
           },
         }),
       }),
     }),
   },
-})
+});

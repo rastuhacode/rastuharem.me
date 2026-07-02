@@ -2,23 +2,23 @@
 import type {
   DropdownMenuRadioItemEmits,
   DropdownMenuRadioItemProps,
-} from 'reka-ui'
-import type { HTMLAttributes } from 'vue'
+} from "reka-ui";
+import type { HTMLAttributes } from "vue";
 import {
   DropdownMenuItemIndicator,
   DropdownMenuRadioItem,
   useForwardPropsEmits,
-} from 'reka-ui'
+} from "reka-ui";
 
 const props = defineProps<
-  DropdownMenuRadioItemProps & { class?: HTMLAttributes['class'] }
->()
+  DropdownMenuRadioItemProps & { class?: HTMLAttributes["class"] }
+>();
 
-const emits = defineEmits<DropdownMenuRadioItemEmits>()
+const emits = defineEmits<DropdownMenuRadioItemEmits>();
 
-const delegatedProps = reactiveOmit(props, 'class')
+const delegatedProps = reactiveOmit(props, "class");
 
-const forwarded = useForwardPropsEmits(delegatedProps, emits)
+const forwarded = useForwardPropsEmits(delegatedProps, emits);
 </script>
 
 <template>

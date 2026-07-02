@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import type { HTMLAttributes } from 'vue'
+import type { HTMLAttributes } from "vue";
 
 const props = withDefaults(
   defineProps<{
-    class?: HTMLAttributes['class']
-    target?: HTMLAnchorElement['target']
+    class?: HTMLAttributes["class"];
+    target?: HTMLAnchorElement["target"];
   }>(),
-  { class: '', target: '_blank' },
-)
+  { class: "", target: "_blank" },
+);
 </script>
 
 <template>

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { LinkHTMLAttributes } from 'vue'
+import type { LinkHTMLAttributes } from "vue";
 
 const props = defineProps<{
-  id: LinkHTMLAttributes['id']
-}>()
+  id: LinkHTMLAttributes["id"];
+}>();
 </script>
 
 <template>

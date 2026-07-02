@@ -1,5 +1,5 @@
 export function useGraphicsStore() {
-  return useCookie('graphics', {
+  return useCookie("graphics", {
     default: () => true,
-  })
+  });
 }

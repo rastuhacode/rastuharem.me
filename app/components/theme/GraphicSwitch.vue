@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const graphics = useGraphicsStore()
+const graphics = useGraphicsStore();
 </script>
 
 <template>

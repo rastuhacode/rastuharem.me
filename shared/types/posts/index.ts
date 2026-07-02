@@ -1,6 +1,6 @@
-import { z } from 'zod'
-import { postTagsSchema } from './tags'
-import { postDateSchema } from './date'
+import { z } from "zod";
+import { postTagsSchema } from "./tags";
+import { postDateSchema } from "./date";
 
 /**
  * Schema for posts
@@ -12,9 +12,9 @@ export const postMetaSchema = z.object({
   description: z.string().optional(),
   toc: z.boolean().optional(),
   tags: z.array(postTagsSchema).optional(),
-})
+});
 
-export type PostMeta = z.infer<typeof postMetaSchema>
+export type PostMeta = z.infer<typeof postMetaSchema>;
 
-export { postTagsSchema, postDateSchema }
-export type { PostTags } from './tags'
+export { postTagsSchema, postDateSchema };
+export type { PostTags } from "./tags";

@@ -41,7 +41,6 @@
     "@iconify-json/twemoji": "catalog:build",
     "@nuxt/content": "catalog:build",
     "@nuxt/eslint": "catalog:dev",
-    "@stylistic/eslint-plugin": "catalog:dev",
     "@nuxt/icon": "catalog:build",
     "@nuxt/image": "catalog:build",
     "@nuxtjs/color-mode": "catalog:build",

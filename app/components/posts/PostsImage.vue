@@ -1,35 +1,35 @@
 <script setup lang="ts">
-import type { ImgHTMLAttributes, HTMLAttributes } from 'vue'
+import type { ImgHTMLAttributes, HTMLAttributes } from "vue";
 
 const props = withDefaults(
   defineProps<{
-    src: string
-    alt?: ImgHTMLAttributes['alt']
-    caption?: string
-    class?: HTMLAttributes['class']
+    src: string;
+    alt?: ImgHTMLAttributes["alt"];
+    caption?: string;
+    class?: HTMLAttributes["class"];
   }>(),
   {
-    class: '',
-    alt: '',
-    caption: '',
+    class: "",
+    alt: "",
+    caption: "",
   },
-)
+);
 
-const dialogRef = useTemplateRef<HTMLDivElement>('dialogRef')
+const dialogRef = useTemplateRef<HTMLDivElement>("dialogRef");
 
-const isPreview = ref(false)
+const isPreview = ref(false);
 
 const handleClose = () => {
-  if (isPreview.value === false) return
-  isPreview.value = false
-}
+  if (isPreview.value === false) return;
+  isPreview.value = false;
+};
 
 watch(isPreview, (newVal) => {
-  if (!newVal) return
+  if (!newVal) return;
   nextTick(() => {
-    dialogRef.value?.focus()
-  })
-})
+    dialogRef.value?.focus();
+  });
+});
 </script>
 
 <template>

@@ -1,41 +1,41 @@
 <script setup lang="ts">
-import type { PostTags } from '#shared/types/posts'
-import { isPostTag } from '#shared/types/posts/tags'
+import type { PostTags } from "#shared/types/posts";
+import { isPostTag } from "#shared/types/posts/tags";
 
-const { locale } = useI18n()
-const router = useRouter()
-const route = useRoute()
+const { locale } = useI18n();
+const router = useRouter();
+const route = useRoute();
 
 const collection = computed(() =>
-  locale.value === 'en' ? 'content_en' : 'content_ru',
-)
+  locale.value === "en" ? "content_en" : "content_ru",
+);
 
 const { data: rawPosts } = await useAsyncData(`posts-${locale.value}`, () => {
   return queryCollection(collection.value)
-    .where('path', 'LIKE', '/posts/%')
-    .where('path', '<>', '/posts/index')
-    .all()
-})
+    .where("path", "LIKE", "/posts/%")
+    .where("path", "<>", "/posts/index")
+    .all();
+});
 
-const getYear = (date: string) => new Date(date).getFullYear()
+const getYear = (date: string) => new Date(date).getFullYear();
 
 const selectedTags = computed<PostTags[]>({
   get() {
-    const tags = route.query.tags
-    if (!tags) return []
+    const tags = route.query.tags;
+    if (!tags) return [];
     if (Array.isArray(tags)) {
       return tags.filter(
-        (tag): tag is PostTags => typeof tag === 'string' && isPostTag(tag),
-      )
+        (tag): tag is PostTags => typeof tag === "string" && isPostTag(tag),
+      );
     }
-    return tags.split(',').filter((tag): tag is PostTags => isPostTag(tag))
+    return tags.split(",").filter((tag): tag is PostTags => isPostTag(tag));
   },
   set(value) {
     router.push({
-      query: { tags: value.length > 0 ? value.join(',') : undefined },
-    })
+      query: { tags: value.length > 0 ? value.join(",") : undefined },
+    });
   },
-})
+});
 
 const posts = computed(() =>
   rawPosts.value
@@ -43,29 +43,29 @@ const posts = computed(() =>
     .filter(isPostReleased)
     .filter((post) => {
       if (selectedTags.value.length > 0) {
-        return selectedTags.value.every(tag => post.tags?.includes(tag))
+        return selectedTags.value.every(tag => post.tags?.includes(tag));
       }
-      return true
+      return true;
     }),
-)
+);
 
 const allPostYears = computed<number[]>(() => {
-  const years = new Set<number>()
+  const years = new Set<number>();
   posts.value?.forEach((post) => {
-    years.add(getYear(post.date))
-  })
-  return Array.from(years).sort((a, b) => b - a)
-})
+    years.add(getYear(post.date));
+  });
+  return Array.from(years).sort((a, b) => b - a);
+});
 
 function filterPostsByYear(year: number) {
   return posts.value?.filter((post) => {
-    return getYear(post.date) === year
-  })
+    return getYear(post.date) === year;
+  });
 }
 
 function handleTagSelect(tag: PostTags) {
-  if (selectedTags.value.includes(tag)) return
-  selectedTags.value = [...selectedTags.value, tag]
+  if (selectedTags.value.includes(tag)) return;
+  selectedTags.value = [...selectedTags.value, tag];
 }
 </script>
 

@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import type { PrimitiveProps } from 'reka-ui'
-import type { HTMLAttributes } from 'vue'
-import { reactiveOmit } from '@vueuse/core'
-import { Primitive } from 'reka-ui'
+import type { PrimitiveProps } from "reka-ui";
+import type { HTMLAttributes } from "vue";
+import { reactiveOmit } from "@vueuse/core";
+import { Primitive } from "reka-ui";
 
 const props = withDefaults(
   defineProps<
     PrimitiveProps & {
-      class?: HTMLAttributes['class']
+      class?: HTMLAttributes["class"];
     }
   >(),
-  { as: 'a', class: '' },
-)
+  { as: "a", class: "" },
+);
 
-const delegatedProps = reactiveOmit(props, 'class')
+const delegatedProps = reactiveOmit(props, "class");
 
 const target = computed(() => {
-  return props.as === 'a' ? '_blank' : undefined
-})
+  return props.as === "a" ? "_blank" : undefined;
+});
 </script>
 
 <template>

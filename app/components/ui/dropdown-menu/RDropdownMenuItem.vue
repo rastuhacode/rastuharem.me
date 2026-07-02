@@ -1,25 +1,25 @@
 <script setup lang="ts">
-import type { DropdownMenuItemProps } from 'reka-ui'
-import type { HTMLAttributes } from 'vue'
-import { DropdownMenuItem, useForwardProps } from 'reka-ui'
+import type { DropdownMenuItemProps } from "reka-ui";
+import type { HTMLAttributes } from "vue";
+import { DropdownMenuItem, useForwardProps } from "reka-ui";
 
 const props = withDefaults(
   defineProps<
     DropdownMenuItemProps & {
-      class?: HTMLAttributes['class']
-      inset?: boolean
-      variant?: 'default' | 'destructive'
+      class?: HTMLAttributes["class"];
+      inset?: boolean;
+      variant?: "default" | "destructive";
     }
   >(),
   {
-    variant: 'default',
-    class: '',
+    variant: "default",
+    class: "",
   },
-)
+);
 
-const delegatedProps = reactiveOmit(props, 'inset', 'variant', 'class')
+const delegatedProps = reactiveOmit(props, "inset", "variant", "class");
 
-const forwardedProps = useForwardProps(delegatedProps)
+const forwardedProps = useForwardProps(delegatedProps);
 </script>
 
 <template>
