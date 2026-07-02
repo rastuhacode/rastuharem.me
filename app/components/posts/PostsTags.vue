@@ -1,24 +1,27 @@
 <script setup lang="ts">
-import type { PostTags } from "#shared/types/posts";
+import type { PostTags } from '#shared/types/posts'
 
 const props = withDefaults(
   defineProps<{
-    tags: PostTags[];
-    max?: number;
-    class?: string;
+    tags: PostTags[]
+    max?: number
+    class?: string
   }>(),
-  { max: 3, class: "" },
-);
+  { max: 3, class: '' },
+)
 
 const emits = defineEmits<{
-  "tag:select": [tag: PostTags];
-}>();
+  'tag:select': [tag: PostTags]
+}>()
 
-const { tags } = toRefs(props);
+const { tags } = toRefs(props)
 </script>
 
 <template>
-  <RMarquee :overlay="false" :class="props.class">
+  <RMarquee
+    :overlay="false"
+    :class="props.class"
+  >
     <button
       v-for="tag in tags"
       :key="tag"

@@ -1,18 +1,18 @@
 <script setup lang="ts">
 export type PostsTimeDurationProps = {
-  date: string;
-  duration: string;
-};
+  date: string
+  duration: string
+}
 
-const props = defineProps<PostsTimeDurationProps>();
+const props = defineProps<PostsTimeDurationProps>()
 
-const { locale } = useI18n();
+const { locale } = useI18n()
 
 function formatDate(date: string) {
   return new Date(date).toLocaleDateString(locale.value, {
-    month: "short",
-    day: "numeric",
-  });
+    month: 'short',
+    day: 'numeric',
+  })
 }
 </script>
 

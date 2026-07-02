@@ -1,7 +1,12 @@
 {
-  "name": "rastuharem-me",
+  "name": "rastuharem.me",
   "version": "1.0.0",
-  "private": true,
+  "author": "Rasten Remizov <rasten.remizov@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rastuhacode/rastuharem.me"
+  },
   "type": "module",
   "packageManager": "pnpm@11.9.0",
   "engines": {
@@ -15,7 +20,8 @@
     "preview:ssg": "pnpm dlx serve .output/public",
     "dev:ssg": "pnpm generate && pnpm preview:ssg",
     "taze": "pnpm dlx taze@latest",
-    "lint": "eslint . --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "typecheck": "nuxt typecheck",
     "compress": "tsx scripts/img-compress-staged.ts"
   },
@@ -35,6 +41,7 @@
     "@iconify-json/twemoji": "catalog:build",
     "@nuxt/content": "catalog:build",
     "@nuxt/eslint": "catalog:dev",
+    "@stylistic/eslint-plugin": "catalog:dev",
     "@nuxt/icon": "catalog:build",
     "@nuxt/image": "catalog:build",
     "@nuxtjs/color-mode": "catalog:build",

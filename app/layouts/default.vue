@@ -1,14 +1,14 @@
 <script setup lang="ts">
-const mainRef = useTemplateRef("mainRef");
+const mainRef = useTemplateRef('mainRef')
 
-const { y: scrollY } = useScroll(mainRef);
-const graphics = useGraphicsStore();
+const { y: scrollY } = useScroll(mainRef)
+const graphics = useGraphicsStore()
 
 function toTop() {
   mainRef.value?.scrollTo({
     top: 0,
-    behavior: "smooth",
-  });
+    behavior: 'smooth',
+  })
 }
 </script>
 
@@ -17,7 +17,10 @@ function toTop() {
     <LayoutGradient grainy />
 
     <ClientOnly>
-      <Transition name="slide" appear>
+      <Transition
+        name="slide"
+        appear
+      >
         <ParticlesBg v-if="graphics" />
       </Transition>
     </ClientOnly>
@@ -43,7 +46,10 @@ function toTop() {
         "
         @click="toTop"
       >
-        <Icon name="lucide:arrow-up" class="size-5 pointer-events-none" />
+        <Icon
+          name="lucide:arrow-up"
+          class="size-5 pointer-events-none"
+        />
       </button>
     </main>
   </div>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { availableLocales } = useI18n();
+const { availableLocales } = useI18n()
 </script>
 
 <template>
@@ -7,17 +7,26 @@ const { availableLocales } = useI18n();
     <nav>
       <ul class="flex items-center gap-4">
         <li class="flex items-center">
-          <NuxtLinkLocale :aria-label="$t('home')" to="/">
+          <NuxtLinkLocale
+            :aria-label="$t('home')"
+            to="/"
+          >
             <RLogo class="size-8" />
           </NuxtLinkLocale>
         </li>
         <li class="flex items-center">
-          <NuxtLinkLocale :aria-label="$t('blog')" to="/posts">
+          <NuxtLinkLocale
+            :aria-label="$t('blog')"
+            to="/posts"
+          >
             {{ $t("blog") }}
           </NuxtLinkLocale>
         </li>
         <li class="flex items-center">
-          <NuxtLinkLocale :aria-label="$t('resume')" to="/resume">
+          <NuxtLinkLocale
+            :aria-label="$t('resume')"
+            to="/resume"
+          >
             {{ $t("resume") }}
           </NuxtLinkLocale>
         </li>

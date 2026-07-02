@@ -2,23 +2,23 @@
 import type {
   DropdownMenuRadioItemEmits,
   DropdownMenuRadioItemProps,
-} from "reka-ui";
-import type { HTMLAttributes } from "vue";
+} from 'reka-ui'
+import type { HTMLAttributes } from 'vue'
 import {
   DropdownMenuItemIndicator,
   DropdownMenuRadioItem,
   useForwardPropsEmits,
-} from "reka-ui";
+} from 'reka-ui'
 
 const props = defineProps<
-  DropdownMenuRadioItemProps & { class?: HTMLAttributes["class"] }
->();
+  DropdownMenuRadioItemProps & { class?: HTMLAttributes['class'] }
+>()
 
-const emits = defineEmits<DropdownMenuRadioItemEmits>();
+const emits = defineEmits<DropdownMenuRadioItemEmits>()
 
-const delegatedProps = reactiveOmit(props, "class");
+const delegatedProps = reactiveOmit(props, 'class')
 
-const forwarded = useForwardPropsEmits(delegatedProps, emits);
+const forwarded = useForwardPropsEmits(delegatedProps, emits)
 </script>
 
 <template>
@@ -28,7 +28,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
     :class="
       cn(
         'focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*=\'size-\'])]:size-4',
-        props.class
+        props.class,
       )
     "
   >
@@ -37,7 +37,10 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
     >
       <DropdownMenuItemIndicator>
         <slot name="indicator-icon">
-          <Icon name="lucide:circle" class="size-2 fill-current" />
+          <Icon
+            name="lucide:circle"
+            class="size-2 fill-current"
+          />
         </slot>
       </DropdownMenuItemIndicator>
     </span>

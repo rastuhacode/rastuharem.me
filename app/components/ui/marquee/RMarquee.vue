@@ -1,61 +1,61 @@
 <script lang="ts">
-import { Primitive, type PrimitiveProps } from "reka-ui";
-import type { VNode, HTMLAttributes } from "vue";
+import { Primitive, type PrimitiveProps } from 'reka-ui'
+import type { VNode, HTMLAttributes } from 'vue'
 
 export interface MarqueeProps {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'
    */
-  as?: PrimitiveProps["as"];
+  as?: PrimitiveProps['as']
   /**
    * Pause the marquee on hover.
    * @defaultValue false
    */
-  pauseOnHover?: boolean;
+  pauseOnHover?: boolean
   /**
    * Reverse the direction of the marquee.
    * @defaultValue false
    */
-  reverse?: boolean;
+  reverse?: boolean
   /**
    * The orientation of the marquee.
    * @defaultValue 'horizontal'
    */
-  orientation?: "horizontal" | "vertical";
+  orientation?: 'horizontal' | 'vertical'
   /**
    * The number of times the marquee should repeat.
    * @defaultValue 4
    */
-  repeat?: number;
+  repeat?: number
   /**
    * Display an overlay on the marquee.
    * @defaultValue true
    */
-  overlay?: boolean;
-  class?: HTMLAttributes["class"];
+  overlay?: boolean
+  class?: HTMLAttributes['class']
 }
 
 export interface MarqueeSlots {
-  default?(props?: Record<string, unknown>): VNode[];
+  default?(props?: Record<string, unknown>): VNode[]
 }
 </script>
 
 <script setup lang="ts">
 const props = withDefaults(defineProps<MarqueeProps>(), {
-  as: "div",
-  orientation: "horizontal",
+  as: 'div',
+  orientation: 'horizontal',
   repeat: 20,
   overlay: true,
   pauseOnHover: true,
-  class: "",
-});
-defineSlots<MarqueeSlots>();
+  class: '',
+})
+defineSlots<MarqueeSlots>()
 
-const { orientation, pauseOnHover, overlay } = toRefs(props);
+const { orientation, pauseOnHover, overlay } = toRefs(props)
 
-const overlayClass =
-  'before:absolute before:pointer-events-none before:content-[""] before:z-2 before:from-default before:to-transparent after:absolute after:pointer-events-none after:content-[""] after:z-2 after:from-default after:to-transparent';
+const overlayClass
+  = 'before:absolute before:pointer-events-none before:content-[""] before:z-2 before:from-default before:to-transparent after:absolute after:pointer-events-none after:content-[""] after:z-2 after:from-default after:to-transparent'
 </script>
 
 <template>

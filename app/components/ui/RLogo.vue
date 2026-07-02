@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { HTMLAttributes } from "vue";
+import type { HTMLAttributes } from 'vue'
 
-const props = withDefaults(defineProps<{ class?: HTMLAttributes["class"] }>(), {
-  class: "",
-});
+const props = withDefaults(defineProps<{ class?: HTMLAttributes['class'] }>(), {
+  class: '',
+})
 </script>
 
 <template>
@@ -29,7 +29,10 @@ const props = withDefaults(defineProps<{ class?: HTMLAttributes["class"] }>(), {
     >
       R
     </text>
-    <circle r="4" fill="currentColor">
+    <circle
+      r="4"
+      fill="currentColor"
+    >
       <animate
         attributeName="r"
         dur="5s"

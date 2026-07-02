@@ -1,10 +1,10 @@
 import type {
   ContentEnCollectionItem,
   ContentRuCollectionItem,
-} from "@nuxt/content";
+} from '@nuxt/content'
 
-export type Post = ContentEnCollectionItem | ContentRuCollectionItem;
+export type Post = ContentEnCollectionItem | ContentRuCollectionItem
 
 export function isPostReleased(post: Post) {
-  return new Date(post.date) <= new Date();
+  return new Date(post.date) <= new Date()
 }

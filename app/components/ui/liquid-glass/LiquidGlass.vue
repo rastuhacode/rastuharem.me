@@ -1,25 +1,25 @@
 <script setup lang="ts">
-import type { PrimitiveProps } from "reka-ui";
-import { Primitive } from "reka-ui";
-import type { HTMLAttributes } from "vue";
+import type { PrimitiveProps } from 'reka-ui'
+import { Primitive } from 'reka-ui'
+import type { HTMLAttributes } from 'vue'
 
 interface Props extends PrimitiveProps {
-  radius?: number;
-  border?: number;
-  lightness?: number;
-  displace?: number;
-  blend?: string;
-  xChannel?: "R" | "G" | "B";
-  yChannel?: "R" | "G" | "B";
-  alpha?: number;
-  blur?: number;
-  rOffset?: number;
-  gOffset?: number;
-  bOffset?: number;
-  scale?: number;
-  frost?: number;
-  class?: HTMLAttributes["class"];
-  containerClass?: HTMLAttributes["class"];
+  radius?: number
+  border?: number
+  lightness?: number
+  displace?: number
+  blend?: string
+  xChannel?: 'R' | 'G' | 'B'
+  yChannel?: 'R' | 'G' | 'B'
+  alpha?: number
+  blur?: number
+  rOffset?: number
+  gOffset?: number
+  bOffset?: number
+  scale?: number
+  frost?: number
+  class?: HTMLAttributes['class']
+  containerClass?: HTMLAttributes['class']
 }
 
 // Props definition
@@ -27,9 +27,9 @@ const props = withDefaults(defineProps<Props>(), {
   radius: 16,
   border: 0.07,
   lightness: 50,
-  blend: "difference",
-  xChannel: "R",
-  yChannel: "B",
+  blend: 'difference',
+  xChannel: 'R',
+  yChannel: 'B',
   alpha: 0.93,
   blur: 11,
   displace: 0,
@@ -38,69 +38,70 @@ const props = withDefaults(defineProps<Props>(), {
   bOffset: 20,
   scale: -180,
   frost: 0.05,
-  class: "",
-  containerClass: "",
-});
+  class: '',
+  containerClass: '',
+})
 
 const delegatedProps = reactiveOmit(
   props,
-  "radius",
-  "border",
-  "lightness",
-  "displace",
-  "blend",
-  "xChannel",
-  "yChannel",
-  "alpha",
-  "blur",
-  "rOffset",
-  "gOffset",
-  "bOffset",
-  "scale",
-  "frost",
-  "class",
-  "containerClass",
-);
+  'radius',
+  'border',
+  'lightness',
+  'displace',
+  'blend',
+  'xChannel',
+  'yChannel',
+  'alpha',
+  'blur',
+  'rOffset',
+  'gOffset',
+  'bOffset',
+  'scale',
+  'frost',
+  'class',
+  'containerClass',
+)
 
 // Refs
-const liquidGlassRoot = ref<HTMLElement | null>(null);
+const liquidGlassRoot = ref<HTMLElement | null>(null)
 const dimensions = reactive({
   width: 0,
   height: 0,
-});
+})
 
 useResizeObserver(liquidGlassRoot, (entries) => {
-  const entry = entries[0];
-  if (!entry) return;
+  const entry = entries[0]
+  if (!entry) return
 
-  let width = 0;
-  let height = 0;
+  let width = 0
+  let height = 0
 
   if (entry.borderBoxSize && entry.borderBoxSize?.length) {
-    width = entry.borderBoxSize[0]!.inlineSize;
-    height = entry.borderBoxSize[0]!.blockSize;
-  } else if (entry.contentRect) {
-    width = entry.contentRect.width;
-    height = entry.contentRect.height;
+    width = entry.borderBoxSize[0]!.inlineSize
+    height = entry.borderBoxSize[0]!.blockSize
+  }
+  else if (entry.contentRect) {
+    width = entry.contentRect.width
+    height = entry.contentRect.height
   }
 
-  dimensions.width = width;
-  dimensions.height = height;
-});
+  dimensions.width = width
+  dimensions.height = height
+})
 
 const baseStyle = computed(() => {
   return {
-    "--frost": props.frost,
-    "border-radius": `${props.radius}px`,
-  };
-});
+    '--frost': props.frost,
+    'border-radius': `${props.radius}px`,
+  }
+})
 
 // Computed displacement image
 const displacementImage = computed(() => {
-  const border =
-    Math.min(dimensions.width, dimensions.height) * (props.border * 0.5);
-  const yBorder =
-    Math.min(dimensions.width, dimensions.height) * (props.border * 0.5);
+  const border
+    = Math.min(dimensions.width, dimensions.height) * (props.border * 0.5)
+  const yBorder
+    = Math.min(dimensions.width, dimensions.height) * (props.border * 0.5)
 
   return `
     <svg viewBox="0 0 ${dimensions.width} ${dimensions.height}" xmlns="http://www.w3.org/2000/svg">
@@ -127,14 +128,14 @@ const displacementImage = computed(() => {
         style="filter:blur(${props.blur}px)" 
       />
     </svg>
-  `;
-});
+  `
+})
 
 // Data URI for SVG filter
 const displacementDataUri = computed(() => {
-  const encoded = encodeURIComponent(displacementImage.value);
-  return `data:image/svg+xml,${encoded}`;
-});
+  const encoded = encodeURIComponent(displacementImage.value)
+  return `data:image/svg+xml,${encoded}`
+})
 </script>
 
 <template>
@@ -148,9 +149,15 @@ const displacementDataUri = computed(() => {
   >
     <slot />
 
-    <svg class="filter" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      class="filter"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <defs>
-        <filter id="displacementFilter" color-interpolation-filters="sRGB">
+        <filter
+          id="displacementFilter"
+          color-interpolation-filters="sRGB"
+        >
           <feImage
             x="0"
             y="0"
@@ -204,8 +211,18 @@ const displacementDataUri = computed(() => {
             values="0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0"
             result="blue"
           />
-          <feBlend in="red" in2="green" mode="screen" result="rg" />
-          <feBlend in="rg" in2="blue" mode="screen" result="output" />
+          <feBlend
+            in="red"
+            in2="green"
+            mode="screen"
+            result="rg"
+          />
+          <feBlend
+            in="rg"
+            in2="blue"
+            mode="screen"
+            result="output"
+          />
           <feGaussianBlur :stdDeviation="displace" />
         </filter>
       </defs>
