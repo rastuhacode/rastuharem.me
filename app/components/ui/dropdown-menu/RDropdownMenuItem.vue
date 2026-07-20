@@ -14,7 +14,7 @@ const props = withDefaults(
   {
     variant: "default",
     class: "",
-  }
+  },
 );
 
 const delegatedProps = reactiveOmit(props, "inset", "variant", "class");
@@ -39,7 +39,7 @@ const forwardedProps = useForwardProps(delegatedProps);
         'data-[variant=destructive]:text-destructive data-[variant=destructive]:focus:bg-destructive/10 data-[variant=destructive]:focus:text-destructive',
         'dark:data-[variant=destructive]:focus:bg-destructive/20 data-[variant=destructive]:*:[svg]:text-destructive!',
 
-        props.class
+        props.class,
       )
     "
   >

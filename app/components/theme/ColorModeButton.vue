@@ -29,14 +29,20 @@ function toggleDark() {
 
 <template>
   <ClientOnly>
-    <button class="size-5" @click="toggleDark">
+    <button
+      class="size-5"
+      @click="toggleDark"
+    >
       <Icon
         :name="colorMode.preference === 'dark' ? 'lucide:sun' : 'lucide:moon'"
         class="size-5"
       />
     </button>
     <template #fallback>
-      <Icon name="lucide:sun" class="size-5" />
+      <Icon
+        name="lucide:sun"
+        class="size-5"
+      />
     </template>
   </ClientOnly>
 </template>

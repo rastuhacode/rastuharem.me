@@ -7,13 +7,13 @@ const IMAGES_DIRS = ["public/images/"] as const;
 const git = Git();
 const stagedFiles = (await git.diff(["--cached", "--name-only"]))
   .split("\n")
-  .map((i) => i.trim())
+  .map(i => i.trim())
   .filter(Boolean);
 
 const images = stagedFiles.filter(
-  (f) =>
-    IMAGES_DIRS.some((dir) => f.startsWith(dir)) &&
-    /\.(png|jpe?g|webp)$/i.test(f),
+  f =>
+    IMAGES_DIRS.some(dir => f.startsWith(dir))
+    && /\.(png|jpe?g|webp)$/i.test(f),
 );
 
 if (images.length === 0) {

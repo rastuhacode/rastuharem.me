@@ -51,9 +51,14 @@ watch(isPreview, (newVal) => {
         :src="props.src"
         :alt="props.alt"
         class="max-h-full max-w-full object-contain"
-      />
+      >
     </button>
-    <figcaption v-if="caption" class="text-center">{{ caption }}</figcaption>
+    <figcaption
+      v-if="caption"
+      class="text-center"
+    >
+      {{ caption }}
+    </figcaption>
   </figure>
 
   <Teleport to="body">
@@ -72,7 +77,7 @@ watch(isPreview, (newVal) => {
         :src="props.src"
         :alt="props.alt"
         :class="cn('max-w-screen max-h-screen w-full h-full object-contain')"
-      />
+      >
       <figcaption
         v-if="caption"
         class="absolute bottom-2 right-2 bg-background p-2 rounded-md"

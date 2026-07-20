@@ -16,7 +16,10 @@ const props = defineProps<{
       :href="`#${props.id}`"
       class="no-underline float-right opacity-0 group-hover:opacity-100 transition-opacity duration-300"
     >
-      <Icon name="lucide:link" class="size-3 m-auto" />
+      <Icon
+        name="lucide:link"
+        class="size-3 m-auto"
+      />
     </a>
   </h4>
 </template>

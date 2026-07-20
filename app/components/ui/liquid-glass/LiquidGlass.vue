@@ -79,7 +79,8 @@ useResizeObserver(liquidGlassRoot, (entries) => {
   if (entry.borderBoxSize && entry.borderBoxSize?.length) {
     width = entry.borderBoxSize[0]!.inlineSize;
     height = entry.borderBoxSize[0]!.blockSize;
-  } else if (entry.contentRect) {
+  }
+  else if (entry.contentRect) {
     width = entry.contentRect.width;
     height = entry.contentRect.height;
   }
@@ -97,10 +98,10 @@ const baseStyle = computed(() => {
 
 // Computed displacement image
 const displacementImage = computed(() => {
-  const border =
-    Math.min(dimensions.width, dimensions.height) * (props.border * 0.5);
-  const yBorder =
-    Math.min(dimensions.width, dimensions.height) * (props.border * 0.5);
+  const border
+    = Math.min(dimensions.width, dimensions.height) * (props.border * 0.5);
+  const yBorder
+    = Math.min(dimensions.width, dimensions.height) * (props.border * 0.5);
 
   return `
     <svg viewBox="0 0 ${dimensions.width} ${dimensions.height}" xmlns="http://www.w3.org/2000/svg">
@@ -148,9 +149,15 @@ const displacementDataUri = computed(() => {
   >
     <slot />
 
-    <svg class="filter" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      class="filter"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <defs>
-        <filter id="displacementFilter" color-interpolation-filters="sRGB">
+        <filter
+          id="displacementFilter"
+          color-interpolation-filters="sRGB"
+        >
           <feImage
             x="0"
             y="0"
@@ -204,8 +211,18 @@ const displacementDataUri = computed(() => {
             values="0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0"
             result="blue"
           />
-          <feBlend in="red" in2="green" mode="screen" result="rg" />
-          <feBlend in="rg" in2="blue" mode="screen" result="output" />
+          <feBlend
+            in="red"
+            in2="green"
+            mode="screen"
+            result="rg"
+          />
+          <feBlend
+            in="rg"
+            in2="blue"
+            mode="screen"
+            result="output"
+          />
           <feGaussianBlur :stdDeviation="displace" />
         </filter>
       </defs>

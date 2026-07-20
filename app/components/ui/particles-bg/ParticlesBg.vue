@@ -45,7 +45,7 @@ const color = computed(() => {
   if (hex.length === 3) {
     hex = hex
       .split("")
-      .map((char) => char + char)
+      .map(char => char + char)
       .join("");
   }
 
@@ -173,8 +173,8 @@ function remapValue(
   start2: number,
   end2: number,
 ): number {
-  const remapped =
-    ((value - start1) * (end2 - start2)) / (end1 - start1) + start2;
+  const remapped
+    = ((value - start1) * (end2 - start2)) / (end1 - start1) + start2;
   return remapped > 0 ? remapped : 0;
 }
 
@@ -197,25 +197,26 @@ function animate() {
     if (remapClosestEdge > 1) {
       circle.alpha += 0.02;
       if (circle.alpha > circle.targetAlpha) circle.alpha = circle.targetAlpha;
-    } else {
+    }
+    else {
       circle.alpha = circle.targetAlpha * remapClosestEdge;
     }
 
     circle.x += circle.dx;
     circle.y += circle.dy;
-    circle.translateX +=
-      (mouse.x / (props.staticity / circle.magnetism) - circle.translateX) /
-      props.ease;
-    circle.translateY +=
-      (mouse.y / (props.staticity / circle.magnetism) - circle.translateY) /
-      props.ease;
+    circle.translateX
+      += (mouse.x / (props.staticity / circle.magnetism) - circle.translateX)
+        / props.ease;
+    circle.translateY
+      += (mouse.y / (props.staticity / circle.magnetism) - circle.translateY)
+        / props.ease;
 
     // circle gets out of the canvas
     if (
-      circle.x < -circle.size ||
-      circle.x > canvasSize.w + circle.size ||
-      circle.y < -circle.size ||
-      circle.y > canvasSize.h + circle.size
+      circle.x < -circle.size
+      || circle.x > canvasSize.w + circle.size
+      || circle.y < -circle.size
+      || circle.y > canvasSize.h + circle.size
     ) {
       // remove the circle from the array
       circles.value.splice(i, 1);
@@ -223,7 +224,8 @@ function animate() {
       const newCircle = circleParams();
       drawCircle(newCircle);
       // update the circle position
-    } else {
+    }
+    else {
       drawCircle(
         {
           ...circle,

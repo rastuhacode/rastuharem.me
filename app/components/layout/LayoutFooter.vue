@@ -7,8 +7,7 @@
         class="border-underline text-inherit"
         target="_blank"
         href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
-        >CC BY-NC-SA 4.0</a
-      >
+      >CC BY-NC-SA 4.0</a>
       2026-PRESENT © Rasten Remizov
     </span>
   </div>

@@ -27,7 +27,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 
         'focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]',
         'disabled:cursor-not-allowed disabled:opacity-50',
-        props.class
+        props.class,
       )
     "
   >
@@ -36,11 +36,14 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
       :class="
         cn(
           'bg-background pointer-events-none size-4 rounded-full ring-0 transition-transform relative flex items-center justify-center',
-          'data-[state=checked]:translate-x-[calc(100%-2px)] data-[state=unchecked]:translate-x-0'
+          'data-[state=checked]:translate-x-[calc(100%-2px)] data-[state=unchecked]:translate-x-0',
         )
       "
     >
-      <slot name="thumb" v-bind="slotProps" />
+      <slot
+        name="thumb"
+        v-bind="slotProps"
+      />
     </SwitchThumb>
   </SwitchRoot>
 </template>

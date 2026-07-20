@@ -18,7 +18,10 @@ const { tags } = toRefs(props);
 </script>
 
 <template>
-  <RMarquee :overlay="false" :class="props.class">
+  <RMarquee
+    :overlay="false"
+    :class="props.class"
+  >
     <button
       v-for="tag in tags"
       :key="tag"

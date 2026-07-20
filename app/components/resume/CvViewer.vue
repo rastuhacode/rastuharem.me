@@ -1,8 +1,8 @@
 <script setup lang="ts">
 const { locale } = useI18n();
 
-const cvContent =
-  locale.value === "en" ? "/Rasten-Remizov-en.pdf" : "/Rasten-Remizov-ru.pdf";
+const cvContent
+  = locale.value === "en" ? "/Rasten-Remizov-en.pdf" : "/Rasten-Remizov-ru.pdf";
 
 const cv = ref<string>();
 
@@ -21,7 +21,10 @@ onMounted(async () => {
       </span>
     </div>
     <div class="relative h-full w-full overflow-hidden">
-      <iframe :src="cvContent" class="absolute top-0 left-0 w-full h-full" />
+      <iframe
+        :src="cvContent"
+        class="absolute top-0 left-0 w-full h-full"
+      />
     </div>
   </div>
 </template>

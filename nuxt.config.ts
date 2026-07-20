@@ -6,11 +6,6 @@ import { defineNuxtConfig } from "nuxt/config";
 const siteUrl = "https://rastuharem.netlify.app";
 
 export default defineNuxtConfig({
-  compatibilityDate: "2026-04-03",
-  site: {
-    url: siteUrl,
-    name: "Rasten Remizov",
-  },
 
   modules: [
     "@nuxtjs/robots",
@@ -25,14 +20,9 @@ export default defineNuxtConfig({
     "nuxt-site-config",
     "@vueuse/nuxt",
   ],
-  css: ["./app/assets/css/main.css"],
-  vite: {
-    plugins: [tailwindcss()],
-    optimizeDeps: {
-      include: ["@nuxtjs/mdc", "reka-ui", "clsx", "tailwind-merge"],
-    },
-  },
   components: [{ path: "~/components", pathPrefix: false }],
+
+  devtools: { enabled: import.meta.env.DEV },
   app: {
     head: {
       meta: [
@@ -60,9 +50,23 @@ export default defineNuxtConfig({
       ],
     },
   },
+  css: ["~/assets/css/main.css"],
+  site: {
+    url: siteUrl,
+    name: "Rasten Remizov",
+  },
   colorMode: { preference: "system", fallback: "dark" },
-  sitemap: {
-    zeroRuntime: true,
+
+  content: {
+    build: { markdown: { remarkPlugins: { "remark-gfm": false } } },
+    experimental: { sqliteConnector: "native" },
+  },
+  compatibilityDate: "2026-04-03",
+  vite: {
+    plugins: [tailwindcss()],
+    optimizeDeps: {
+      include: ["reka-ui", "clsx", "tailwind-merge"],
+    },
   },
   i18n: {
     baseUrl: siteUrl,
@@ -73,11 +77,5 @@ export default defineNuxtConfig({
     strategy: "prefix_except_default",
     defaultLocale: "en",
   },
-
-  content: {
-    build: { markdown: { remarkPlugins: { "remark-gfm": false } } },
-    experimental: { sqliteConnector: "native" },
-  },
-
-  devtools: { enabled: import.meta.env.DEV },
+  sitemap: { zeroRuntime: true },
 });

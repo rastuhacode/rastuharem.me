@@ -29,7 +29,10 @@ const props = withDefaults(defineProps<{ class?: HTMLAttributes["class"] }>(), {
     >
       R
     </text>
-    <circle r="4" fill="currentColor">
+    <circle
+      r="4"
+      fill="currentColor"
+    >
       <animate
         attributeName="r"
         dur="5s"

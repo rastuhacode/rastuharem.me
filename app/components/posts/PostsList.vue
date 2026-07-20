@@ -43,7 +43,7 @@ const posts = computed(() =>
     .filter(isPostReleased)
     .filter((post) => {
       if (selectedTags.value.length > 0) {
-        return selectedTags.value.every((tag) => post.tags?.includes(tag));
+        return selectedTags.value.every(tag => post.tags?.includes(tag));
       }
       return true;
     }),
@@ -85,13 +85,19 @@ function handleTagSelect(tag: PostTags) {
             class="flex items-center size-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             @click="selectedTags = selectedTags.filter((t) => t !== tag)"
           >
-            <Icon name="mdi:close" class="size-4" />
+            <Icon
+              name="mdi:close"
+              class="size-4"
+            />
           </button>
         </div>
       </template>
     </div>
 
-    <section v-for="year in allPostYears" :key="year">
+    <section
+      v-for="year in allPostYears"
+      :key="year"
+    >
       <div class="relative flex items-center">
         <span
           class="text-3xl font-bold font-mono tracking-tight text-foreground/50 select-none"

@@ -48,13 +48,14 @@ export async function compressImages(files: string[]) {
     files.map(async (file) => {
       const buffer = await fs.readFile(file);
       const image = sharp(buffer);
-      const { percent, size, outSize, inFile, outFile, outBuffer } =
-        await compressSharp(image, buffer, file, file);
+      const { percent, size, outSize, inFile, outFile, outBuffer }
+        = await compressSharp(image, buffer, file, file);
       if (percent > -0.1) {
         console.log(
           c.dim`[SKIP] ${bytesToHuman(size)} -> ${bytesToHuman(outSize)} ${(percent * 100).toFixed(1).padStart(5, " ")}%  ${inFile}`,
         );
-      } else {
+      }
+      else {
         await fs.writeFile(outFile, outBuffer);
         console.log(
           `[COMP] ${bytesToHuman(size)} -> ${bytesToHuman(outSize)} ${c.green`${(percent * 100).toFixed(1).padStart(5, " ")}%`}  ${inFile}`,

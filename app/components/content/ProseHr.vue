@@ -15,5 +15,5 @@ const props = withDefaults(defineProps<{ class?: HTMLAttributes["class"] }>(), {
         props.class,
       )
     "
-  />
+  >
 </template>

@@ -54,7 +54,10 @@ const flat = computed(() => flatLinks(props.links));
       :aria-expanded="isOpen"
       aria-label="Table of contents"
     >
-      <Icon name="lucide:align-left" class="size-5" />
+      <Icon
+        name="lucide:align-left"
+        class="size-5"
+      />
     </button>
 
     <ul

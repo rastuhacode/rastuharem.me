@@ -1,9 +1,14 @@
 {
-  "name": "rastuharem-me",
+  "name": "rastuharem.me",
   "version": "1.0.0",
-  "private": true,
+  "author": "Rasten Remizov <rasten.remizov@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rastuhacode/rastuharem.me"
+  },
   "type": "module",
-  "packageManager": "pnpm@11.6.0",
+  "packageManager": "pnpm@11.15.1",
   "engines": {
     "node": ">=24.14.1"
   },
@@ -15,7 +20,8 @@
     "preview:ssg": "pnpm dlx serve .output/public",
     "dev:ssg": "pnpm generate && pnpm preview:ssg",
     "taze": "pnpm dlx taze@latest",
-    "lint": "eslint . --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "typecheck": "nuxt typecheck",
     "compress": "tsx scripts/img-compress-staged.ts"
   },

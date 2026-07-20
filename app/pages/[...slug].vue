@@ -31,9 +31,9 @@ const { data: page, status } = await useAsyncData(
 
 const isUnreleased = computed(
   () =>
-    page.value?.path?.startsWith("/posts/") &&
-    page.value?.date &&
-    !isPostReleased(page.value),
+    page.value?.path?.startsWith("/posts/")
+    && page.value?.date
+    && !isPostReleased(page.value),
 );
 
 if ((status.value === "success" && !page.value) || isUnreleased.value) {
@@ -52,7 +52,10 @@ useSeoMeta({
 </script>
 
 <template>
-  <div v-if="page" class="grow">
+  <div
+    v-if="page"
+    class="grow"
+  >
     <RToc
       v-if="page?.toc && page.body?.toc?.links"
       :links="page.body.toc.links"
