@@ -50,7 +50,7 @@ export default defineNuxtConfig({
       ],
     },
   },
-  css: ["./app/assets/css/main.css"],
+  css: ["~/assets/css/main.css"],
   site: {
     url: siteUrl,
     name: "Rasten Remizov",
@@ -65,7 +65,7 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
     optimizeDeps: {
-      include: ["@nuxtjs/mdc", "reka-ui", "clsx", "tailwind-merge"],
+      include: ["reka-ui", "clsx", "tailwind-merge"],
     },
   },
   i18n: {

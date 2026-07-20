@@ -17,7 +17,7 @@ I enjoy building performant, accessible, and beautiful interfaces, exploring new
 
 I write <prose-a href="/posts" target="_self">blog posts</prose-a> about my thoughts on software, life, and basically anything I find interesting.
 
-Outside of programming, I enjoy making [music](https://soundcloud.com/rastuharem), doing photographhy, playing games, watching movies, anime, and some TV series.
+Outside of programming, I enjoy making [music](https://soundcloud.com/rastuharem), doing photography, playing games, watching movies, anime, and some TV series.
 
 I'm currently based at Moscow.
 
