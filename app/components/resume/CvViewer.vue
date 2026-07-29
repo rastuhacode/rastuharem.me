@@ -2,7 +2,7 @@
 const { locale } = useI18n();
 
 const cvContent
-  = locale.value === "en" ? "/Rasten-Remizov-en.pdf" : "/Rasten-Remizov-ru.pdf";
+  = locale.value === "en" ? "/rasten-remizov.pdf" : "/rasten-remizov-ru.pdf";
 
 const cv = ref<string>();
 
