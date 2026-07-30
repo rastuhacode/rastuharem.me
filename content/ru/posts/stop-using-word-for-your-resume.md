@@ -6,6 +6,7 @@ duration: "10 мин"
 toc: true
 tags:
   - dev
+  - CV.html
 ---
 
 # {{ title }}
