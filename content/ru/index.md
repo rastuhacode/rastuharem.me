@@ -7,7 +7,7 @@ description: Растен Ремизов - Вебсайт
 
 Привет! Меня зовут Растен Ремизов, я инженер-программист, в основном занимаюсь веб- и фронтенд-разработкой.
 
-Создатель <cv-html-badge class="ml-1"></cv-html-badge>
+Создатель <soundgrammy-badge class="ml-1"></soundgrammy-badge> <cv-html-badge></cv-html-badge> 
 
 Сейчас работаю в <astra-badge class="ml-1"></astra-badge>
 <br>
@@ -19,7 +19,7 @@ description: Растен Ремизов - Вебсайт
 
 Вне программирования я иногда пишу [музыку](https://soundcloud.com/rastuharem), фотографирую, играю, смотрю фильмы, аниме и некоторые сериалы.
 
-На данный момент нахожусь в Москве.
+На данный момент нахожусь в [Ереване, Армения](https://www.google.com/maps/place/Yerevan,+Armenia/@40.1811111,44.5136111,12z/data=!3m1!4b1!4m6!3m5!1s0x4002f358b12205e3:0x194848468759912a!8m2!3d40.1811111!4d44.5136111!16s%2Fg%2F11c4022wg7?entry=ttu&g_ep=EgoyMDI2MDIyNi4wIKXMDSoASAFQAw%3D%3D).
 
 ---
 

@@ -2,12 +2,14 @@
 const props = defineProps<{
   class?: string;
 }>();
+
+const HREF = "https://cv-html-dev.netlify.app"
 </script>
 
 <template>
   <RBadge
     :class="cn('hover:text-violet-400', props.class)"
-    href="https://cv-html-dev.netlify.app"
+    :href="HREF"
   >
     <Icon
       name="lucide:file-text"

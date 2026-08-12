@@ -8,9 +8,9 @@
     "url": "https://github.com/rastuhacode/rastuharem.me"
   },
   "type": "module",
-  "packageManager": "pnpm@11.18.0",
+  "packageManager": "pnpm@11.21.0",
   "engines": {
-    "node": ">=24.14.1"
+    "node": ">=24"
   },
   "scripts": {
     "build": "nuxt build",
