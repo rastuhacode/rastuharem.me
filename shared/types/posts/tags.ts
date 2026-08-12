@@ -3,7 +3,7 @@ import { z } from "zod";
 /**
  * All tags which can be used in posts
  */
-export const postTagsSchema = z.enum(["life", "dev", "vue"]);
+export const postTagsSchema = z.enum(["life", "dev", "vue", "music", "CV.html"]);
 
 export type PostTags = z.infer<typeof postTagsSchema>;
 
