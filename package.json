@@ -31,6 +31,7 @@
     "class-variance-authority": "catalog:frontend",
     "clsx": "catalog:frontend",
     "motion-v": "catalog:frontend",
+    "pixi.js": "catalog:frontend",
     "reka-ui": "catalog:frontend",
     "tailwind-merge": "catalog:frontend",
     "zod": "catalog:frontend"
@@ -62,6 +63,7 @@
     "tailwindcss": "catalog:build",
     "tsx": "catalog:scripts",
     "tw-animate-css": "catalog:build",
-    "typescript": "catalog:dev"
+    "typescript": "catalog:dev",
+    "vue-tsc": "catalog:dev"
   }
 }

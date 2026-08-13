@@ -3,7 +3,11 @@ const graphics = useGraphicsStore();
 </script>
 
 <template>
-  <RSwitch v-model="graphics">
+  <RSwitch
+    v-model="graphics"
+    :aria-label="$t('background_effects')"
+    :title="$t('background_effects')"
+  >
     <template #thumb="{ modelValue }">
       <Icon
         v-if="modelValue"
