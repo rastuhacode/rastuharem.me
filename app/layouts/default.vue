@@ -4,6 +4,13 @@ const mainRef = useTemplateRef("mainRef");
 const { y: scrollY } = useScroll(mainRef);
 const graphics = useGraphicsStore();
 
+useRuntimeHook("page:finish", () => {
+  mainRef.value?.scrollTo({
+    top: 0,
+    behavior: "instant",
+  });
+});
+
 function toTop() {
   mainRef.value?.scrollTo({
     top: 0,
