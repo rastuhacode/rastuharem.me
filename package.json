@@ -31,6 +31,7 @@
     "class-variance-authority": "catalog:frontend",
     "clsx": "catalog:frontend",
     "motion-v": "catalog:frontend",
+    "pixi.js": "catalog:frontend",
     "reka-ui": "catalog:frontend",
     "tailwind-merge": "catalog:frontend",
     "zod": "catalog:frontend"
@@ -55,6 +56,7 @@
     "nuxt": "catalog:build",
     "nuxt-link-checker": "catalog:build",
     "nuxt-site-config": "catalog:build",
+    "nuxtseo-layer-devtools": "catalog:",
     "pnpm": "catalog:dev",
     "prompts": "catalog:scripts",
     "sharp": "catalog:scripts",
@@ -62,6 +64,7 @@
     "tailwindcss": "catalog:build",
     "tsx": "catalog:scripts",
     "tw-animate-css": "catalog:build",
-    "typescript": "catalog:dev"
+    "typescript": "catalog:dev",
+    "vue-tsc": "catalog:dev"
   }
 }

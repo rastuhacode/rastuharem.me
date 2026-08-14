@@ -3,7 +3,7 @@ const { availableLocales } = useI18n();
 </script>
 
 <template>
-  <header class="flex justify-between items-center p-5">
+  <header class="z-10 flex items-center justify-between px-5 py-5">
     <nav>
       <ul class="flex items-center gap-4">
         <li class="flex items-center">
@@ -20,14 +20,6 @@ const { availableLocales } = useI18n();
             to="/posts"
           >
             {{ $t("blog") }}
-          </NuxtLinkLocale>
-        </li>
-        <li class="flex items-center">
-          <NuxtLinkLocale
-            :aria-label="$t('resume')"
-            to="/resume"
-          >
-            {{ $t("resume") }}
           </NuxtLinkLocale>
         </li>
       </ul>

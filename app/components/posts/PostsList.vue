@@ -9,8 +9,9 @@ const route = useRoute();
 const collection = computed(() =>
   locale.value === "en" ? "content_en" : "content_ru",
 );
+const postsKey = computed(() => `posts-${locale.value}`);
 
-const { data: rawPosts } = await useAsyncData(`posts-${locale.value}`, () => {
+const { data: rawPosts } = await useAsyncData(postsKey, () => {
   return queryCollection(collection.value)
     .where("path", "LIKE", "/posts/%")
     .where("path", "<>", "/posts/index")

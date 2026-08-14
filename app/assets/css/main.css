@@ -66,7 +66,10 @@
   --canvas-particle-g: 100;
   --canvas-particle-b: 100;
 
-  --background: oklch(1 0 0);
+  --flow-canvas-blend: multiply;
+  --flow-canvas-opacity: 0.45;
+
+  --background: oklch(0.975 0.008 85);
   --foreground: oklch(0.4 0.008 260);
   --foreground-bold: oklch(0.37 0.008 260);
   --card: oklch(1 0 0);
@@ -107,7 +110,10 @@
   --canvas-particle-g: 160;
   --canvas-particle-b: 160;
 
-  --background: oklch(0.145 0 0);
+  --flow-canvas-blend: screen;
+  --flow-canvas-opacity: 0.45;
+
+  --background: oklch(0.13 0.012 285);
   --foreground: oklch(0.84 0.008 260);
   --foreground-bold: oklch(0.93 0.008 260);
   --card: oklch(0.205 0 0);
@@ -189,6 +195,14 @@
 
 @utility border-underline {
   @apply no-underline border-b hover:border-foreground transition-colors duration-300;
+}
+
+@layer components {
+  .home-shell {
+    position: relative;
+    width: min(calc(100vw - 2.5rem), 72rem);
+    margin-left: calc((100% - min(calc(100vw - 2.5rem), 72rem)) / 2);
+  }
 }
 
 @keyframes slide-enter {

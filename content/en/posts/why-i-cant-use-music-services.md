@@ -143,4 +143,4 @@ I won't recommend that everyone try it, because I think something like Spotify i
 
 SoundGrammy does not try to replace Spotify or compete with every music service. It solves a narrower problem: turning Telegram’s Saved Music into a practical, local-friendly library with playlists, bulk operations, offline playback, downloads, and listening statistics.
 
-I originally built it for myself, but I am releasing it in case someone else recognizes the same problems. If you want recommendations and an enormous licensed catalog, a conventional streaming service will probably serve you better. If you want more control over the music you have already chosen, SoundGrammy may be worth trying.
+I originally built it for myself, but I am releasing it in case someone else recognizes the same problems. If you want recommendations or doesn't have constant music library, a conventional streaming service will probably serve you better. If you want more control over the music you have already chosen, SoundGrammy may be worth trying.

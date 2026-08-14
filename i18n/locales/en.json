@@ -1,10 +1,82 @@
 {
   "blog": "Blog",
   "home": "Home",
+  "background_effects": "Interactive generative artwork",
   "scroll_to_top": "Scroll to top",
   "download_pdf": "Download PDF",
   "built_with": "Built with",
   "resume": "Resume",
   "image_preview": "Image preview",
-  "no_posts_found": "No posts found"
+  "no_posts_found": "No posts found",
+
+  "homepage": {
+    "hero": {
+      "eyebrow": "Frontend engineer",
+      "name": "Rasten Remizov",
+      "headlinePrefix": "I build",
+      "headlineWords": [
+        "fast, accessible and beautiful interfaces.",
+        "tools that help teams move faster.",
+        "products for complex everyday work."
+      ],
+      "description": "Work where design and engineering meet, turning difficult product problems into clear, polished web experiences. I also build and contribute to open-source tools and write about what I learn along the way.",
+      "contactLabel": "Get in touch",
+      "location": "Yerevan, Armenia",
+      "musicLabel": "music",
+      "personalDescriptionPrefix": "Away from work, I make ",
+      "personalDescriptionSuffix": ", take photographs, play games, and watch films.",
+      "resumeLabel": "Resume"
+    },
+    "experience": {
+      "eyebrow": "01 · Experience",
+      "tabsLabel": "Experience by employer",
+      "productLabel": "Product",
+      "companyWebsiteLabel": "Company website",
+      "title": "Three products, each built around demanding day-to-day work.",
+      "description": "My professional work ranges from creating accessible UI interfaces to designing complex architecture for products where speed, clarity, and reliability directly affect how teams work.",
+      "firstName": "Low-code application builder",
+      "firstDescription": "A visual builder with an AST compiler and parser, runtime renderer, and deployment pipeline — built from scratch for teams without dedicated engineers.",
+      "firstOutcome": "Three non-technical teams shipped seven full-stack applications independently.",
+      "outcomeLabel": "Result",
+      "secondName": "Internal CRM",
+      "secondDescription": "A shared workspace used across four business departments, supported by a reusable frontend platform and company-wide design system.",
+      "secondOutcome": "My design system now serves six teams across eight products.",
+      "thirdName": "Cloud CAD/CAE simulation platform",
+      "thirdDescription": "Complex simulation interfaces for distributed engineering teams, including virtualized data views, schema-driven widgets, and role-based access.",
+      "thirdOutcome": "A new designed API around Playwright let 13 engineers author their own end-to-end tests and automated presentations without depending on the frontend or testing teams."
+    },
+    "selectedWork": {
+      "eyebrow": "02 · Selected work",
+      "title": "Products made to be useful and enjoyable to use.",
+      "description": "My personal projects where I take care of the quality, interface, and engineering details from end to end.",
+      "firstKicker": "Telegram music player",
+      "firstDescription": "A desktop music player based on Telegram API for people who want to own and organize their listening library without depending on a streaming service.",
+      "firstAlt": "SoundGrammy desktop music player interface",
+      "firstTags": ["Desktop", "Music", "Open source"],
+      "secondKicker": "Developer tooling",
+      "secondDescription": "A toolchain for authoring a resume as structured HTML and reliably transforming it into a polished, portable PDF.",
+      "secondAlt": "CV.html resume template preview",
+      "secondTags": ["Web standards", "PDF", "Open source"]
+    },
+    "writing": {
+      "eyebrow": "03 · Blog",
+      "title": "Ideas tested in public.",
+      "description": "Notes about building software, tools, and other thoughts I think worth sharing.",
+      "allLabel": "All posts",
+      "newLabel": "New"
+    },
+    "contact": {
+      "eyebrow": "04 · Contact",
+      "title": "Good products start with a clear conversation.",
+      "description": "Whether you're developing a complex product, web application, exchanging ideas about engineering or just want to talk - feel free to reach out!",
+      "contactMethodsLabel": "Contact me",
+      "findMeLabel": "Find me",
+      "emailLabel": "Email",
+      "telegramLabel": "Telegram",
+      "linkedinLabel": "LinkedIn",
+      "githubLabel": "GitHub",
+      "steamLabel": "Steam",
+      "soundcloudLabel": "SoundCloud"
+    }
+  }
 }

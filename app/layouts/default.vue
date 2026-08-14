@@ -14,16 +14,7 @@ function toTop() {
 
 <template>
   <div class="size-screen flex flex-col">
-    <LayoutGradient grainy />
-
-    <ClientOnly>
-      <Transition
-        name="slide"
-        appear
-      >
-        <ParticlesBg v-if="graphics" />
-      </Transition>
-    </ClientOnly>
+    <FlowArtworkBg :interactive="graphics" />
 
     <main
       ref="mainRef"
@@ -54,12 +45,3 @@ function toTop() {
     </main>
   </div>
 </template>
-
-<style scoped>
-.slide-enter-active {
-  animation: slide-enter 1s both;
-}
-.slide-leave-active {
-  animation: slide-enter 1s reverse both;
-}
-</style>

@@ -13,8 +13,10 @@ const slug = computed(() => {
   return "/" + normalized;
 });
 
+const pageKey = computed(() => `page-${locale.value}-${slug.value}`);
+
 const { data: page, status } = await useAsyncData(
-  `page-${locale.value}-${slug.value}`,
+  pageKey,
   async () => {
     // Build collection name based on current locale
     const collection = ("content_" + locale.value) as keyof Collections;
