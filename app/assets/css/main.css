@@ -197,6 +197,14 @@
   @apply no-underline border-b hover:border-foreground transition-colors duration-300;
 }
 
+@layer components {
+  .home-shell {
+    position: relative;
+    width: min(calc(100vw - 2.5rem), 72rem);
+    margin-left: calc((100% - min(calc(100vw - 2.5rem), 72rem)) / 2);
+  }
+}
+
 @keyframes slide-enter {
   0% {
     opacity: 0;

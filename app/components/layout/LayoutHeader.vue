@@ -1,15 +1,9 @@
 <script setup lang="ts">
-const { availableLocales, locale: currentLocale } = useI18n();
-
-const resumeHref = computed(() =>
-  currentLocale.value === "ru"
-    ? "/rasten-remizov-ru.pdf"
-    : "/rasten-remizov.pdf",
-);
+const { availableLocales } = useI18n();
 </script>
 
 <template>
-  <header class="flex justify-between items-center p-5">
+  <header class="z-10 flex items-center justify-between px-5 py-5">
     <nav>
       <ul class="flex items-center gap-4">
         <li class="flex items-center">
@@ -27,16 +21,6 @@ const resumeHref = computed(() =>
           >
             {{ $t("blog") }}
           </NuxtLinkLocale>
-        </li>
-        <li class="flex items-center">
-          <a
-            :aria-label="$t('resume')"
-            :href="resumeHref"
-            target="_blank"
-            rel="noopener"
-          >
-            {{ $t("resume") }}
-          </a>
         </li>
       </ul>
     </nav>

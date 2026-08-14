@@ -76,6 +76,7 @@ export default defineNuxtConfig({
     ],
     strategy: "prefix_except_default",
     defaultLocale: "en",
+    skipSettingLocaleOnNavigate: true,
   },
   sitemap: { zeroRuntime: true },
 });

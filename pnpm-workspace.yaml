@@ -7,6 +7,9 @@ allowBuilds:
   unrs-resolver: true
   vue-demi: true
 
+catalog:
+  nuxtseo-layer-devtools: ^5.3.12
+
 catalogMode: prefer
 
 catalogs:

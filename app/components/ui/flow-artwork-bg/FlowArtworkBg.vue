@@ -1,4 +1,6 @@
 <script setup lang="ts">
+// Thanks to https://www.tylerxhobbs.com/words/flow-fields for idea
+
 import type { Application, Graphics } from "pixi.js";
 
 interface Point {

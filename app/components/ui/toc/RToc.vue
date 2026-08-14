@@ -45,7 +45,7 @@ const flat = computed(() => flatLinks(props.links));
 <template>
   <nav
     v-if="links.length"
-    class="table-of-contents fixed left-5 top-20 z-50 flex flex-col items-start group/toc"
+    class="table-of-contents fixed left-5 top-20 z-50 flex flex-col w-fit max-w-50 items-start group/toc"
     @mouseenter="onEnter"
     @mouseleave="onLeave"
   >
