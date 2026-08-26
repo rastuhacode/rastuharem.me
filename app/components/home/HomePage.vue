@@ -1,7 +1,7 @@
 <template>
   <HomeHero />
   <HomeExperience />
-  <HomeSelectedWork />
   <HomeWriting />
+  <HomeSelectedWork />
   <HomeContact />
 </template>

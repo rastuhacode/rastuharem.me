@@ -45,8 +45,15 @@
       "thirdDescription": "Complex simulation interfaces for distributed engineering teams, including virtualized data views, schema-driven widgets, and role-based access.",
       "thirdOutcome": "A new designed API around Playwright let 13 engineers author their own end-to-end tests and automated presentations without depending on the frontend or testing teams."
     },
+    "writing": {
+      "eyebrow": "02 · Blog",
+      "title": "Ideas tested in public.",
+      "description": "Notes about building software, tools, and other thoughts I think worth sharing.",
+      "allLabel": "All posts",
+      "newLabel": "New"
+    },
     "selectedWork": {
-      "eyebrow": "02 · Selected work",
+      "eyebrow": "03 · Selected work",
       "title": "Products made to be useful and enjoyable to use.",
       "description": "My personal projects where I take care of the quality, interface, and engineering details from end to end.",
       "firstKicker": "Telegram music player",
@@ -57,13 +64,6 @@
       "secondDescription": "A toolchain for authoring a resume as structured HTML and reliably transforming it into a polished, portable PDF.",
       "secondAlt": "CV.html resume template preview",
       "secondTags": ["Web standards", "PDF", "Open source"]
-    },
-    "writing": {
-      "eyebrow": "03 · Blog",
-      "title": "Ideas tested in public.",
-      "description": "Notes about building software, tools, and other thoughts I think worth sharing.",
-      "allLabel": "All posts",
-      "newLabel": "New"
     },
     "contact": {
       "eyebrow": "04 · Contact",

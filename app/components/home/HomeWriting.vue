@@ -45,6 +45,10 @@ function isNewPost(date: string) {
     aria-labelledby="blog-title"
   >
     <div class="flex justify-between gap-5 lg:gap-16">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+        {{ $t("homepage.writing.eyebrow") }}
+      </p>
+
       <div class="grow max-w-2xl">
         <h2
           id="blog-title"
@@ -56,10 +60,6 @@ function isNewPost(date: string) {
           {{ $t("homepage.writing.description") }}
         </p>
       </div>
-
-      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-        {{ $t("homepage.writing.eyebrow") }}
-      </p>
     </div>
 
     <div class="mt-12 grid gap-3 lg:grid-cols-3">

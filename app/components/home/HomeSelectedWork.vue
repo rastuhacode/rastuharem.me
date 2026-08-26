@@ -50,10 +50,6 @@ const projects = computed<Project[]>(() => [
     aria-labelledby="work-title"
   >
     <div class="flex justify-between gap-5 lg:gap-16">
-      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-        {{ $t("homepage.selectedWork.eyebrow") }}
-      </p>
-
       <div class="grow max-w-2xl">
         <h2
           id="work-title"
@@ -65,6 +61,10 @@ const projects = computed<Project[]>(() => [
           {{ $t("homepage.selectedWork.description") }}
         </p>
       </div>
+
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+        {{ $t("homepage.selectedWork.eyebrow") }}
+      </p>
     </div>
 
     <div class="mt-12 grid gap-5 lg:grid-cols-2">
