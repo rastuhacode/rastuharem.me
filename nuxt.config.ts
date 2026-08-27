@@ -65,7 +65,7 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
     optimizeDeps: {
-      include: ["reka-ui", "clsx", "tailwind-merge", "pixi.js"],
+      include: ["reka-ui", "clsx", "tailwind-merge", "pixi.js", "motion-v", "zod"],
     },
   },
   i18n: {
