@@ -8,7 +8,7 @@
     "url": "https://github.com/rastuhacode/rastuharem.me"
   },
   "type": "module",
-  "packageManager": "pnpm@11.24.0",
+  "packageManager": "pnpm@12.6.0",
   "engines": {
     "node": ">=24"
   },
@@ -56,7 +56,7 @@
     "nuxt": "catalog:build",
     "nuxt-link-checker": "catalog:build",
     "nuxt-site-config": "catalog:build",
-    "nuxtseo-layer-devtools": "catalog:",
+    "nuxtseo-layer-devtools": "catalog:build",
     "pnpm": "catalog:dev",
     "prompts": "catalog:scripts",
     "sharp": "catalog:scripts",
