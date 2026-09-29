@@ -1,6 +1,6 @@
 ---
 title: Rasten Remizov
-description: Software engineer building fast, accessible, and thoughtfully crafted web interfaces.
+description: Rasten Remizov builds digital experiences, takes photographs, and shares ideas.
 ---
 
 <home-page></home-page>

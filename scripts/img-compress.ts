@@ -17,7 +17,7 @@ export async function compressSharp(
   if (format !== "jpeg" && format !== "png" && format !== "webp")
     throw new Error(`Unsupported format ${format} of ${inFile}`);
 
-  // Bake EXIF orientation into pixel data so we can safely strip all metadata below
+  // Bake EXIF orientation into the pixels before stripping metadata.
   image = image.rotate();
 
   if (width > maxSize || height > maxSize) image = image.resize(maxSize);
@@ -44,25 +44,27 @@ export async function compressSharp(
 }
 
 export async function compressImages(files: string[]) {
-  await Promise.all(
-    files.map(async (file) => {
-      const buffer = await fs.readFile(file);
-      const image = sharp(buffer);
-      const { percent, size, outSize, inFile, outFile, outBuffer }
-        = await compressSharp(image, buffer, file, file);
-      if (percent > -0.1) {
-        console.log(
-          c.dim`[SKIP] ${bytesToHuman(size)} -> ${bytesToHuman(outSize)} ${(percent * 100).toFixed(1).padStart(5, " ")}%  ${inFile}`,
-        );
-      }
-      else {
-        await fs.writeFile(outFile, outBuffer);
-        console.log(
-          `[COMP] ${bytesToHuman(size)} -> ${bytesToHuman(outSize)} ${c.green`${(percent * 100).toFixed(1).padStart(5, " ")}%`}  ${inFile}`,
-        );
-      }
-    }),
-  );
+  // Process large photos one at a time to avoid decoding the whole batch in memory.
+  const compressedFiles: string[] = [];
+  for (const file of files) {
+    const buffer = await fs.readFile(file);
+    const image = sharp(buffer);
+    const { percent, size, outSize, inFile, outFile, outBuffer }
+      = await compressSharp(image, buffer, file, file);
+    if (percent > -0.1) {
+      console.log(
+        c.dim`[SKIP] ${bytesToHuman(size)} -> ${bytesToHuman(outSize)} ${(percent * 100).toFixed(1).padStart(5, " ")}%  ${inFile}`,
+      );
+    }
+    else {
+      await fs.writeFile(outFile, outBuffer);
+      compressedFiles.push(outFile);
+      console.log(
+        `[COMP] ${bytesToHuman(size)} -> ${bytesToHuman(outSize)} ${c.green`${(percent * 100).toFixed(1).padStart(5, " ")}%`}  ${inFile}`,
+      );
+    }
+  }
+  return compressedFiles;
 }
 
 function bytesToHuman(size: number) {

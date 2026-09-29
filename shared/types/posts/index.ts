@@ -14,7 +14,4 @@ export const postMetaSchema = z.object({
   tags: z.array(postTagsSchema).optional(),
 });
 
-export type PostMeta = z.infer<typeof postMetaSchema>;
-
-export { postTagsSchema, postDateSchema };
 export type { PostTags } from "./tags";

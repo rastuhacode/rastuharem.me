@@ -8,14 +8,14 @@
     "url": "https://github.com/rastuhacode/rastuharem.me"
   },
   "type": "module",
-  "packageManager": "pnpm@11.21.0",
+  "packageManager": "pnpm@12.6.0",
   "engines": {
     "node": ">=24"
   },
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev --port 3001",
-    "generate": "nuxt generate",
+    "build": "tsx scripts/photos-index.ts && nuxt build",
+    "dev": "tsx scripts/photos-index.ts && nuxt dev --port 3001",
+    "generate": "tsx scripts/photos-index.ts && nuxt generate",
     "preview": "nuxt preview",
     "preview:ssg": "pnpm dlx serve .output/public",
     "dev:ssg": "pnpm generate && pnpm preview:ssg",
@@ -23,7 +23,9 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "nuxt typecheck",
-    "compress": "tsx scripts/img-compress-staged.ts"
+    "compress": "tsx scripts/img-compress-staged.ts",
+    "photos": "tsx scripts/photos-manage.ts",
+    "photos:index": "tsx scripts/photos-index.ts"
   },
   "dependencies": {
     "@vueuse/core": "catalog:frontend",
@@ -56,7 +58,7 @@
     "nuxt": "catalog:build",
     "nuxt-link-checker": "catalog:build",
     "nuxt-site-config": "catalog:build",
-    "nuxtseo-layer-devtools": "catalog:",
+    "nuxtseo-layer-devtools": "catalog:build",
     "pnpm": "catalog:dev",
     "prompts": "catalog:scripts",
     "sharp": "catalog:scripts",

@@ -189,20 +189,22 @@
   font-family: var(--font-manrope);
 }
 
+@utility site-container {
+  width: min(calc(100% - 2.5rem), clamp(80rem, 75vw, 180rem));
+}
+
+@media (min-width: 1920px) {
+  html {
+    font-size: clamp(16px, 0.75vw, 24px);
+  }
+}
+
 @utility scrollbar-hide {
   scrollbar-color: transparent transparent;
 }
 
 @utility border-underline {
   @apply no-underline border-b hover:border-foreground transition-colors duration-300;
-}
-
-@layer components {
-  .home-shell {
-    position: relative;
-    width: min(calc(100vw - 2.5rem), 72rem);
-    margin-left: calc((100% - min(calc(100vw - 2.5rem), 72rem)) / 2);
-  }
 }
 
 @keyframes slide-enter {
@@ -213,6 +215,18 @@
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .typing-cursor {
+    animation: cursor-blink 1s steps(1, end) infinite;
   }
 }
 

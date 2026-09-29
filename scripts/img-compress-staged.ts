@@ -2,6 +2,7 @@ import prompts from "prompts";
 import Git from "simple-git";
 import { compressImages } from "./img-compress";
 
+// Photos go through `pnpm photos`, which also writes their metadata sidecars.
 const IMAGES_DIRS = ["public/images/"] as const;
 
 const git = Git();
@@ -31,4 +32,5 @@ const { confirm } = await prompts({
 
 if (!confirm) process.exit(0);
 
-await compressImages(images);
+const compressedFiles = await compressImages(images);
+if (compressedFiles.length) await git.add(compressedFiles);
