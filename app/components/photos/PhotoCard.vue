@@ -33,7 +33,7 @@ const label = computed(() => t("homepage.photography.openPhoto", { number: props
       decoding="async"
       class="block w-full"
     >
-    <span class="flex h-[35px] items-center justify-between border-t-[3px] border-foreground-bold px-3 text-[0.65rem] font-black uppercase tracking-[0.16em] text-foreground-bold sm:px-4">
+    <span class="flex h-8.75 items-center justify-between border-t-[3px] border-foreground-bold px-3 text-[0.65rem] font-black uppercase tracking-[0.16em] text-foreground-bold sm:px-4">
       <span>{{ t("homepage.photography.frame") }} / {{ String(index + 1).padStart(2, "0") }}</span>
       <Icon name="lucide:expand" class="size-4 transition-transform group-hover:scale-125" aria-hidden="true" />
     </span>
