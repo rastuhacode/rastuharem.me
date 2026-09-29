@@ -1,11 +1,28 @@
 import tailwindcss from "@tailwindcss/vite";
+import { existsSync, readFileSync } from "node:fs";
+import { resolve } from "node:path";
 import { defineNuxtConfig } from "nuxt/config";
 
 // TODO: make fully external via environment variables
 // For now it's enough as we have only one host instance
 const siteUrl = "https://rastuharem.netlify.app";
+const photoManifestPath = resolve("public/photo-index/manifest.json");
+const photoManifest = existsSync(photoManifestPath)
+  ? JSON.parse(readFileSync(photoManifestPath, "utf8")) as { pages: number }
+  : { pages: 0 };
+const photoIndexRoutes = ["/api/photo-index/manifest.json", ...Array.from(
+  { length: Math.max(photoManifest.pages, 1) },
+  (_, index) => `/api/photo-index/page-${String(index + 1).padStart(4, "0")}.json`,
+)];
 
 export default defineNuxtConfig({
+
+  runtimeConfig: {
+    lastfmApiKey: process.env.NUXT_LASTFM_API_KEY || "",
+    lastfmUsername: process.env.NUXT_LASTFM_USERNAME || "",
+    steamApiKey: process.env.NUXT_STEAM_API_KEY || "",
+    steamId: process.env.NUXT_STEAM_ID || "",
+  },
 
   modules: [
     "@nuxtjs/robots",
@@ -79,4 +96,5 @@ export default defineNuxtConfig({
     skipSettingLocaleOnNavigate: true,
   },
   sitemap: { zeroRuntime: true },
+  nitro: { prerender: { routes: photoIndexRoutes } },
 });

@@ -15,6 +15,12 @@ const { availableLocales } = useI18n();
           </NuxtLinkLocale>
         </li>
         <li class="flex items-center">
+          <NuxtLinkLocale to="/photos" :aria-label="$t('homepage.photography.title')" class="inline-flex items-center">
+            <Icon name="lucide:camera" class="size-5 sm:hidden" aria-hidden="true" />
+            <span class="hidden sm:inline">{{ $t("homepage.photography.title") }}</span>
+          </NuxtLinkLocale>
+        </li>
+        <li class="flex items-center">
           <NuxtLinkLocale
             :aria-label="$t('blog')"
             to="/posts"

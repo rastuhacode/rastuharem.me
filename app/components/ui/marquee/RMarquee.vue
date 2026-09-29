@@ -37,7 +37,7 @@ export interface MarqueeProps {
 }
 
 export interface MarqueeSlots {
-  default?(props?: Record<string, unknown>): VNode[];
+  default?(props: { isDuplicate: boolean }): VNode[];
 }
 </script>
 
@@ -62,6 +62,7 @@ const overlayClass
   <Primitive
     :as="as"
     :data-orientation="orientation"
+    data-marquee
     data-slot="root"
     :class="
       cn(
@@ -84,22 +85,29 @@ const overlayClass
       v-for="i in repeat"
       :key="i"
       data-slot="content"
+      :aria-hidden="i > 1 ? 'true' : undefined"
       :class="
         cn(
           'flex items-center shrink-0 justify-around gap-(--gap) min-w-max',
-          pauseOnHover ? 'group-hover/marquee:paused' : '',
+          pauseOnHover ? 'group-hover/marquee:paused group-focus-within/marquee:paused' : '',
           orientation === 'horizontal'
             ? 'flex-row animate-[marquee_var(--duration)_linear_infinite] rtl:animate-[marquee-rtl_var(--duration)_linear_infinite] backface-hidden'
             : 'flex-col animate-[marquee-vertical_var(--duration)_linear_infinite] rtl:animate-[marquee-vertical-rtl_var(--duration)_linear_infinite] h-fit backface-hidden',
         )
       "
     >
-      <slot />
+      <slot :is-duplicate="i > 1" />
     </div>
   </Primitive>
 </template>
 
 <style>
+@media (prefers-reduced-motion: reduce) {
+  [data-marquee] > [data-slot="content"] {
+    animation: none !important;
+  }
+}
+
 @keyframes marquee {
   from {
     transform: translate3d(0, 0, 0);
