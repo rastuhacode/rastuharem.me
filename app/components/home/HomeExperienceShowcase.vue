@@ -56,7 +56,7 @@ function splitKeywords(text: string, keywords: string) {
               <span class="block text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white/55">
                 {{ $t("homepage.experience.eyebrow") }} / 01
               </span>
-              <RUnderlineText as="a" href="https://astra.ru/software-services/astra-consulting" target="_blank" rel="noopener noreferrer" class="block text-2xl md:text-5xl font-bold tracking-tight uppercase focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+              <RUnderlineText as="a" href="https://astra.ru/software-services/astra-consulting" target="_blank" rel="noopener noreferrer" class="block text-2xl md:text-5xl font-bold tracking-tight uppercase focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
                 Astra Linux
               </RUnderlineText>
             </span>
@@ -137,7 +137,7 @@ function splitKeywords(text: string, keywords: string) {
               <span class="block text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white/60">
                 {{ $t("homepage.experience.eyebrow") }} / 02
               </span>
-              <RUnderlineText as="a" href="https://www.huawei.com/en" target="_blank" rel="noopener noreferrer" class="block text-2xl md:text-5xl font-bold tracking-tight uppercase focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+              <RUnderlineText as="a" href="https://www.huawei.com/en" target="_blank" rel="noopener noreferrer" class="block text-2xl md:text-5xl font-bold tracking-tight uppercase focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
                 Huawei
               </RUnderlineText>
             </span>

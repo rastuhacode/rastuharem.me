@@ -33,7 +33,7 @@ const view = computed(() => views[props.focus]);
 
 <template>
   <section class="relative border-b-[3px] border-foreground-bold pb-10 text-foreground-bold sm:pb-14" :aria-labelledby="`${focus}-view-title`">
-    <span class="absolute -left-0 top-0 h-full w-1.5" :class="view.accent" aria-hidden="true" />
+    <span class="absolute left-0 top-0 h-full w-1.5" :class="view.accent" aria-hidden="true" />
     <div class="pl-5 sm:pl-9">
       <p class="text-xs font-black uppercase tracking-[0.24em] text-muted-foreground">
         {{ $t(view.kicker) }}
