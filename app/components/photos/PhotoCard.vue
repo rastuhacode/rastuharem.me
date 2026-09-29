@@ -19,7 +19,7 @@ const label = computed(() => t("homepage.photography.openPhoto", { number: props
     type="button"
     :data-photo-index="index"
     :tabindex="tabStop ? 0 : -1"
-    class="group block w-full cursor-zoom-in border-[3px] border-foreground-bold bg-background p-0 text-left shadow-[6px_6px_0_var(--color-foreground-bold)] transition-transform duration-200 hover:-translate-y-1 hover:shadow-[8px_8px_0_var(--color-foreground-bold)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground-bold"
+    class="group block w-full border-[3px] border-foreground-bold bg-background p-0 text-left shadow-[6px_6px_0_var(--color-foreground-bold)] transition-transform duration-200 hover:-translate-y-1 hover:shadow-[8px_8px_0_var(--color-foreground-bold)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground-bold"
     :aria-label="label"
     @click="emit('select', index)"
   >
