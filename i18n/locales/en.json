@@ -52,6 +52,7 @@
     "writing": {
       "title": "Writing",
       "description": "Notes on software and the things I learn along the way.",
+      "recentTitle": "Recent posts",
       "allLabel": "Read the blog"
     },
     "selectedWork": {
@@ -122,8 +123,11 @@
       "viewDescription": "Music, writing, and other curiosities",
       "intro": "Music, writing, and the interests I keep coming back to.",
       "music": "Music & sound",
-      "musicDescription": "I like making and listening to music. You can check out both.",
-      "listenAction": "Listen on SoundCloud"
+      "musicDescription": "Music I make and music I keep returning to.",
+      "make": "Make",
+      "makeDescription": "Tracks and experiments I put out into the world.",
+      "listen": "Listen",
+      "listenDescription": "A record of what has been in my headphones."
     }
   }
 }

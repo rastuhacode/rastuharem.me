@@ -22,6 +22,7 @@ const contact = computed(() => {
       links: [
         email("Photography"),
         { label: "Telegram", icon: "simple-icons:telegram", href: "https://t.me/rastuharem" },
+        { label: "Instagram", icon: "simple-icons:instagram", href: "https://www.instagram.com/rastuharem/" },
       ],
     };
   }
@@ -36,6 +37,7 @@ const contact = computed(() => {
       links: [
         email("Music and writing"),
         { label: "SoundCloud", icon: "simple-icons:soundcloud", href: "https://soundcloud.com/rastuharem" },
+        { label: "Instagram", icon: "simple-icons:instagram", href: "https://www.instagram.com/rastuharem/" },
         { label: "Steam", icon: "simple-icons:steam", href: "https://steamcommunity.com/id/rastuharem" },
         { label: "Telegram", icon: "simple-icons:telegram", href: "https://t.me/rastuharem" },
       ],
@@ -69,8 +71,8 @@ const contact = computed(() => {
           {{ contact.title }}
         </h2>
       </div>
-      <nav class="grid gap-3 sm:grid-cols-2" :aria-label="$t('homepage.contact.linksLabel')">
-        <a v-for="link in contact.links" :key="link.href" :href="link.href" :target="link.href.startsWith('mailto:') ? undefined : '_blank'" :rel="link.href.startsWith('mailto:') ? undefined : 'noopener'" class="group flex min-h-24 flex-col justify-between border-2 border-foreground-bold bg-background/80 p-4 text-base font-bold text-foreground-bold no-underline shadow-[4px_4px_0_var(--color-foreground-bold)] transition-[transform,background-color,color] hover:text-[#171717] focus-visible:text-[#171717] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground-bold" :class="contact.hoverAccent">
+      <nav class="flex flex-wrap gap-3" :aria-label="$t('homepage.contact.linksLabel')">
+        <a v-for="link in contact.links" :key="link.href" :href="link.href" :target="link.href.startsWith('mailto:') ? undefined : '_blank'" :rel="link.href.startsWith('mailto:') ? undefined : 'noopener'" class="group flex min-h-24 min-w-0 basis-full grow flex-col justify-between border-2 border-foreground-bold bg-background/80 p-4 text-base font-bold text-foreground-bold no-underline shadow-[4px_4px_0_var(--color-foreground-bold)] transition-[transform,background-color,color] hover:text-[#171717] focus-visible:text-[#171717] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground-bold sm:basis-[calc(50%_-_0.375rem)]" :class="contact.hoverAccent">
           <span class="flex items-start justify-between gap-3">
             <Icon :name="link.icon" class="size-6" aria-hidden="true" />
             <Icon name="lucide:arrow-up-right" class="size-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />

@@ -12,7 +12,7 @@ const views = computed(() => [
 </script>
 
 <template>
-  <section id="choose-path" class="site-container mx-auto mt-12 scroll-mt-6 sm:mt-16" :aria-label="$t('homepage.views.choose')">
+  <section id="choose-path" class="site-container mx-auto mt-12 scroll-mt-6 sm:mt-16 uppercase" :aria-label="$t('homepage.views.choose')">
     <div class="mb-7 flex flex-wrap items-end justify-between gap-3">
       <h2 class="mt-2 text-2xl font-semibold tracking-[-0.04em] text-foreground-bold sm:text-3xl">
           {{ $t("homepage.views.choose") }}
