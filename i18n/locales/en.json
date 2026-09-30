@@ -76,12 +76,9 @@
       "otherEyebrow": "Other / Get in touch",
       "otherTitle": "Let's talk about anything"
     },
-    "activity": {
+    "location": {
       "basedIn": "Currently based in",
-      "label": "Current activity",
-      "listening": "Currently listening to",
-      "playing": "Currently playing",
-      "location": "Yerevan, Armenia"
+      "name": "Yerevan, Armenia"
     },
     "views": {
       "choose": "Choose a segment",

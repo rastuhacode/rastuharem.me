@@ -19,7 +19,16 @@ const focus = computed<Focus>({
 
 <template>
   <div class="not-prose w-full overflow-x-clip pb-10">
-    <div class="site-container mx-auto pt-3 sm:pt-5"><HomeActivity /></div>
+    <div class="site-container mx-auto pt-3 sm:pt-5">
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Yerevan%2C%20Armenia" target="_blank" rel="noopener noreferrer" class="group inline-flex h-14 min-w-0 max-w-full items-center gap-2 border-2 border-foreground-bold bg-background/80 px-3 py-2 text-xs text-foreground-bold no-underline shadow-[4px_4px_0_var(--color-foreground-bold)] backdrop-blur-lg transition-transform hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground sm:gap-3">
+        <Icon name="lucide:map-pin" class="size-5 shrink-0 text-[#ef7659]" aria-hidden="true" />
+        <span class="min-w-0 leading-tight">
+          <span class="block text-[0.65rem] font-bold uppercase tracking-widest text-muted-foreground">{{ $t("homepage.location.basedIn") }}</span>
+          <span class="block font-semibold">{{ $t("homepage.location.name") }}</span>
+        </span>
+        <Icon name="lucide:arrow-up-right" class="size-4 shrink-0 opacity-60 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
+      </a>
+    </div>
 
     <header class="site-container relative mx-auto mt-10 grid gap-8 border-l-[5px] border-foreground-bold pl-5 text-foreground-bold sm:pl-9 lg:grid-cols-[1.3fr_0.7fr] lg:items-end">
       <div class="min-w-0">

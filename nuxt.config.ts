@@ -17,13 +17,6 @@ const photoIndexRoutes = ["/api/photo-index/manifest.json", ...Array.from(
 
 export default defineNuxtConfig({
 
-  runtimeConfig: {
-    lastfmApiKey: process.env.NUXT_LASTFM_API_KEY || "",
-    lastfmUsername: process.env.NUXT_LASTFM_USERNAME || "",
-    steamApiKey: process.env.NUXT_STEAM_API_KEY || "",
-    steamId: process.env.NUXT_STEAM_ID || "",
-  },
-
   modules: [
     "@nuxtjs/robots",
     "@nuxtjs/sitemap",
