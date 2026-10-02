@@ -17,6 +17,6 @@ useSeoMeta({ title: () => t("homepage.photography.title") + " · Rasten Remizov"
         </div>
       </div>
     </header>
-    <PhotosGallery />
+    <PhotosGallery type="collection" />
   </div>
 </template>

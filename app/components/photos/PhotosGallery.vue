@@ -2,8 +2,10 @@
 import type { PhotoIndexManifest, PortfolioPhoto } from "../../../shared/types/photo";
 import { layoutPhotos, visiblePhotoTiles } from "~~/shared/utils/photoLayout";
 
-const props = defineProps<{ preview?: boolean }>();
-const { t, locale } = useI18n();
+const props = withDefaults(defineProps<{ preview?: boolean; type?: "solo" | "collection" }>(), {
+  type: "collection",
+});
+const { t } = useI18n();
 const { data: manifest, error: manifestError } = await useFetch<PhotoIndexManifest>("/api/photo-index/manifest.json", {
   default: () => ({ count: 0, pageSize: 60, pages: 0 }),
 });
@@ -20,7 +22,7 @@ function pageUrl(page: number) {
 }
 
 async function loadMore() {
-  if (props.preview || loadingMore.value || currentPage.value >= manifest.value.pages) return;
+  if (loadingMore.value || currentPage.value >= manifest.value.pages) return;
   loadingMore.value = true;
   moreError.value = false;
   try {
@@ -165,42 +167,26 @@ function handleGalleryFocus(event: FocusEvent) {
 }
 
 const activeIndex = ref<number | null>(null);
-const dialogRef = useTemplateRef<HTMLDialogElement>("photoDialog");
 const activePhoto = computed(() => activeIndex.value === null ? null : photos.value[activeIndex.value]);
-const photoDetails = computed(() => {
-  const photo = activePhoto.value;
-  if (!photo) return [];
-  const date = new Intl.DateTimeFormat(locale.value, { year: "numeric", month: "short", day: "numeric" })
-    .format(new Date(`${photo.takenAt.slice(0, 10)}T00:00:00`));
-  return [
-    { label: t("homepage.photography.file"), value: photo.fileName },
-    { label: t("homepage.photography.dateTaken"), value: date },
-    { label: t("homepage.photography.camera"), value: photo.camera },
-    { label: t("homepage.photography.lens"), value: photo.lens },
-    { label: t("homepage.photography.focalLength"), value: photo.focalLength },
-    { label: t("homepage.photography.shutter"), value: photo.shutter },
-    { label: t("homepage.photography.aperture"), value: photo.aperture },
-    { label: "ISO", value: photo.iso?.toString() },
-    { label: t("homepage.photography.resolution"), value: `${photo.width} × ${photo.height}` },
-  ].filter(detail => detail.value);
-});
-
-function photoLabel(index: number) {
-  return t("homepage.photography.photoLabel", { number: index + 1, total: manifest.value.count });
-}
 
 function closePhoto() {
   activeIndex.value = null;
 }
 
-watch(activeIndex, async (index) => {
-  if (index === null) {
-    dialogRef.value?.close();
-    return;
+async function navigatePhoto(direction: -1 | 1) {
+  if (props.type !== "collection" || activeIndex.value === null) return;
+  const index = activeIndex.value;
+  const nextIndex = index + direction;
+  if (nextIndex < 0 || nextIndex >= manifest.value.count) return;
+
+  while (nextIndex >= photos.value.length && currentPage.value < manifest.value.pages) {
+    if (loadingMore.value) await until(loadingMore).toBe(false);
+    else await loadMore();
+    if (moreError.value || activeIndex.value !== index) return;
   }
-  await nextTick();
-  if (!dialogRef.value?.open) dialogRef.value?.showModal();
-});
+
+  if (photos.value[nextIndex] && activeIndex.value === index) activeIndex.value = nextIndex;
+}
 </script>
 
 <template>
@@ -244,36 +230,5 @@ watch(activeIndex, async (index) => {
     <p v-if="moreError" class="mt-4 font-semibold text-foreground-bold">{{ $t("homepage.photography.loadError") }}</p>
   </template>
 
-  <Teleport to="body">
-    <dialog
-      ref="photoDialog"
-      class="fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none flex-col border-0 bg-[#111] p-0 text-white open:flex"
-      :aria-label="$t('homepage.photography.previewLabel')"
-      @click="closePhoto"
-      @close="closePhoto"
-    >
-      <template v-if="activePhoto">
-        <div class="relative min-h-0 flex-1">
-          <img :src="activePhoto.src" :alt="photoLabel(activeIndex!)" class="absolute inset-0 h-full w-full object-contain">
-        </div>
-        <div class="shrink-0 border-t-2 border-white/50 bg-[#111] px-5 py-4 sm:px-8 sm:py-5">
-          <div class="mb-4 text-xs font-black uppercase tracking-[0.2em]">{{ String(activeIndex! + 1).padStart(2, "0") }} / {{ manifest.count }}</div>
-          <dl class="flex flex-wrap gap-x-7 gap-y-3">
-            <div v-for="detail in photoDetails" :key="detail.label" class="min-w-fit">
-              <dt class="text-[0.6rem] font-black uppercase tracking-[0.18em] text-white/55">{{ detail.label }}</dt>
-              <dd class="mt-1 text-xs font-semibold sm:text-sm">{{ detail.value }}</dd>
-            </div>
-          </dl>
-        </div>
-        <button
-          type="button"
-          class="absolute right-5 top-5 flex size-12 cursor-pointer items-center justify-center border-2 border-white bg-[#111] text-white transition-colors hover:bg-white hover:text-[#111] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:right-8 sm:top-8"
-          :aria-label="$t('homepage.photography.closePhoto')"
-          @click.stop="closePhoto"
-        >
-          <Icon name="lucide:x" class="size-6" aria-hidden="true" />
-        </button>
-      </template>
-    </dialog>
-  </Teleport>
+  <PhotoViewer :photo="activePhoto" :type="type" :index="activeIndex ?? 0" :total="manifest.count" @close="closePhoto" @navigate="navigatePhoto" />
 </template>

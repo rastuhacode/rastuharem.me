@@ -18,7 +18,7 @@ const emit = defineEmits<{ select: [index: number] }>();
       :key="image.src"
       type="button"
       :class="index >= 2 ? 'hidden sm:flex' : 'flex'"
-      class="group relative h-full min-w-0 flex-1 cursor-zoom-in overflow-hidden border-[3px] border-foreground-bold bg-background p-0 shadow-[5px_5px_0_var(--color-foreground-bold)] transition-[flex-grow] duration-500 ease-in-out hover:flex-3 focus-visible:flex-3 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground-bold"
+      class="group relative h-full min-w-0 flex-1 overflow-hidden border-[3px] border-foreground-bold bg-background p-0 shadow-[5px_5px_0_var(--color-foreground-bold)] transition-[flex-grow] duration-500 ease-in-out hover:flex-3 focus-visible:flex-3 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground-bold"
       :aria-label="image.alt"
       @click="emit('select', index)"
     >

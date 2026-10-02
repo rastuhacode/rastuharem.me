@@ -19,7 +19,7 @@ defineProps<{ focus: Focus }>();
         <p class="text-xs font-black uppercase tracking-[0.22em] text-muted-foreground">{{ $t("homepage.photography.kicker") }}</p>
         <h3 id="photography-heading" class="mt-3 text-3xl font-black uppercase tracking-[-0.055em] text-foreground-bold sm:text-5xl">{{ $t("homepage.photography.heading") }}</h3>
       </div>
-      <PhotosGallery preview />
+      <PhotosGallery preview type="solo" />
     </section>
 
     <HomeOtherShowcase v-if="focus === 'other'" />
