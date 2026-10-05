@@ -76,12 +76,9 @@
       "otherEyebrow": "Other / Get in touch",
       "otherTitle": "Let's talk about anything"
     },
-    "activity": {
+    "location": {
       "basedIn": "Currently based in",
-      "label": "Current activity",
-      "listening": "Currently listening to",
-      "playing": "Currently playing",
-      "location": "Yerevan, Armenia"
+      "name": "Yerevan, Armenia"
     },
     "views": {
       "choose": "Choose a segment",
@@ -102,13 +99,15 @@
       "galleryLabel": "Photography portfolio",
       "frame": "Frame",
       "photoLabel": "Photograph {number} of {total}",
+      "photograph": "Photograph",
       "openPhoto": "Open photograph {number}",
       "previewLabel": "Full screen photograph. Click to close.",
       "closePhoto": "Close photograph",
       "loadError": "The photo collection could not be loaded.",
       "loadMore": "Load more photos",
       "loadingMore": "Loading photos…",
-      "file": "File",
+      "showDetails": "Show details",
+      "hideDetails": "Hide details",
       "dateTaken": "Taken",
       "camera": "Camera",
       "lens": "Lens",

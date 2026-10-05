@@ -22,14 +22,14 @@ const views = computed(() => [
 
     <!-- Brutalism: outlined posters, with color used only as a printed mark. -->
     <div class="flex gap-4 items-center flex-wrap">
-      <button v-for="(view, index) in views" :key="view.id" :aria-pressed="props.focus === view.id" class="group relative flex min-h-60 flex-col grow shrink-0 justify-between border-2 bg-background/30 p-6 text-left text-foreground-bold backdrop-blur-[2px] transition-all duration-300 hover:border-foreground hover:bg-background/50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground md:min-h-72" :class="focus === view.id ? 'border-foreground-bold shadow-[7px_7px_0_var(--color-foreground-bold)]' : 'border-foreground/50'" @click="emit('update:focus', view.id)">
+      <button v-for="(view, index) in views" :key="view.id" :aria-pressed="props.focus === view.id" class="group relative flex min-h-60 min-w-0 max-w-full flex-col grow shrink-0 justify-between border-2 bg-background/30 p-6 text-left text-foreground-bold backdrop-blur-[2px] transition-all duration-300 hover:border-foreground hover:bg-background/50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground md:min-h-72" :class="focus === view.id ? 'border-foreground-bold shadow-[7px_7px_0_var(--color-foreground-bold)]' : 'border-foreground/50'" @click="emit('update:focus', view.id)">
         <span class="absolute -left-0.5 top-7 h-11 w-1.5" :class="index === 0 ? 'bg-[#ead51a]' : index === 1 ? 'bg-[#e66b55]' : 'bg-[#72afc8]'" aria-hidden="true" />
         <span class="flex items-start justify-between"><span class="text-5xl font-black leading-none -tracking-widest">{{ view.number }}</span><Icon :name="view.icon" class="size-8 stroke-[2.5] transition-transform group-hover:rotate-12" /></span>
         <span>
           <span class="mb-2 block text-[0.65rem] font-bold uppercase tracking-[0.2em] text-muted-foreground">
             {{ view.kicker }}
           </span>
-          <span class="block text-[clamp(1.9rem,3.3vw,3.5rem)] font-black uppercase leading-[0.9] tracking-[-0.08em]">
+          <span class="block text-[clamp(1.9rem,3.3vw,3.5rem)] font-black uppercase leading-[0.9] tracking-[-0.08em] wrap-anywhere">
             {{ view.title }}
           </span>
           <span class="mt-5 block max-w-xs text-sm font-semibold leading-snug text-foreground">
