@@ -26,7 +26,7 @@ const headingStyle = "font-semibold uppercase";
     <div class="grid gap-8 lg:grid-cols-[1.12fr_0.88fr]">
       <a href="https://github.com/rastuhacode/soundgrammy" target="_blank" rel="noopener" class="group relative flex min-h-132 flex-col overflow-hidden text-white no-underline backdrop-blur-[2px] transition-transform duration-500 hover:-translate-y-2" :class="[shape, firstSurface]">
         <div class="relative min-h-64 grow overflow-hidden">
-          <NuxtImg src="/images/soundgrammy-interface.png" :alt="$t('homepage.selectedWork.firstAlt')" width="960" height="650" loading="lazy" class="absolute inset-0 size-full object-cover object-top-left transition-transform duration-700 group-hover:scale-[1.07]" />
+          <NuxtImg src="/images/soundgrammy-interface.png" :alt="$t('homepage.selectedWork.firstAlt')" width="960" height="650" loading="lazy" class="absolute inset-0 size-full object-cover object-center sm:object-top-left transition-transform duration-700 group-hover:scale-[1.07]" />
           <div class="absolute inset-0" />
         </div>
         <div class="relative flex items-end justify-between gap-4 p-7 sm:p-9">
