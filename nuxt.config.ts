@@ -17,6 +17,10 @@ const photoIndexRoutes = ["/api/photo-index/manifest.json", ...Array.from(
 
 export default defineNuxtConfig({
 
+  typescript: {
+    nodeTsConfig: { include: ["../scripts/**/*.ts"] },
+  },
+
   modules: [
     "@nuxtjs/robots",
     "@nuxtjs/sitemap",

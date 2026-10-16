@@ -110,7 +110,7 @@ tags:
 Результатом стал мой самый крупный личный проект. С гордостью представляю <soundgrammy-badge></soundgrammy-badge>
 
 <div class="flex gap-2 justify-center w-full">
-    <posts-image src="/images/soundgrammy-interface.png" alt="Интерфейс SoundGrammy" caption="Интерфейс SoundGrammy" class="h-70"></posts-image>
+    <posts-image src="/images/soundgrammy-interface.png" alt="Интерфейс SoundGrammy" caption="Интерфейс SoundGrammy"></posts-image>
 </div>
 
 ## SoundGrammy

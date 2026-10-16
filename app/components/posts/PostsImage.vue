@@ -33,14 +33,14 @@ watch(isPreview, (newVal) => {
 </script>
 
 <template>
-  <figure class="flex flex-col w-fit max-w-full min-w-0">
+  <figure class="not-prose my-8 flex w-full max-w-full min-w-0 flex-col border-2 border-foreground-bold bg-background shadow-[4px_4px_0_var(--color-foreground-bold)]">
     <button
       type="button"
       data-slot="post-image-button"
       :aria-label="alt || $t('image_preview')"
       :class="
         cn(
-          'flex items-center justify-center w-full border border-transparent hover:border-muted-foreground transition-colors duration-300',
+          'flex items-center justify-center w-full min-w-0 cursor-zoom-in p-0 focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-[#72afc8]',
           props.class,
         )
       "
@@ -50,14 +50,17 @@ watch(isPreview, (newVal) => {
         data-slot="post-image"
         :src="props.src"
         :alt="props.alt"
-        class="max-h-full max-w-full object-contain"
+        class="m-0 block h-auto w-full max-h-full max-w-full object-contain"
       >
     </button>
     <figcaption
       v-if="caption"
-      class="text-center"
+      class="m-0 flex items-start justify-between gap-3 border-t-2 border-foreground-bold px-3 py-2 font-mono text-xs leading-relaxed text-foreground-bold"
     >
-      {{ caption }}
+      <span class="min-w-0">{{ caption }}</span>
+      <span class="flex size-6 shrink-0 items-center justify-center border border-foreground-bold bg-[#72afc8] text-[#171717]" aria-hidden="true">
+        <Icon name="lucide:expand" class="size-3.5" />
+      </span>
     </figcaption>
   </figure>
 
@@ -68,7 +71,7 @@ watch(isPreview, (newVal) => {
       role="dialog"
       aria-modal="true"
       :aria-label="$t('image_preview')"
-      class="fixed top-0 left-0 size-screen backdrop-blur-xs z-50 flex items-center justify-center"
+      class="fixed top-0 left-0 size-screen bg-background/90 backdrop-blur-xs z-50 flex items-center justify-center cursor-zoom-out"
       tabindex="-1"
       @click="handleClose"
       @keydown.escape="handleClose"
@@ -80,7 +83,7 @@ watch(isPreview, (newVal) => {
       >
       <figcaption
         v-if="caption"
-        class="absolute bottom-2 right-2 bg-background p-2 rounded-md"
+        class="absolute bottom-3 right-3 left-3 w-fit max-w-[calc(100%-1.5rem)] border-2 border-foreground-bold bg-background px-3 py-2 font-mono text-xs leading-relaxed text-foreground-bold shadow-[3px_3px_0_var(--color-foreground-bold)] sm:left-auto sm:max-w-lg"
       >
         {{ caption }}
       </figcaption>

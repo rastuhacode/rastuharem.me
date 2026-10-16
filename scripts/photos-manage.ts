@@ -54,7 +54,7 @@ async function run() {
     const metadata = await sharp(original).metadata();
     const exif = readPhotoExif(metadata.exif);
     const overridePath = source.replace(/\.[^.]+$/, ".json");
-    const override = await fs.readFile(overridePath, "utf8").then(text => JSON.parse(text) as Partial<PhotoSidecar>).catch((error: NodeJS.ErrnoException) => {
+    const override = await fs.readFile(overridePath, "utf8").then(text => JSON.parse(text) as Partial<PhotoSidecar>).catch((error: NodeJS.ErrnoException): Partial<PhotoSidecar> => {
       if (error.code === "ENOENT") return {};
       throw error;
     });

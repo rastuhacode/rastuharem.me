@@ -15,6 +15,47 @@
 
 @source "../../../content/**/*.md";
 
+/* Keep the reading column quiet; echo the site's frames and blue accent. */
+.article-prose {
+  --tw-prose-quote-borders: #72afc8;
+  --tw-prose-invert-quote-borders: #72afc8;
+}
+
+.article-prose h1 {
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.article-prose h1 + div {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.article-prose :is(h2, h3, h4) {
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+.article-prose blockquote {
+  border-left-width: 3px;
+  font-style: normal;
+}
+
+.article-prose :not(pre) > code {
+  border-radius: 0;
+}
+
+.article-prose hr {
+  height: 2px;
+  border-radius: 0;
+  background: var(--color-foreground-bold);
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);

@@ -113,17 +113,17 @@ I've already implemented this solution, tested it, and it works really well — 
 Maybe you want a bilingual resume? Or even the same template for another person? That can be done just by replacing the **content**.
 
   <div class="flex gap-2 md:flex-row flex-col">
-    <posts-image src="/images/cvhtml-original.png" alt="Original CV.html resume" caption="Original CV.html resume" class="h-70"></posts-image>
-    <posts-image src="/images/cvhtml-russian.png" alt="Same resume translated in Russian" caption="Same resume translated in Russian" class="h-70"></posts-image>
-    <posts-image src="/images/cvhtml-johndoe.png" alt="Same template for random user" caption="Same template for random user" class="h-70"></posts-image>
+    <posts-image src="/images/cvhtml-original.png" alt="Original CV.html resume" caption="Original CV.html resume"></posts-image>
+    <posts-image src="/images/cvhtml-russian.png" alt="Same resume translated in Russian" caption="Same resume translated in Russian"></posts-image>
+    <posts-image src="/images/cvhtml-johndoe.png" alt="Same template for random user" caption="Same template for random user"></posts-image>
   </div>
 
 Or maybe you want another design? No worries — just replace the **template**.
 
   <div class="flex gap-2 md:flex-row flex-col">
-    <posts-image src="/images/cvhtml-pinkycute.png" alt="Pinky-cute template" caption="Pinky-cute template" class="h-70"></posts-image>
-    <posts-image src="/images/cvhtml-newspaper.png" alt="Newspaper template" caption="Newspaper template" class="h-70"></posts-image>
-    <posts-image src="/images/cvhtml-terminal.png" alt="Terminal template" caption="Terminal template" class="h-70"></posts-image>
+    <posts-image src="/images/cvhtml-pinkycute.png" alt="Pinky-cute template" caption="Pinky-cute template"></posts-image>
+    <posts-image src="/images/cvhtml-newspaper.png" alt="Newspaper template" caption="Newspaper template"></posts-image>
+    <posts-image src="/images/cvhtml-terminal.png" alt="Terminal template" caption="Terminal template"></posts-image>
   </div>
 
 There's so much customization that I still find new usage ideas and designs. You can try it too at <cv-html-badge class="ml-1"></cv-html-badge>.
