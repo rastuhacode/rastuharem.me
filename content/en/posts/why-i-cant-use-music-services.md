@@ -110,7 +110,7 @@ My idea was that a user would log in to the app with their Telegram account thro
 The result is my biggest personal project yet. I'm proud to introduce <soundgrammy-badge></soundgrammy-badge>
 
 <div class="flex gap-2 justify-center w-full">
-    <posts-image src="/images/soundgrammy-interface.png" alt="SoundGrammy interface" caption="SoundGrammy interface" class="h-70"></posts-image>
+    <posts-image src="/images/soundgrammy-interface.png" alt="SoundGrammy interface" caption="SoundGrammy interface"></posts-image>
 </div>
 
 ## SoundGrammy

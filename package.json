@@ -8,9 +8,9 @@
     "url": "https://github.com/rastuhacode/rastuharem.me"
   },
   "type": "module",
-  "packageManager": "pnpm@12.9.1",
+  "packageManager": "pnpm@12.14.0",
   "engines": {
-    "node": ">=24"
+    "node": "^24.15.0 || >=26.0.0"
   },
   "scripts": {
     "build": "tsx scripts/photos-index.ts && nuxt build",
@@ -23,7 +23,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "nuxt typecheck",
-    "compress": "tsx scripts/img-compress-staged.ts",
+    "images": "tsx scripts/img-compress-staged.ts",
     "photos": "tsx scripts/photos-manage.ts",
     "photos:index": "tsx scripts/photos-index.ts"
   },
@@ -53,12 +53,13 @@
     "@tailwindcss/typography": "catalog:build",
     "@tailwindcss/vite": "catalog:build",
     "@types/node": "catalog:types",
+    "@types/prompts": "catalog:types",
     "ansis": "catalog:scripts",
     "eslint": "catalog:dev",
     "nuxt": "catalog:build",
     "nuxt-link-checker": "catalog:build",
     "nuxt-site-config": "catalog:build",
-    "nuxtseo-layer-devtools": "catalog:build",
+    "nuxtseo-devtools-host": "catalog:build",
     "pnpm": "catalog:dev",
     "prompts": "catalog:scripts",
     "sharp": "catalog:scripts",

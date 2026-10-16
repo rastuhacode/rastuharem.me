@@ -45,8 +45,11 @@ function formatDate(date: string) {
           <NuxtLinkLocale :to="post.path" class="group flex h-full flex-col justify-between border-[3px] border-foreground-bold p-6 no-underline shadow-[6px_6px_0_var(--color-foreground-bold)] transition-transform hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground-bold sm:p-8" :class="index === 0 ? 'min-h-96 bg-[#f5e536] text-[#171717]' : 'min-h-48 bg-background/85 text-foreground-bold'">
             <span class="flex items-start justify-between gap-4">
               <span class="font-mono text-3xl font-black leading-none" aria-hidden="true">{{ String(index + 1).padStart(2, "0") }}</span>
-              <span class="grid size-10 shrink-0 place-items-center border-[3px] transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" :class="index === 0 ? 'border-[#171717] bg-[#171717] text-white' : 'border-foreground-bold bg-foreground-bold text-background'" aria-hidden="true">
-                <Icon name="lucide:arrow-up-right" class="size-5" />
+              <span class="flex shrink-0 items-center gap-3">
+                <PostsNewBadge :date="post.date" />
+                <span class="grid size-10 shrink-0 place-items-center border-[3px] transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" :class="index === 0 ? 'border-[#171717] bg-[#171717] text-white' : 'border-foreground-bold bg-foreground-bold text-background'" aria-hidden="true">
+                  <Icon name="lucide:arrow-up-right" class="size-5" />
+                </span>
               </span>
             </span>
             <div class="mt-8">

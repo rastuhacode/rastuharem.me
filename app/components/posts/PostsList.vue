@@ -117,8 +117,11 @@ function removeTag(tag: PostTags) {
                 </span>
                 <div class="mt-4 flex items-start justify-between gap-4">
                   <h3 class="m-0 max-w-4xl text-[clamp(1.8rem,3.6vw,3.6rem)] font-black leading-[0.98] tracking-[-0.055em]">{{ post.title }}</h3>
-                  <span class="grid size-9 shrink-0 place-items-center border-2 border-foreground-bold bg-[#72afc8] text-[#171717] transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 sm:size-11" aria-hidden="true">
-                    <Icon name="lucide:arrow-up-right" class="size-5" />
+                  <span class="flex shrink-0 items-center gap-3">
+                    <PostsNewBadge :date="post.date" />
+                    <span class="grid size-9 shrink-0 place-items-center border-2 border-foreground-bold bg-[#72afc8] text-[#171717] transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 sm:size-11" aria-hidden="true">
+                      <Icon name="lucide:arrow-up-right" class="size-5" />
+                    </span>
                   </span>
                 </div>
                 <p v-if="post.description" class="mb-0 mt-4 max-w-2xl text-sm font-medium leading-relaxed text-muted-foreground sm:text-base">{{ post.description }}</p>

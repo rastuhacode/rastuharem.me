@@ -1,11 +1,11 @@
 import fs from "node:fs/promises";
 import c from "ansis";
-import sharp from "sharp";
+import sharp, { type Sharp } from "sharp";
 
 const maxSize = 1440;
 
 export async function compressSharp(
-  image: sharp.Sharp,
+  image: Sharp,
   inBuffer: Buffer,
   inFile: string,
   outFile: string,

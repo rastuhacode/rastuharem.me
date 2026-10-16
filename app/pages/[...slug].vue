@@ -65,7 +65,10 @@ useSeoMeta({
     />
     <ContentRenderer
       :value="page"
-      :class="slug === '/' || slug === '/posts' ? 'w-full min-h-fit h-full slide-enter-content' : 'w-full min-h-fit h-full mx-auto p-5 slide-enter-content prose dark:prose-invert'"
+      :class="[
+        slug === '/' || slug === '/posts' ? 'w-full min-h-fit h-full slide-enter-content' : 'w-full min-h-fit h-full mx-auto p-5 slide-enter-content prose dark:prose-invert',
+        { 'article-prose': page.path?.startsWith('/posts/') },
+      ]"
     />
   </div>
 </template>

@@ -113,17 +113,17 @@ CV.html имеет три вкладки: **Template**, где пользова�
 Хотите двуязычное резюме? Или тот же шаблон для другого человека? Достаточно заменить **контент**.
 
   <div class="flex gap-2 md:flex-row flex-col">
-    <posts-image src="/images/cvhtml-original.png" alt="Оригинальное резюме CV.html" caption="Оригинальное резюме CV.html" class="h-70"></posts-image>
-    <posts-image src="/images/cvhtml-russian.png" alt="То же резюме, переведенное на русский" caption="То же резюме, переведенное на русский" class="h-70"></posts-image>
-    <posts-image src="/images/cvhtml-johndoe.png" alt="Тот же шаблон для другого пользователя" caption="Тот же шаблон для другого пользователя" class="h-70"></posts-image>
+    <posts-image src="/images/cvhtml-original.png" alt="Оригинальное резюме CV.html" caption="Оригинальное резюме CV.html"></posts-image>
+    <posts-image src="/images/cvhtml-russian.png" alt="То же резюме, переведенное на русский" caption="То же резюме, переведенное на русский"></posts-image>
+    <posts-image src="/images/cvhtml-johndoe.png" alt="Тот же шаблон для другого пользователя" caption="Тот же шаблон для другого пользователя"></posts-image>
   </div>
 
 Или хотите другой дизайн? Без проблем — просто замените **шаблон**.
 
   <div class="flex gap-2 md:flex-row flex-col">
-    <posts-image src="/images/cvhtml-pinkycute.png" alt="Шаблон Pinky-cute" caption="Шаблон Pinky-cute" class="h-70"></posts-image>
-    <posts-image src="/images/cvhtml-newspaper.png" alt="Шаблон Newspaper" caption="Шаблон Newspaper" class="h-70"></posts-image>
-    <posts-image src="/images/cvhtml-terminal.png" alt="Шаблон Terminal" caption="Шаблон Terminal" class="h-70"></posts-image>
+    <posts-image src="/images/cvhtml-pinkycute.png" alt="Шаблон Pinky-cute" caption="Шаблон Pinky-cute"></posts-image>
+    <posts-image src="/images/cvhtml-newspaper.png" alt="Шаблон Newspaper" caption="Шаблон Newspaper"></posts-image>
+    <posts-image src="/images/cvhtml-terminal.png" alt="Шаблон Terminal" caption="Шаблон Terminal"></posts-image>
   </div>
 
 Вариантов кастомизации так много, что я до сих пор нахожу новые идеи использования и дизайны. При желании, вы тоже можете поэксперементировать в <cv-html-badge class="ml-1"></cv-html-badge>.
