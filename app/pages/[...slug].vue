@@ -31,14 +31,8 @@ const { data: page, status } = await useAsyncData(
   },
 );
 
-const isUnreleased = computed(
-  () =>
-    page.value?.path?.startsWith("/posts/")
-    && page.value?.date
-    && !isPostReleased(page.value),
-);
-
-if ((status.value === "success" && !page.value) || isUnreleased.value) {
+// Scheduled posts have public static pages; only listings wait for their date.
+if (status.value === "success" && !page.value) {
   throw createError({
     statusCode: 404,
     statusMessage: "Page not found",
@@ -61,7 +55,6 @@ useSeoMeta({
     <RToc
       v-if="page?.toc && page.body?.toc?.links"
       :links="page.body.toc.links"
-      class="hidden lg:flex"
     />
     <ContentRenderer
       :value="page"

@@ -15,6 +15,10 @@ const { data: rawPosts } = await useAsyncData(postsKey, () =>
     .all(),
 );
 
+// Include scheduled posts in the static output even while they are unlisted.
+const localePath = useLocalePath();
+prerenderRoutes(rawPosts.value?.map(post => localePath(post.path)) ?? []);
+
 const selectedTags = computed<PostTags[]>({
   get() {
     const tags = route.query.tags;

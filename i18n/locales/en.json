@@ -5,6 +5,9 @@
   "scroll_to_top": "Scroll to top",
   "resume": "Resume",
   "image_preview": "Image preview",
+  "close_image_preview": "Close image preview",
+  "change_language": "Change language",
+  "table_of_contents": "Table of contents",
   "no_posts_found": "No posts found",
   "posts": {
     "new": "New",

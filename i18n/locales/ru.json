@@ -5,6 +5,9 @@
   "scroll_to_top": "Наверх",
   "resume": "Резюме",
   "image_preview": "Предпросмотр изображения",
+  "close_image_preview": "Закрыть предпросмотр изображения",
+  "change_language": "Выбрать язык",
+  "table_of_contents": "Содержание",
   "no_posts_found": "Посты не найдены",
   "posts": {
     "new": "Новое",
