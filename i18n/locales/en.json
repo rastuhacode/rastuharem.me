@@ -24,7 +24,7 @@
     "hero": {
       "eyebrow": "Hello! My name is",
       "name": "Rasten Remizov",
-      "description": "Combining professional growth with personal alignment, I actively seek out new knowledge. Check out what interests you.",
+      "description": "I’m a software engineer based in Yerevan. I build interfaces, design systems, and developer tools. Outside work, I take photographs, make music, and write.",
       "resumeLabel": "View resume"
     },
     "experience": {
@@ -132,5 +132,12 @@
       "listen": "Listen",
       "listenDescription": "A record of what has been in my headphones."
     }
+  },
+  "seo": {
+    "jobTitle": "Software engineer",
+    "imageAlt": "Rasten Remizov — software engineering, photography, and writing",
+    "photographyTitle": "Photography by Rasten Remizov",
+    "photographyDescription": "Explore Rasten Remizov’s photography portfolio, with full-screen photos and camera settings.",
+    "otherTitle": "Music and writing · Rasten Remizov"
   }
 }

@@ -40,11 +40,12 @@ if (status.value === "success" && !page.value) {
   });
 }
 
-useSeoMeta({
-  ...page.value?.seo,
-  ogTitle: page.value?.title,
-  ogDescription: page.value?.description,
-});
+usePageSeo(() => ({
+  title: page.value?.title ?? "",
+  description: page.value?.description ?? "",
+  type: slug.value === "/" ? "ProfilePage" : slug.value === "/posts" ? "Blog" : slug.value.startsWith("/posts/") ? "BlogPosting" : "CollectionPage",
+  date: page.value?.date,
+}));
 </script>
 
 <template>

@@ -1,6 +1,10 @@
 <script setup lang="ts">
 const { t } = useI18n();
-useSeoMeta({ title: () => t("homepage.photography.title") + " · Rasten Remizov", description: () => t("homepage.photography.description") });
+usePageSeo(() => ({
+  title: t("seo.photographyTitle"),
+  description: t("seo.photographyDescription"),
+  type: "ImageGallery",
+}));
 </script>
 
 <template>

@@ -24,6 +24,7 @@
     "lint:fix": "eslint . --fix",
     "typecheck": "nuxt typecheck",
     "images": "tsx scripts/img-compress-staged.ts",
+    "images:social": "tsx scripts/social-images.ts",
     "photos": "tsx scripts/photos-manage.ts",
     "photos:index": "tsx scripts/photos-index.ts"
   },

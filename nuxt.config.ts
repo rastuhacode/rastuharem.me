@@ -68,6 +68,7 @@ export default defineNuxtConfig({
   site: {
     url: siteUrl,
     name: "Rasten Remizov",
+    trailingSlash: true,
   },
   colorMode: { preference: "system", fallback: "dark" },
 

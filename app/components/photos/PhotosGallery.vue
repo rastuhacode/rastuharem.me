@@ -191,7 +191,7 @@ async function navigatePhoto(direction: -1 | 1) {
 
 <template>
   <p v-if="manifestError || firstPageError" class="border-[3px] border-foreground-bold p-6 font-semibold text-foreground-bold">{{ $t("homepage.photography.loadError") }}</p>
-  <RExpandableGallery v-if="preview" :images="previewImages" :action="{ label: t('homepage.photography.viewAction'), to: '/photos' }" @select="activeIndex = previewPhotos[$event]?.index ?? null" />
+  <RExpandableGallery v-if="preview" :images="previewImages" :action="{ label: t('homepage.photography.viewAction'), to: '/photography' }" @select="activeIndex = previewPhotos[$event]?.index ?? null" />
   <template v-else>
     <div
       ref="gallery"
