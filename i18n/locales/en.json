@@ -102,8 +102,6 @@
       "description": "A selection of my favorite photos. Keep in mind that they are compressed to a lower resolution for optimization, so they are not shown at their best quality.",
       "galleryLabel": "Photography portfolio",
       "frame": "Frame",
-      "photoLabel": "Photograph {number} of {total}",
-      "photograph": "Photograph",
       "openPhoto": "Open photograph {number}",
       "previewLabel": "Full screen photograph. Click to close.",
       "closePhoto": "Close photograph",
@@ -139,5 +137,11 @@
     "photographyTitle": "Photography by Rasten Remizov",
     "photographyDescription": "Explore Rasten Remizov’s photography portfolio, with full-screen photos and camera settings.",
     "otherTitle": "Music and writing · Rasten Remizov"
-  }
+  },
+  "system_reduced_motion": "Animations are disabled by your system’s reduced motion setting",
+  "switch_to_light_theme": "Switch to light theme",
+  "switch_to_dark_theme": "Switch to dark theme",
+  "primary_navigation": "Main navigation",
+  "skip_to_content": "Skip to content",
+  "section_permalink": "Link to section: {section}"
 }

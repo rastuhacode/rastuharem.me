@@ -12,9 +12,6 @@ const { t, locale } = useI18n();
 const detailsVisible = useLocalStorage("photo-details-visible", false);
 const detailsId = useId();
 const viewerRef = useTemplateRef("viewer");
-const photoLabel = computed(() => props.type === "collection"
-  ? t("homepage.photography.photoLabel", { number: props.index + 1, total: props.total })
-  : t("homepage.photography.photograph"));
 const photoDetails = computed(() => {
   const photo = props.photo;
   if (!photo) return [];
@@ -48,12 +45,14 @@ function handlePhotoKeydown(event: KeyboardEvent) {
     ref="viewer"
     :open="!!photo"
     :src="photo?.src ?? ''"
-    :alt="photoLabel"
+    alt=""
+    :swipe-enabled="type === 'collection'"
     :label="$t('homepage.photography.previewLabel')"
     :close-label="$t('homepage.photography.closePhoto')"
     :keyshortcuts="type === 'collection' ? 'ArrowLeft ArrowRight' : undefined"
     @close="emit('close')"
     @keydown="handlePhotoKeydown"
+    @swipe="emit('navigate', $event)"
   >
     <template #footer>
       <button

@@ -4,16 +4,37 @@ import type { ImgHTMLAttributes, HTMLAttributes } from "vue";
 const props = withDefaults(
   defineProps<{
     src: string;
+    width: number | string;
+    height: number | string;
     alt?: ImgHTMLAttributes["alt"];
     caption?: string;
+    sizes?: string;
+    loading?: ImgHTMLAttributes["loading"];
     class?: HTMLAttributes["class"];
   }>(),
   {
     class: "",
     alt: "",
     caption: "",
+    sizes: "min(calc(100vw - 2.75rem), calc(40rem - 2.75rem))",
+    loading: "lazy",
   },
 );
+
+const image = useImage();
+// Keep screenshots lossless, and avoid aggressive recompression of JPEG charts.
+const imageModifiers = computed(() => props.src.toLowerCase().endsWith(".png")
+  ? { format: "png" }
+  : { quality: 95 });
+const imageSrc = computed(() => image(props.src, {
+  ...imageModifiers.value,
+  width: Math.min(Number(props.width), 640),
+}));
+const imageSrcset = computed(() => {
+  const originalWidth = Number(props.width);
+  const widths = [...[240, 320, 480, 640, 960, 1280, 1920].filter(width => width < originalWidth), originalWidth];
+  return widths.map(width => `${image(props.src, { ...imageModifiers.value, width })} ${width}w`).join(", ");
+});
 
 const triggerRef = useTemplateRef<HTMLButtonElement>("triggerRef");
 
@@ -44,7 +65,13 @@ const handleClose = async () => {
     >
       <img
         data-slot="post-image"
-        :src="props.src"
+        :src="imageSrc"
+        :srcset="imageSrcset"
+        :sizes="props.sizes"
+        :width="props.width"
+        :height="props.height"
+        :loading="props.loading"
+        decoding="async"
         :alt="props.alt"
         class="m-0 block h-auto w-full max-h-full max-w-full object-contain"
       >

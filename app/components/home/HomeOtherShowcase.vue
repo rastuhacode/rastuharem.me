@@ -12,12 +12,12 @@ const { data: rawPosts } = await useAsyncData(postsKey, () =>
 
 const recentPosts = computed(() =>
   rawPosts.value?.filter(isPostReleased)
-    .toSorted((a, b) => +new Date(b.date) - +new Date(a.date))
+    .toSorted((a, b) => +new Date(toPostDateTime(b.date)) - +new Date(toPostDateTime(a.date)))
     .slice(0, 3) ?? [],
 );
 
 function formatDate(date: string) {
-  return new Date(date).toLocaleDateString(locale.value, {
+  return new Date(toPostDateTime(date)).toLocaleDateString(locale.value, {
     year: "numeric", month: "short", day: "numeric", timeZone: "UTC",
   });
 }
@@ -54,7 +54,7 @@ function formatDate(date: string) {
             </span>
             <div class="mt-8">
               <span class="flex flex-wrap gap-x-2 font-mono text-[0.7rem] font-black uppercase tracking-[0.12em]">
-                <time :datetime="post.date">{{ formatDate(post.date) }}</time>
+                <time :datetime="toPostDateTime(post.date)">{{ formatDate(post.date) }}</time>
                 <span aria-hidden="true">/</span>
                 <span>{{ post.duration }}</span>
               </span>

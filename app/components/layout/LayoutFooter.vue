@@ -1,5 +1,5 @@
 <template>
-  <div
+  <footer
     class="mt-10 mb-6 prose dark:prose-invert w-full mx-auto flex slide-enter copyright p-5"
   >
     <span class="text-sm opacity-50 text-center w-full">
@@ -10,7 +10,7 @@
       >CC BY-NC-SA 4.0</a>
       2026-PRESENT © Rasten Remizov
     </span>
-  </div>
+  </footer>
 </template>
 
 <style>

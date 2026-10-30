@@ -4,7 +4,6 @@ import type { PortfolioPhoto } from "../../../shared/types/photo";
 const props = defineProps<{
   photo: PortfolioPhoto;
   index: number;
-  total: number;
   imageHeight?: number;
   tabStop?: boolean;
   eager?: boolean;
@@ -25,7 +24,7 @@ const label = computed(() => t("homepage.photography.openPhoto", { number: props
   >
     <img
       :src="photo.src"
-      :alt="t('homepage.photography.photoLabel', { number: index + 1, total })"
+      alt=""
       :width="photo.width"
       :height="photo.height"
       :style="imageHeight === undefined ? undefined : { height: `${imageHeight}px` }"

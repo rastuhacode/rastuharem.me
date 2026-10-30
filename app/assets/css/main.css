@@ -271,6 +271,30 @@
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-marquee] {
+    overflow: visible;
+  }
+
+  [data-marquee] > [data-slot="content"] {
+    min-width: 0;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  [data-marquee] > [aria-hidden="true"] {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   html:not(.no-sliding) [slide-enter],
   html:not(.no-sliding) .slide-enter,

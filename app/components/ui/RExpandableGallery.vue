@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from "vue";
 
 interface Props {
-  images: { src: string; alt: string; label: string; width: number; height: number }[];
+  images: { src: string; accessibleLabel: string; label: string; width: number; height: number }[];
   action?: { label: string; to: string };
   class?: HTMLAttributes["class"];
 }
@@ -19,13 +19,13 @@ const emit = defineEmits<{ select: [index: number] }>();
       type="button"
       :class="index >= 2 ? 'hidden sm:flex' : 'flex'"
       class="group relative h-full min-w-0 flex-1 overflow-hidden border-[3px] border-foreground-bold bg-background p-0 shadow-[5px_5px_0_var(--color-foreground-bold)] transition-[flex-grow] duration-500 ease-in-out hover:flex-3 focus-visible:flex-3 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground-bold"
-      :aria-label="image.alt"
+      :aria-label="image.accessibleLabel"
       @click="emit('select', index)"
     >
       <img
         class="absolute inset-0 h-full w-full object-cover"
         :src="image.src"
-        :alt="image.alt"
+        :alt="image.accessibleLabel"
         :width="image.width"
         :height="image.height"
         loading="lazy"

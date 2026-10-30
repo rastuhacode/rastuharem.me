@@ -16,7 +16,7 @@ export function usePageSeo(input: MaybeRefOrGetter<PageSeo>) {
   const pageUrl = computed(() => `${siteUrl.value}${route.path.replace(/\/$/, "")}/`);
   const image = computed(() => `${siteUrl.value}/images/social-card-${locale.value}.png`);
   const publishedAt = computed(() => page.value.type === "BlogPosting" && page.value.date
-    ? new Date(page.value.date).toISOString()
+    ? toPostDateTime(page.value.date)
     : undefined);
 
   useSeoMeta({

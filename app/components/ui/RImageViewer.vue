@@ -7,15 +7,55 @@ const props = withDefaults(defineProps<{
   closeLabel: string;
   keyshortcuts?: string;
   initialFocus?: "image" | "close";
+  swipeEnabled?: boolean;
 }>(), {
   keyshortcuts: undefined,
   initialFocus: "image",
+  swipeEnabled: false,
 });
 
-const emit = defineEmits<{ close: []; keydown: [event: KeyboardEvent] }>();
+const emit = defineEmits<{ close: []; keydown: [event: KeyboardEvent]; swipe: [direction: -1 | 1] }>();
 const dialogRef = useTemplateRef<HTMLDialogElement>("dialog");
 const imageStageRef = useTemplateRef<HTMLDivElement>("imageStage");
 const closeButtonRef = useTemplateRef<HTMLButtonElement>("closeButton");
+let touchStart: { x: number; y: number; id: number } | null = null;
+let suppressClickUntil = 0;
+
+function startTouch(event: TouchEvent) {
+  touchStart = null;
+  suppressClickUntil = 0;
+  const touch = event.touches[0];
+  if (!props.swipeEnabled || event.touches.length !== 1 || !touch) return;
+  touchStart = { x: touch.clientX, y: touch.clientY, id: touch.identifier };
+}
+
+function moveTouch(event: TouchEvent) {
+  if (event.touches.length !== 1) cancelTouch();
+}
+
+function cancelTouch() {
+  touchStart = null;
+  suppressClickUntil = performance.now() + 500;
+}
+
+function endTouch(event: TouchEvent) {
+  const start = touchStart;
+  touchStart = null;
+  if (!start || !props.open || !props.swipeEnabled || event.touches.length) return;
+  const touch = Array.from(event.changedTouches).find(touch => touch.identifier === start.id);
+  if (!touch) return;
+  const x = touch.clientX - start.x;
+  const y = touch.clientY - start.y;
+  // Keep vertical scrolling, pinching, and small tap movements out of navigation.
+  if (Math.hypot(x, y) > 12) suppressClickUntil = performance.now() + 500;
+  if (Math.abs(x) >= 50 && Math.abs(x) > Math.abs(y) * 1.5) emit("swipe", x < 0 ? 1 : -1);
+}
+
+function handleClick(event: MouseEvent) {
+  // A touch swipe can synthesize a click; it must not also dismiss the viewer.
+  if (event.detail > 0 && performance.now() < suppressClickUntil) return;
+  emit("close");
+}
 
 function focusImage() {
   imageStageRef.value?.focus({ preventScroll: true });
@@ -25,6 +65,8 @@ defineExpose({ focusImage });
 
 watch(() => props.open, async (open) => {
   if (!open) {
+    touchStart = null;
+    suppressClickUntil = 0;
     dialogRef.value?.close();
     return;
   }
@@ -44,14 +86,23 @@ watch(() => props.open, async (open) => {
       class="fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none flex-col border-0 bg-[#111] p-0 text-white open:flex"
       :aria-label="label"
       :aria-keyshortcuts="keyshortcuts"
-      @click="emit('close')"
+      @click="handleClick"
       @cancel.prevent="emit('close')"
       @close="props.open && emit('close')"
       @keydown.capture="emit('keydown', $event)"
     >
       <template v-if="open">
         <figure class="m-0 flex min-h-0 flex-1 flex-col">
-          <div ref="imageStage" tabindex="-1" class="relative min-h-0 flex-1 outline-none">
+          <div
+            ref="imageStage"
+            tabindex="-1"
+            class="relative min-h-0 flex-1 outline-none"
+            :class="swipeEnabled ? '[touch-action:pan-y_pinch-zoom]' : ''"
+            @touchstart.passive="startTouch"
+            @touchmove.passive="moveTouch"
+            @touchend.passive="endTouch"
+            @touchcancel.passive="cancelTouch"
+          >
             <img :src="src" :alt="alt" class="absolute inset-0 h-full w-full object-contain">
           </div>
           <figcaption

@@ -42,7 +42,7 @@ async function loadMore() {
 const previewPhotos = computed(() => photos.value.slice(0, 3).map((photo, index) => ({ photo, index })));
 const previewImages = computed(() => previewPhotos.value.map(({ photo, index }) => ({
   src: photo.src,
-  alt: t("homepage.photography.openPhoto", { number: index + 1 }),
+  accessibleLabel: t("homepage.photography.openPhoto", { number: index + 1 }),
   label: String(index + 1).padStart(2, "0"),
   width: photo.width,
   height: photo.height,
@@ -208,13 +208,13 @@ async function navigatePhoto(direction: -1 | 1) {
           class="absolute left-0 top-0"
           :style="{ width: `${tile.width}px`, height: `${tile.height}px`, transform: `translate(${tile.x}px, ${tile.y}px)` }"
         >
-          <PhotoCard :photo="tile.photo" :index="tile.index" :total="manifest.count" :image-height="tile.imageHeight" :tab-stop="tile.index === 0 || tile.index === photos.length - 1" :eager="tile.index < columnCount" @select="activeIndex = $event" />
+          <PhotoCard :photo="tile.photo" :index="tile.index" :image-height="tile.imageHeight" :tab-stop="tile.index === 0 || tile.index === photos.length - 1" :eager="tile.index < columnCount" @select="activeIndex = $event" />
         </figure>
       </template>
       <template v-else>
         <div v-for="(column, columnIndex) in fallbackColumns" :key="columnIndex" class="flex min-w-0 flex-col gap-5 xl:gap-7">
           <figure v-for="{ photo, index } in column" :key="photo.src">
-            <PhotoCard :photo="photo" :index="index" :total="manifest.count" :tab-stop="index === 0 || index === photos.length - 1" :eager="index < columnCount" @select="activeIndex = $event" />
+            <PhotoCard :photo="photo" :index="index" :tab-stop="index === 0 || index === photos.length - 1" :eager="index < columnCount" @select="activeIndex = $event" />
           </figure>
         </div>
       </template>

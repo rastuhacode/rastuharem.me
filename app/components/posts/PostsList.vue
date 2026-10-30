@@ -35,7 +35,7 @@ const selectedTags = computed<PostTags[]>({
 
 const allPosts = computed(() =>
   rawPosts.value?.filter(isPostReleased)
-    .toSorted((a, b) => +new Date(b.date) - +new Date(a.date)) ?? [],
+    .toSorted((a, b) => +new Date(toPostDateTime(b.date)) - +new Date(toPostDateTime(a.date))) ?? [],
 );
 const availableTags = computed<PostTags[]>(() =>
   [...new Set(allPosts.value.flatMap(post => post.tags ?? []))].filter(isPostTag),
@@ -44,15 +44,15 @@ const posts = computed(() =>
   allPosts.value.filter(post => selectedTags.value.every(tag => post.tags?.includes(tag))),
 );
 const years = computed(() =>
-  [...new Set(posts.value.map(post => new Date(post.date).getUTCFullYear()))].sort((a, b) => b - a),
+  [...new Set(posts.value.map(post => new Date(toPostDateTime(post.date)).getUTCFullYear()))].sort((a, b) => b - a),
 );
 
 function postsForYear(year: number) {
-  return posts.value.filter(post => new Date(post.date).getUTCFullYear() === year);
+  return posts.value.filter(post => new Date(toPostDateTime(post.date)).getUTCFullYear() === year);
 }
 
 function formatDate(date: string) {
-  return new Date(date).toLocaleDateString(locale.value, {
+  return new Date(toPostDateTime(date)).toLocaleDateString(locale.value, {
     year: "numeric", month: "short", day: "numeric", timeZone: "UTC",
   });
 }
@@ -115,7 +115,7 @@ function removeTag(tag: PostTags) {
               <NuxtLinkLocale :to="post.path" class="group block min-w-0 p-5 text-foreground-bold no-underline transition-colors hover:bg-[#72afc8]/20 focus-visible:bg-[#72afc8]/20 focus-visible:outline-2 focus-visible:outline-offset-[-6px] focus-visible:outline-foreground-bold sm:p-7">
                 <span class="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[0.7rem] font-black uppercase tracking-[0.12em] text-muted-foreground">
                   <span class="sm:hidden">{{ String(index + 1).padStart(2, "0") }} <span aria-hidden="true">/</span></span>
-                  <time :datetime="post.date">{{ formatDate(post.date) }}</time>
+                  <time :datetime="toPostDateTime(post.date)">{{ formatDate(post.date) }}</time>
                   <span aria-hidden="true">/</span>
                   <span>{{ post.duration }}</span>
                 </span>
