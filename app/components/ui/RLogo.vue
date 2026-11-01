@@ -4,6 +4,7 @@ import type { HTMLAttributes } from "vue";
 const props = withDefaults(defineProps<{ class?: HTMLAttributes["class"] }>(), {
   class: "",
 });
+const { enabled: motionEnabled } = useMotionPreference();
 </script>
 
 <template>
@@ -34,6 +35,7 @@ const props = withDefaults(defineProps<{ class?: HTMLAttributes["class"] }>(), {
       fill="currentColor"
     >
       <animate
+        v-if="motionEnabled"
         attributeName="r"
         dur="5s"
         repeatCount="indefinite"
@@ -43,6 +45,7 @@ const props = withDefaults(defineProps<{ class?: HTMLAttributes["class"] }>(), {
         keySplines="0.33 0 0.67 1;0.33 0 0.67 1;0 0 1 1"
       />
       <animateMotion
+        v-if="motionEnabled"
         dur="5s"
         repeatCount="indefinite"
         keyPoints="0;0;1;1"

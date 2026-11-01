@@ -143,8 +143,15 @@ onBeforeUnmount(() => {
 
 watch([() => colorMode.value, canInteract], async ([, isInteractive]) => {
   await nextTick();
-  if (!isInteractive) releasePointer();
-  else renderArtwork();
+  if (!isInteractive) {
+    revealProgress = 1;
+    revealStartedAt = undefined;
+    pointer.currentStrength = 0;
+    pointer.targetStrength = 0;
+    if (animationFrame !== undefined) cancelAnimationFrame(animationFrame);
+    animationFrame = undefined;
+  }
+  renderArtwork();
 });
 
 function resize() {
@@ -167,7 +174,7 @@ function resize() {
 
   if (!hasStartedReveal) {
     hasStartedReveal = true;
-    revealProgress = reducedMotion.value ? 1 : 0;
+    revealProgress = canInteract.value ? 0 : 1;
     renderArtwork();
 
     if (revealProgress < 1) {

@@ -24,11 +24,11 @@ duration: "5 мин"
 
 Взгляните на эту диаграмму из бенчмарка [MMLU-ProX](https://arxiv.org/html/2503.10497):
 
-<posts-image src="/images/llm-scores-per-language.jpg" alt="Лучшие результаты LLM на MMLU-ProX для каждого языка, , сгруппированные по регионам" caption="Лучшие результаты LLM на MMLU-ProX для каждого языка, , сгруппированные по регионам"></posts-image>
+<posts-image src="/images/llm-scores-per-language.jpg" width="1440" height="1438" alt="Лучшие результаты LLM на MMLU-ProX для каждого языка, , сгруппированные по регионам" caption="Лучшие результаты LLM на MMLU-ProX для каждого языка, , сгруппированные по регионам"></posts-image>
 
 А также таблицу из той же статьи (которую я немного визуально переделал, убрав другие языки):
 
-<posts-image src="/images/model-perfomance-on-mmlu.jpg" alt="Model performance (%) on MMLU-ProX" caption="Model performance (%) on MMLU-ProX"></posts-image>
+<posts-image src="/images/model-perfomance-on-mmlu.jpg" width="1040" height="1384" alt="Model performance (%) on MMLU-ProX" caption="Model performance (%) on MMLU-ProX"></posts-image>
 
 Ради справедливости, исследование не новое и проводилось на уже относительно старых моделях (хотя самое свежее из того, что мне удалось найти). При этом GPT-4o показал на русском результат даже выше, чем на английском.
 
@@ -50,11 +50,11 @@ duration: "5 мин"
 
 Взгляните на эту диаграмму из этой [статьи](https://aclanthology.org/2023.emnlp-main.614.pdf):
 
-<posts-image src="/images/average-number-of-tokens-by-language.jpg" alt="Среднее число токенов на предложение FLORES по группам письменностей (цифры над линиями это количество языков в группе)" caption="Среднее число токенов на предложение FLORES по группам письменностей (цифры над линиями это количество языков в группе)"></posts-image>
+<posts-image src="/images/average-number-of-tokens-by-language.jpg" width="490" height="312" alt="Среднее число токенов на предложение FLORES по группам письменностей (цифры над линиями это количество языков в группе)" caption="Среднее число токенов на предложение FLORES по группам письменностей (цифры над линиями это количество языков в группе)"></posts-image>
 
 Видно что кириллица занимает больше токенов чем латиница при одном и том же промпте. Вспоминаем в чем измеряется стоимость, а также что модель также отвечает на кириллице (т.е. возрастает кол-во input и output токенов).
 
-<posts-image src="/images/model-cost-relative-to-english.jpg" alt="Стоимость семейства языков относительно английского" caption="Стоимость семейства языков относительно английского"></posts-image>
+<posts-image src="/images/model-cost-relative-to-english.jpg" width="960" height="642" alt="Стоимость семейства языков относительно английского" caption="Стоимость семейства языков относительно английского"></posts-image>
 
 Этот эффект и называется **The Invisible Language Tax**.
 

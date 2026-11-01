@@ -25,11 +25,11 @@ You're looking at a new model's benchmark results, excited that Opus 5.5 has gai
 
 Take a look at this chart from the [MMLU-ProX](https://arxiv.org/html/2503.10497) benchmark:
 
-<posts-image src="/images/llm-scores-per-language.jpg" alt="Best LLM scores on MMLU-ProX for each language, grouped by region" caption="Best LLM scores on MMLU-ProX for each language, grouped by region"></posts-image>
+<posts-image src="/images/llm-scores-per-language.jpg" width="1440" height="1438" alt="Best LLM scores on MMLU-ProX for each language, grouped by region" caption="Best LLM scores on MMLU-ProX for each language, grouped by region"></posts-image>
 
 And here's the table from the same paper, which I've given a visual makeover and trimmed down to just English and Russian:
 
-<posts-image src="/images/model-perfomance-on-mmlu.jpg" alt="Model performance on MMLU-ProX in English and Russian (%)" caption="Model performance on MMLU-ProX in English and Russian (%)"></posts-image>
+<posts-image src="/images/model-perfomance-on-mmlu.jpg" width="1040" height="1384" alt="Model performance on MMLU-ProX in English and Russian (%)" caption="Model performance on MMLU-ProX in English and Russian (%)"></posts-image>
 
 To be fair, this research isn't new, and the models are relatively old. It's still the most recent study with this kind of comparison that I managed to find. Also, GPT-4o actually scored higher in Russian than in English.
 
@@ -53,11 +53,11 @@ Here's the catch: these tokenizers are heavily optimized for English. The same s
 
 Take a look at this chart from a [2023 paper](https://aclanthology.org/2023.emnlp-main.614.pdf):
 
-<posts-image src="/images/average-number-of-tokens-by-language.jpg" alt="Average number of tokens per FLORES sentence, grouped by writing system; numbers above the lines indicate the number of languages in each group" caption="Average number of tokens per FLORES sentence, grouped by writing system; numbers above the lines indicate the number of languages in each group"></posts-image>
+<posts-image src="/images/average-number-of-tokens-by-language.jpg" width="490" height="312" alt="Average number of tokens per FLORES sentence, grouped by writing system; numbers above the lines indicate the number of languages in each group" caption="Average number of tokens per FLORES sentence, grouped by writing system; numbers above the lines indicate the number of languages in each group"></posts-image>
 
 Cyrillic takes more tokens than the Latin alphabet for the same prompt. Now remember what the bill is based on, and that the model replies in Cyrillic too. That means more tokens on both the input and output sides.
 
-<posts-image src="/images/model-cost-relative-to-english.jpg" alt="Cost by language family relative to English" caption="Cost by language family relative to English"></posts-image>
+<posts-image src="/images/model-cost-relative-to-english.jpg" width="960" height="642" alt="Cost by language family relative to English" caption="Cost by language family relative to English"></posts-image>
 
 That's the **invisible language tax**.
 

@@ -9,9 +9,10 @@ const props = defineProps<PostsTimeDurationProps>();
 const { locale } = useI18n();
 
 function formatDate(date: string) {
-  return new Date(date).toLocaleDateString(locale.value, {
+  return new Date(toPostDateTime(date)).toLocaleDateString(locale.value, {
     month: "short",
     day: "numeric",
+    timeZone: "UTC",
   });
 }
 </script>
@@ -20,7 +21,7 @@ function formatDate(date: string) {
   <div
     class="flex items-center gap-2 shrink-0 text-sm text-muted-foreground tabular-nums my-auto"
   >
-    <time :datetime="props.date">
+    <time :datetime="toPostDateTime(props.date)">
       {{ formatDate(props.date) }}
     </time>
     <span class="opacity-30">&middot;</span>

@@ -113,17 +113,17 @@ I've already implemented this solution, tested it, and it works really well — 
 Maybe you want a bilingual resume? Or even the same template for another person? That can be done just by replacing the **content**.
 
   <div class="flex gap-2 md:flex-row flex-col">
-    <posts-image src="/images/cvhtml-original.png" alt="Original CV.html resume" caption="Original CV.html resume"></posts-image>
-    <posts-image src="/images/cvhtml-russian.png" alt="Same resume translated in Russian" caption="Same resume translated in Russian"></posts-image>
-    <posts-image src="/images/cvhtml-johndoe.png" alt="Same template for random user" caption="Same template for random user"></posts-image>
+    <posts-image src="/images/cvhtml-original.png" width="1440" height="1975" sizes="(min-width: 768px) calc((min(100vw, 40rem) - 4.25rem) / 3), min(calc(100vw - 2.75rem), calc(40rem - 2.75rem))" alt="Original CV.html resume" caption="Original CV.html resume"></posts-image>
+    <posts-image src="/images/cvhtml-russian.png" width="1440" height="1868" sizes="(min-width: 768px) calc((min(100vw, 40rem) - 4.25rem) / 3), min(calc(100vw - 2.75rem), calc(40rem - 2.75rem))" alt="Same resume translated in Russian" caption="Same resume translated in Russian"></posts-image>
+    <posts-image src="/images/cvhtml-johndoe.png" width="1440" height="1541" sizes="(min-width: 768px) calc((min(100vw, 40rem) - 4.25rem) / 3), min(calc(100vw - 2.75rem), calc(40rem - 2.75rem))" alt="Same template for random user" caption="Same template for random user"></posts-image>
   </div>
 
 Or maybe you want another design? No worries — just replace the **template**.
 
   <div class="flex gap-2 md:flex-row flex-col">
-    <posts-image src="/images/cvhtml-pinkycute.png" alt="Pinky-cute template" caption="Pinky-cute template"></posts-image>
-    <posts-image src="/images/cvhtml-newspaper.png" alt="Newspaper template" caption="Newspaper template"></posts-image>
-    <posts-image src="/images/cvhtml-terminal.png" alt="Terminal template" caption="Terminal template"></posts-image>
+    <posts-image src="/images/cvhtml-pinkycute.png" width="1440" height="2006" sizes="(min-width: 768px) calc((min(100vw, 40rem) - 4.25rem) / 3), min(calc(100vw - 2.75rem), calc(40rem - 2.75rem))" alt="Pinky-cute template" caption="Pinky-cute template"></posts-image>
+    <posts-image src="/images/cvhtml-newspaper.png" width="1440" height="2143" sizes="(min-width: 768px) calc((min(100vw, 40rem) - 4.25rem) / 3), min(calc(100vw - 2.75rem), calc(40rem - 2.75rem))" alt="Newspaper template" caption="Newspaper template"></posts-image>
+    <posts-image src="/images/cvhtml-terminal.png" width="1440" height="2050" sizes="(min-width: 768px) calc((min(100vw, 40rem) - 4.25rem) / 3), min(calc(100vw - 2.75rem), calc(40rem - 2.75rem))" alt="Terminal template" caption="Terminal template"></posts-image>
   </div>
 
 There's so much customization that I still find new usage ideas and designs. You can try it too at <cv-html-badge class="ml-1"></cv-html-badge>.

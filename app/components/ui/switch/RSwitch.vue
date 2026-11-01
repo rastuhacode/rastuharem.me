@@ -21,28 +21,25 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
     v-bind="forwarded"
     :class="
       cn(
-        'peer inline-flex h-[1.15rem] w-8 shrink-0 items-center rounded-full border border-transparent shadow-xs transition-all outline-none',
-        'data-[state=unchecked]:bg-ring data-[state=checked]:bg-foreground',
-
-        'focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]',
+        'peer group/switch inline-flex size-11 shrink-0 items-center justify-center rounded-sm outline-none',
+        'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground',
         'disabled:cursor-not-allowed disabled:opacity-50',
         props.class,
       )
     "
   >
-    <SwitchThumb
-      data-slot="switch-thumb"
-      :class="
-        cn(
-          'bg-background pointer-events-none size-4 rounded-full ring-0 transition-transform relative flex items-center justify-center',
-          'data-[state=checked]:translate-x-[calc(100%-2px)] data-[state=unchecked]:translate-x-0',
-        )
-      "
-    >
-      <slot
-        name="thumb"
-        v-bind="slotProps"
-      />
-    </SwitchThumb>
+    <span aria-hidden="true" class="inline-flex h-[1.15rem] w-8 items-center rounded-full border border-transparent shadow-xs transition-colors group-data-[state=unchecked]/switch:bg-ring group-data-[state=checked]/switch:bg-foreground">
+      <SwitchThumb
+        data-slot="switch-thumb"
+        :class="
+          cn(
+            'bg-background pointer-events-none size-4 rounded-full ring-0 transition-transform relative flex items-center justify-center',
+            'data-[state=checked]:translate-x-[calc(100%-2px)] data-[state=unchecked]:translate-x-0',
+          )
+        "
+      >
+        <slot name="thumb" v-bind="slotProps" />
+      </SwitchThumb>
+    </span>
   </SwitchRoot>
 </template>

@@ -143,8 +143,8 @@ Having worked with HTML resumes for a while, I've encountered a few less obvious
   Take a look at these two renderings of the same HTML resume on different systems:
 
   <div class="flex gap-2 md:flex-row flex-col">
-    <posts-image src="/images/resume-macos.png" alt="HTML resume on macos" caption="HTML on macOS"></posts-image>
-    <posts-image src="/images/resume-windows.png" alt="HTML resume on windows" caption="Same HTML on Windows"></posts-image>
+    <posts-image src="/images/resume-macos.png" width="1440" height="2097" sizes="(min-width: 768px) calc((min(100vw, 40rem) - 3.5rem) / 2), min(calc(100vw - 2.75rem), calc(40rem - 2.75rem))" alt="HTML resume on macos" caption="HTML on macOS"></posts-image>
+    <posts-image src="/images/resume-windows.png" width="800" height="1155" sizes="(min-width: 768px) calc((min(100vw, 40rem) - 3.5rem) / 2), min(calc(100vw - 2.75rem), calc(40rem - 2.75rem))" alt="HTML resume on windows" caption="Same HTML on Windows"></posts-image>
   </div>
 
   The font appears different even though the CSS properties are identical. I spent a long time researching this, and unfortunately it can't be fully fixed. The good news is that once rendered to PDF, the result looks the same everywhere.

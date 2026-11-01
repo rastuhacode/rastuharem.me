@@ -1,9 +1,10 @@
 <script setup lang="ts">
 const colorMode = useColorMode();
+const { enabled: motionEnabled } = useMotionPreference();
 
 const isDark = computed({
   get() {
-    return colorMode.preference === "dark";
+    return colorMode.value === "dark";
   },
   set(value: boolean) {
     colorMode.preference = value ? "dark" : "light";
@@ -11,9 +12,8 @@ const isDark = computed({
 });
 
 function toggleDark() {
-  const isAppearanceTransition = !window.matchMedia(
-    "(prefers-reduced-motion: reduce)",
-  ).matches;
+  const isAppearanceTransition = motionEnabled.value
+    && typeof document.startViewTransition === "function";
 
   if (!isAppearanceTransition) {
     isDark.value = !isDark.value;
@@ -30,19 +30,20 @@ function toggleDark() {
 <template>
   <ClientOnly>
     <button
-      class="size-5"
+      type="button"
+      :aria-label="$t(isDark ? 'switch_to_light_theme' : 'switch_to_dark_theme')"
+      class="flex size-11 shrink-0 items-center justify-center rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
       @click="toggleDark"
     >
       <Icon
-        :name="colorMode.preference === 'dark' ? 'lucide:sun' : 'lucide:moon'"
+        :name="isDark ? 'lucide:sun' : 'lucide:moon'"
         class="size-5"
       />
     </button>
     <template #fallback>
-      <Icon
-        name="lucide:sun"
-        class="size-5"
-      />
+      <span class="flex size-11 shrink-0 items-center justify-center" aria-hidden="true">
+        <Icon name="lucide:sun" class="size-5" />
+      </span>
     </template>
   </ClientOnly>
 </template>
