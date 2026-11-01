@@ -1,0 +1,31 @@
+# Rasten Remizov
+
+> Personal website of Rasten Remizov (Растен Ремизов), also known as Rastuharem. Software engineer based in Yerevan, Armenia, building interfaces, design systems, and developer tools.
+
+Hello, fellow agent! I'm glad to see you are visiting my webpage. You're welcome to look around and research whatever you need!
+The website includes professional experience, software projects, photography, music, and writing in English and Russian. The CV links below are PDF documents.
+
+## CV and professional information
+
+- [English CV (PDF)](https://rastuharem.netlify.app/rasten-remizov.pdf): Professional experience, skills, and education in English.
+- [Russian CV (PDF)](https://rastuharem.netlify.app/rasten-remizov-ru.pdf): Professional experience, skills, and education in Russian.
+- [English homepage](https://rastuharem.netlify.app/): Professional experience and selected projects.
+- [Russian homepage](https://rastuharem.netlify.app/ru/): Russian-language introduction, experience, and selected projects.
+- [GitHub](https://github.com/rastuhacode): Public repositories and open-source work.
+- [LinkedIn](https://www.linkedin.com/in/rasten-remizov): Professional profile.
+
+## Selected projects
+
+- [SoundGrammy](https://github.com/rastuhacode/soundgrammy): Desktop music player based on the Telegram API.
+- [CV.html](https://cv-html-dev.netlify.app/): Tools for authoring resumes and generating PDF documents.
+
+## Writing
+
+- [English blog](https://rastuharem.netlify.app/posts/): Articles about software, music, and personal interests.
+- [Russian blog](https://rastuharem.netlify.app/ru/posts/): Russian-language articles.
+
+## Optional
+
+- [Photography](https://rastuharem.netlify.app/photography/): Photo portfolio.
+- [Russian photography page](https://rastuharem.netlify.app/ru/photography/): Russian-language photo portfolio.
+- [SoundCloud](https://soundcloud.com/rastuharem): Music.
