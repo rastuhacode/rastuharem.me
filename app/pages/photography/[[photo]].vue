@@ -1,4 +1,7 @@
 <script setup lang="ts">
+// Keep the gallery mounted when opening or navigating photo URLs.
+definePageMeta({ key: route => String(route.name) });
+
 const { t } = useI18n();
 usePageSeo(() => ({
   title: t("seo.photographyTitle"),

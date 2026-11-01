@@ -22,15 +22,15 @@ const emit = defineEmits<{ select: [index: number] }>();
       :aria-label="image.accessibleLabel"
       @click="emit('select', index)"
     >
-      <img
+      <RResponsiveImage
         class="absolute inset-0 h-full w-full object-cover"
         :src="image.src"
         :alt="image.accessibleLabel"
         :width="image.width"
         :height="image.height"
+        sizes="(min-width: 640px) 50vw, 60vw"
         loading="lazy"
-        decoding="async"
-      >
+      />
       <span class="absolute bottom-3 left-3 border-2 border-white bg-[#111] px-2 py-1 text-[0.65rem] font-black text-white">{{ image.label }}</span>
     </button>
     <NuxtLinkLocale

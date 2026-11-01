@@ -14,6 +14,14 @@ const photoIndexRoutes = ["/api/photo-index/manifest.json", ...Array.from(
   { length: Math.max(photoManifest.pages, 1) },
   (_, index) => `/api/photo-index/page-${String(index + 1).padStart(4, "0")}.json`,
 )];
+const photoPageRoutes = Array.from({ length: photoManifest.pages }, (_, index) => {
+  const pagePath = resolve(`public/photo-index/page-${String(index + 1).padStart(4, "0")}.json`);
+  const photos = JSON.parse(readFileSync(pagePath, "utf8")) as { fileName: string }[];
+  return photos.flatMap(({ fileName }) => {
+    const id = encodeURIComponent(fileName.replace(/\.[^.]+$/, ""));
+    return [`/photography/${id}/`, `/ru/photography/${id}/`];
+  });
+}).flat();
 
 export default defineNuxtConfig({
 
@@ -94,5 +102,5 @@ export default defineNuxtConfig({
     skipSettingLocaleOnNavigate: true,
   },
   sitemap: { zeroRuntime: true },
-  nitro: { prerender: { routes: photoIndexRoutes } },
+  nitro: { prerender: { routes: [...photoIndexRoutes, ...photoPageRoutes] } },
 });

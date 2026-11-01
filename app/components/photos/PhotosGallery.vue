@@ -6,6 +6,11 @@ const props = withDefaults(defineProps<{ preview?: boolean; type?: "solo" | "col
   type: "collection",
 });
 const { t } = useI18n();
+const route = useRoute();
+const router = useRouter();
+const localePath = useLocalePath();
+const galleryPath = computed(() => `${localePath("/photography").replace(/\/$/, "")}/`);
+const photoUrlsEnabled = computed(() => !props.preview && props.type === "collection");
 const { data: manifest, error: manifestError } = await useFetch<PhotoIndexManifest>("/api/photo-index/manifest.json", {
   default: () => ({ count: 0, pageSize: 60, pages: 0 }),
 });
@@ -134,7 +139,7 @@ onUnmounted(() => {
 async function handleGalleryKeydown(event: KeyboardEvent) {
   if (event.key !== "Tab" || event.altKey || event.ctrlKey || event.metaKey) return;
   const button = event.target;
-  if (!(button instanceof HTMLButtonElement) || button.dataset.photoIndex === undefined) return;
+  if (!(button instanceof HTMLElement) || button.dataset.photoIndex === undefined) return;
 
   const nextIndex = Number(button.dataset.photoIndex) + (event.shiftKey ? -1 : 1);
   if (nextIndex < 0 || nextIndex >= manifest.value.count) return;
@@ -156,21 +161,91 @@ async function handleGalleryKeydown(event: KeyboardEvent) {
     measureViewport();
   }
   await nextTick();
-  galleryRef.value?.querySelector<HTMLButtonElement>(`[data-photo-index="${nextIndex}"]`)?.focus();
+  galleryRef.value?.querySelector<HTMLElement>(`[data-photo-index="${nextIndex}"]`)?.focus();
 }
 
 function handleGalleryFocus(event: FocusEvent) {
   const button = event.target;
-  if (button instanceof HTMLButtonElement && button.dataset.photoIndex !== undefined) {
+  if (button instanceof HTMLElement && button.dataset.photoIndex !== undefined) {
     focusedIndex.value = Number(button.dataset.photoIndex);
   }
 }
 
 const activeIndex = ref<number | null>(null);
 const activePhoto = computed(() => activeIndex.value === null ? null : photos.value[activeIndex.value]);
+let openedFromGallery = false;
+
+function photoId(photo: PortfolioPhoto) {
+  return photo.fileName.replace(/\.[^.]+$/, "");
+}
+
+function photoLocation(photo?: PortfolioPhoto) {
+  return {
+    path: photo ? `${galleryPath.value}${photoId(photo)}/` : galleryPath.value,
+    query: route.query,
+    hash: route.hash,
+  };
+}
+
+function photoHref(photo: PortfolioPhoto) {
+  return photoUrlsEnabled.value ? router.resolve(photoLocation(photo)).href : undefined;
+}
+
+function selectPhoto(index: number) {
+  const photo = photos.value[index];
+  if (!photo) return;
+  if (!photoUrlsEnabled.value) {
+    activeIndex.value = index;
+    return;
+  }
+  openedFromGallery = typeof route.params.photo !== "string";
+  void router.push(photoLocation(photo));
+}
+
+async function findPhotoIndex(id: string, cancelled = () => false) {
+  let index = photos.value.findIndex(photo => photoId(photo) === id);
+  while (index === -1 && currentPage.value < manifest.value.pages && !cancelled()) {
+    if (loadingMore.value) await until(loadingMore).toBe(false);
+    else await loadMore();
+    if (moreError.value || cancelled()) return -1;
+    index = photos.value.findIndex(photo => photoId(photo) === id);
+  }
+  return index;
+}
+
+if (photoUrlsEnabled.value && typeof route.params.photo === "string") {
+  const index = await findPhotoIndex(route.params.photo);
+  if (index === -1 && !manifestError.value && !firstPageError.value && !moreError.value) {
+    throw createError({ statusCode: 404, statusMessage: "Photograph not found" });
+  }
+}
+
+// Open the requested photo after hydration; homepage previews stay local.
+watch([virtualReady, () => route.params.photo], async ([ready, id], _, onCleanup) => {
+  if (!ready || !photoUrlsEnabled.value) return;
+  let cancelled = false;
+  onCleanup(() => { cancelled = true; });
+  if (typeof id !== "string") {
+    activeIndex.value = null;
+    return;
+  }
+
+  const index = await findPhotoIndex(id, () => cancelled);
+  if (cancelled) return;
+  if (index !== -1) activeIndex.value = index;
+  else if (!manifestError.value && !firstPageError.value && !moreError.value) {
+    showError({ statusCode: 404, statusMessage: "Photograph not found" });
+  }
+});
 
 function closePhoto() {
   activeIndex.value = null;
+  if (!photoUrlsEnabled.value || typeof route.params.photo !== "string") return;
+  if (openedFromGallery) {
+    openedFromGallery = false;
+    router.back();
+  }
+  else void router.replace(photoLocation());
 }
 
 async function navigatePhoto(direction: -1 | 1) {
@@ -185,7 +260,10 @@ async function navigatePhoto(direction: -1 | 1) {
     if (moreError.value || activeIndex.value !== index) return;
   }
 
-  if (photos.value[nextIndex] && activeIndex.value === index) activeIndex.value = nextIndex;
+  if (photos.value[nextIndex] && activeIndex.value === index) {
+    if (photoUrlsEnabled.value) await router.replace(photoLocation(photos.value[nextIndex]));
+    else activeIndex.value = nextIndex;
+  }
 }
 </script>
 
@@ -208,13 +286,13 @@ async function navigatePhoto(direction: -1 | 1) {
           class="absolute left-0 top-0"
           :style="{ width: `${tile.width}px`, height: `${tile.height}px`, transform: `translate(${tile.x}px, ${tile.y}px)` }"
         >
-          <PhotoCard :photo="tile.photo" :index="tile.index" :image-height="tile.imageHeight" :tab-stop="tile.index === 0 || tile.index === photos.length - 1" :eager="tile.index < columnCount" @select="activeIndex = $event" />
+          <PhotoCard :photo="tile.photo" :index="tile.index" :href="photoHref(tile.photo)" :image-height="tile.imageHeight" :image-width="tile.width - 6" :tab-stop="tile.index === 0 || tile.index === photos.length - 1" :eager="tile.index < columnCount" @select="selectPhoto" />
         </figure>
       </template>
       <template v-else>
         <div v-for="(column, columnIndex) in fallbackColumns" :key="columnIndex" class="flex min-w-0 flex-col gap-5 xl:gap-7">
           <figure v-for="{ photo, index } in column" :key="photo.src">
-            <PhotoCard :photo="photo" :index="index" :tab-stop="index === 0 || index === photos.length - 1" :eager="index < columnCount" @select="activeIndex = $event" />
+            <PhotoCard :photo="photo" :index="index" :href="photoHref(photo)" :tab-stop="index === 0 || index === photos.length - 1" :eager="index < columnCount" @select="selectPhoto" />
           </figure>
         </div>
       </template>
