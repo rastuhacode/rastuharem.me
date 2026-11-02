@@ -58,21 +58,18 @@ export default defineNuxtConfig({
       link: [
         // Favicon
         { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
-        // Font
-        { rel: "preconnect", href: "https://fonts.googleapis.com" },
+        // Preload the common Latin subset; other subsets load as needed.
         {
-          rel: "preconnect",
-          href: "https://fonts.gstatic.com",
+          rel: "preload",
+          href: "/fonts/manrope/manrope-v23-latin.woff2",
+          as: "font",
+          type: "font/woff2",
           crossorigin: "",
-        },
-        {
-          rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap",
         },
       ],
     },
   },
-  css: ["~/assets/css/main.css"],
+  css: ["~/assets/css/fonts.css", "~/assets/css/main.css"],
   site: {
     url: siteUrl,
     name: "Rasten Remizov",
