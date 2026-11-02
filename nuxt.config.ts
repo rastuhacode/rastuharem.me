@@ -1,6 +1,7 @@
 import tailwindcss from "@tailwindcss/vite";
 import { existsSync, readFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import { defineNuxtConfig } from "nuxt/config";
 
 // TODO: make fully external via environment variables
@@ -44,6 +45,17 @@ export default defineNuxtConfig({
   ],
   components: [{ path: "~/components", pathPrefix: false }],
 
+  icon: {
+    clientBundle: { scan: true},
+  },
+
+  // Pixi's public entry registers features the artwork does not use. Keep the
+  // internal imports in app/lib/pixi.ts and check them when upgrading PixiJS.
+  // A bare alias lets Vite resolve the prebundled entries in development.
+  alias: {
+    "pixi-internal": dirname(fileURLToPath(import.meta.resolve("pixi.js"))),
+  },
+
   devtools: { enabled: import.meta.env.DEV },
   app: {
     head: {
@@ -58,21 +70,18 @@ export default defineNuxtConfig({
       link: [
         // Favicon
         { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
-        // Font
-        { rel: "preconnect", href: "https://fonts.googleapis.com" },
+        // Preload the common Latin subset; other subsets load as needed.
         {
-          rel: "preconnect",
-          href: "https://fonts.gstatic.com",
+          rel: "preload",
+          href: "/fonts/manrope/manrope-v23-latin.woff2",
+          as: "font",
+          type: "font/woff2",
           crossorigin: "",
-        },
-        {
-          rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap",
         },
       ],
     },
   },
-  css: ["~/assets/css/main.css"],
+  css: ["~/assets/css/fonts.css", "~/assets/css/main.css"],
   site: {
     url: siteUrl,
     name: "Rasten Remizov",
@@ -88,7 +97,14 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
     optimizeDeps: {
-      include: ["reka-ui", "clsx", "tailwind-merge", "pixi.js", "motion-v", "zod"],
+      include: [
+        "reka-ui", "clsx", "tailwind-merge", "motion-v", "zod",
+        // Prebundle the curated entries so Pixi's CommonJS dependencies (such as
+        // eventemitter3) also work when Vite serves the internal ESM files.
+        "pixi-internal/rendering/init",
+        "pixi-internal/app/Application",
+        "pixi-internal/scene/graphics/shared/Graphics",
+      ],
     },
   },
   i18n: {

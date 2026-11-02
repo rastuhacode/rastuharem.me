@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // Thanks to https://www.tylerxhobbs.com/words/flow-fields for idea
 
-import type { Application, Graphics } from "pixi.js";
+import type { Application, Graphics } from "~/lib/pixi";
 
 interface Point {
   x: number;
@@ -93,13 +93,14 @@ onMounted(async () => {
   containerRef.value.dataset.fieldStyle = "graphite";
 
   const { Application: PixiApplication, Graphics: PixiGraphics } = await import(
-    "pixi.js"
+    "~/lib/pixi"
   );
 
   if (!canvasHostRef.value) return;
 
   app = new PixiApplication();
   await app.init({
+    skipExtensionImports: true,
     antialias: true,
     autoDensity: true,
     autoStart: false,
