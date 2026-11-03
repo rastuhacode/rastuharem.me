@@ -173,18 +173,18 @@ function splitKeywords(text: string, keywords: string) {
               <div class="mt-3 grid grow grid-rows-2 gap-3">
                 <div class="experience-body__result flex flex-col justify-center border-l-4 px-4 py-4 sm:px-5">
                   <p class="text-3xl font-semibold tracking-tight">
-                    {{ $t("homepage.experience.thirdRegressionMetric") }}
+                    {{ $t("homepage.experience.thirdPerformanceMetric") }}
                   </p>
                   <p class="experience-body__copy mt-2 max-w-lg text-sm leading-relaxed">
-                    {{ $t("homepage.experience.thirdRegressionOutcome") }}
+                    {{ $t("homepage.experience.thirdPerformanceOutcome") }}
                   </p>
                 </div>
                 <div class="experience-body__result flex flex-col justify-center border-l-4 px-4 py-4 sm:px-5">
                   <p class="text-3xl font-semibold tracking-tight">
-                    {{ $t("homepage.experience.thirdMetric") }}
+                    {{ $t("homepage.experience.thirdRegressionMetric") }}
                   </p>
                   <p class="experience-body__copy mt-2 max-w-lg text-sm leading-relaxed">
-                    {{ $t("homepage.experience.thirdOutcome") }}
+                    {{ $t("homepage.experience.thirdRegressionOutcome") }}
                   </p>
                 </div>
               </div>

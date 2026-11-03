@@ -46,12 +46,12 @@
       "secondMetric": "6 teams · 8 products",
       "secondOutcome": "The design system is used across the company.",
       "thirdName": "Cloud CAD/CAE simulation platform",
-      "thirdDescription": "Built simulation interfaces and a testing API for distributed engineering teams.",
-      "thirdKeywords": "simulation interfaces;testing API",
-      "thirdRegressionMetric": "28% regression reduction",
-      "thirdRegressionOutcome": "Production regressions fell after automated E2E and unit tests began running nightly.",
-      "thirdMetric": "13 engineers",
-      "thirdOutcome": "Can write end-to-end tests and automate presentations without help from frontend or testing teams."
+      "thirdDescription": "Optimized simulation interfaces and built a shared Playwright framework for E2E tests and automated presentations.",
+      "thirdKeywords": "simulation interfaces;Playwright framework",
+      "thirdPerformanceMetric": "FCP: 3.2 s → 900 ms",
+      "thirdPerformanceOutcome": "Reduced initial response size from 2 MB to 100 KB through pagination, infinite scrolling, and list virtualization.",
+      "thirdRegressionMetric": "28% fewer regressions",
+      "thirdRegressionOutcome": "Achieved an average reduction of 28% over a year by building a shared Playwright framework that enabled 13 engineers to independently create E2E tests and automated presentations."
     },
     "writing": {
       "title": "Writing",
