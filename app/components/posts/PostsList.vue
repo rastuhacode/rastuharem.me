@@ -80,9 +80,6 @@ function removeTag(tag: PostTags) {
           {{ $t("posts.description") }}
         </p>
       </div>
-      <div class="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[0.7rem] font-bold uppercase tracking-[0.18em]">
-        <span>{{ String(allPosts.length).padStart(2, "0") }} / {{ $t("posts.entries") }}</span>
-      </div>
     </header>
 
     <section v-if="availableTags.length" class="mt-10 border-[3px] border-foreground-bold shadow-[6px_6px_0_var(--color-foreground-bold)]" :aria-label="$t('posts.filters')">
