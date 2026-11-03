@@ -3,6 +3,9 @@ title: "The invisible language tax"
 description: "Or how to get less AI for more money"
 date: "2026-10-17 00:00:00 UTC"
 duration: "5 min"
+tags:
+  - dev
+  - AI
 ---
 
 # {{ title }}
