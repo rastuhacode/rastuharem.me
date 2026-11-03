@@ -28,8 +28,7 @@ function formatDate(date: string) {
     <section class="text-foreground-bold" aria-labelledby="recent-posts-heading">
       <div class="mb-9 flex flex-col items-start justify-between gap-7 md:flex-row md:items-end">
         <div>
-          <p class="font-mono text-xs font-black uppercase tracking-[0.2em] text-muted-foreground">01 / {{ $t("homepage.writing.title") }}</p>
-          <h3 id="recent-posts-heading" class="mt-4 text-[clamp(2.8rem,6vw,6rem)] font-black uppercase leading-[0.9] tracking-[-0.07em]">
+          <h3 id="recent-posts-heading" class="text-[clamp(2.8rem,6vw,6rem)] font-black uppercase leading-[0.9] tracking-[-0.07em]">
             {{ $t("homepage.writing.recentTitle") }}
           </h3>
           <p class="mt-4 max-w-xl text-base font-semibold leading-snug">{{ $t("homepage.writing.description") }}</p>
@@ -70,8 +69,7 @@ function formatDate(date: string) {
     <section class="grid gap-8 border-t-[5px] border-foreground-bold pt-10 sm:pt-14 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-12" aria-labelledby="music-heading">
       <div class="flex flex-col justify-between">
         <div>
-          <span class="inline-block -rotate-2 bg-[#ef7659] px-3 py-1.5 font-mono text-xs font-black uppercase tracking-[0.16em] text-[#171717]">02 / {{ $t("homepage.other.music") }}</span>
-          <h3 id="music-heading" class="mt-7 max-w-xl text-[clamp(3rem,6.5vw,6.5rem)] font-black uppercase leading-[0.88] tracking-[-0.075em] text-foreground-bold">
+          <h3 id="music-heading" class="max-w-xl text-[clamp(3rem,6.5vw,6.5rem)] font-black uppercase leading-[0.88] tracking-[-0.075em] text-foreground-bold">
             {{ $t("homepage.other.music") }}
           </h3>
           <p class="mt-6 max-w-md border-l-[5px] border-foreground-bold pl-5 text-lg font-semibold leading-snug text-foreground-bold">
@@ -80,32 +78,30 @@ function formatDate(date: string) {
         </div>
       </div>
 
-      <div class="grid gap-5 sm:grid-cols-2">
-        <a href="https://soundcloud.com/rastuharem" target="_blank" rel="noopener noreferrer" class="group flex min-h-72 flex-col justify-between border-[3px] border-foreground-bold bg-[#ef7659] p-6 text-[#171717] no-underline shadow-[7px_7px_0_var(--color-foreground-bold)] transition-transform hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground-bold sm:p-8">
-          <span class="flex items-start justify-between gap-3">
-            <span class="font-mono text-xs font-black uppercase tracking-[0.18em]">01 / {{ $t("homepage.other.make") }}</span>
-            <Icon name="lucide:audio-lines" class="size-7 shrink-0" aria-hidden="true" />
-          </span>
+      <div class="grid self-start gap-5 sm:grid-cols-2">
+        <a href="https://soundcloud.com/rastuharem" target="_blank" rel="noopener noreferrer" class="group flex flex-col justify-between border-[3px] border-foreground-bold bg-[#ef7659] p-6 text-[#171717] no-underline shadow-[7px_7px_0_var(--color-foreground-bold)] transition-transform hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground-bold sm:p-8">
           <span>
-            <span class="block text-[clamp(2rem,3vw,3.4rem)] font-black uppercase leading-[0.9] tracking-[-0.06em]">{{ $t("homepage.other.make") }}</span>
-            <span class="mt-4 block max-w-xs text-sm font-semibold leading-snug">{{ $t("homepage.other.makeDescription") }}</span>
-            <span class="mt-8 flex items-center justify-between border-t-[3px] border-[#171717] pt-3 font-mono text-xs font-black uppercase tracking-[0.12em]">
-              SoundCloud <Icon name="lucide:arrow-up-right" class="size-6 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" aria-hidden="true" />
+            <span class="flex items-center justify-between gap-3">
+              <span class="block text-[clamp(2rem,3vw,3.4rem)] font-black uppercase leading-[0.9] tracking-[-0.06em]">{{ $t("homepage.other.make") }}</span>
+              <Icon name="lucide:audio-lines" class="size-7 shrink-0" aria-hidden="true" />
             </span>
+            <span class="mt-4 block max-w-xs text-sm font-semibold leading-snug">{{ $t("homepage.other.makeDescription") }}</span>
+          </span>
+          <span class="mt-6 flex items-center justify-between border-t-[3px] border-[#171717] pt-3 font-mono text-xs font-black uppercase tracking-[0.12em]">
+            SoundCloud <Icon name="lucide:arrow-up-right" class="size-6 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" aria-hidden="true" />
           </span>
         </a>
 
-        <a href="https://www.last.fm/user/rastuhacode" target="_blank" rel="noopener noreferrer" class="group flex min-h-72 flex-col justify-between border-[3px] border-foreground-bold bg-[#72afc8] p-6 text-[#171717] no-underline shadow-[7px_7px_0_var(--color-foreground-bold)] transition-transform hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground-bold sm:p-8">
-          <span class="flex items-start justify-between gap-3">
-            <span class="font-mono text-xs font-black uppercase tracking-[0.18em]">02 / {{ $t("homepage.other.listen") }}</span>
-            <Icon name="lucide:headphones" class="size-7 shrink-0" aria-hidden="true" />
-          </span>
+        <a href="https://www.last.fm/user/rastuhacode" target="_blank" rel="noopener noreferrer" class="group flex flex-col justify-between border-[3px] border-foreground-bold bg-[#72afc8] p-6 text-[#171717] no-underline shadow-[7px_7px_0_var(--color-foreground-bold)] transition-transform hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground-bold sm:p-8">
           <span>
-            <span class="block text-[clamp(2rem,3vw,3.4rem)] font-black uppercase leading-[0.9] tracking-[-0.06em]">{{ $t("homepage.other.listen") }}</span>
-            <span class="mt-4 block max-w-xs text-sm font-semibold leading-snug">{{ $t("homepage.other.listenDescription") }}</span>
-            <span class="mt-8 flex items-center justify-between border-t-[3px] border-[#171717] pt-3 font-mono text-xs font-black uppercase tracking-[0.12em]">
-              Last.fm <Icon name="lucide:arrow-up-right" class="size-6 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" aria-hidden="true" />
+            <span class="flex items-center justify-between gap-3">
+              <span class="block text-[clamp(2rem,3vw,3.4rem)] font-black uppercase leading-[0.9] tracking-[-0.06em]">{{ $t("homepage.other.listen") }}</span>
+              <Icon name="lucide:headphones" class="size-7 shrink-0" aria-hidden="true" />
             </span>
+            <span class="mt-4 block max-w-xs text-sm font-semibold leading-snug">{{ $t("homepage.other.listenDescription") }}</span>
+          </span>
+          <span class="mt-6 flex items-center justify-between border-t-[3px] border-[#171717] pt-3 font-mono text-xs font-black uppercase tracking-[0.12em]">
+            Last.fm <Icon name="lucide:arrow-up-right" class="size-6 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" aria-hidden="true" />
           </span>
         </a>
       </div>
