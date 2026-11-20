@@ -3,7 +3,9 @@
   "lockFileMaintenance": {
     "enabled": true
   },
-  "dependencyDashboard": true,
+  "dependencyDashboard": {
+    "enabled": true
+  },
   "dependencyDashboardApproval": true,
   "baseBranchPatterns": ["develop"]
 }
