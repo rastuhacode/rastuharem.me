@@ -1,4 +1,4 @@
-**[rastuharem.me](https://rastuharem.netlify.app/)**
+**[rastuharem.me](https://rastuharem.me/)**
 
 My personal website
 
