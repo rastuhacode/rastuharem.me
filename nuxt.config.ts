@@ -6,7 +6,7 @@ import { defineNuxtConfig } from "nuxt/config";
 
 // TODO: make fully external via environment variables
 // For now it's enough as we have only one host instance
-const siteUrl = "https://rastuharem.netlify.app";
+const siteUrl = "https://rastuharem.me";
 const photoManifestPath = resolve("public/photo-index/manifest.json");
 const photoManifest = existsSync(photoManifestPath)
   ? JSON.parse(readFileSync(photoManifestPath, "utf8")) as { pages: number }

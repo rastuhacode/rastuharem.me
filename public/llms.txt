@@ -7,10 +7,10 @@ The website includes professional experience, software projects, photography, mu
 
 ## CV and professional information
 
-- [English CV (PDF)](https://rastuharem.netlify.app/rasten-remizov.pdf): Professional experience, skills, and education in English.
-- [Russian CV (PDF)](https://rastuharem.netlify.app/rasten-remizov-ru.pdf): Professional experience, skills, and education in Russian.
-- [English homepage](https://rastuharem.netlify.app/): Professional experience and selected projects.
-- [Russian homepage](https://rastuharem.netlify.app/ru/): Russian-language introduction, experience, and selected projects.
+- [English CV (PDF)](https://rastuharem.me/rasten-remizov.pdf): Professional experience, skills, and education in English.
+- [Russian CV (PDF)](https://rastuharem.me/rasten-remizov-ru.pdf): Professional experience, skills, and education in Russian.
+- [English homepage](https://rastuharem.me/): Professional experience and selected projects.
+- [Russian homepage](https://rastuharem.me/ru/): Russian-language introduction, experience, and selected projects.
 - [GitHub](https://github.com/rastuhacode): Public repositories and open-source work.
 - [LinkedIn](https://www.linkedin.com/in/rasten-remizov): Professional profile.
 
@@ -21,11 +21,11 @@ The website includes professional experience, software projects, photography, mu
 
 ## Writing
 
-- [English blog](https://rastuharem.netlify.app/posts/): Articles about software, music, and personal interests.
-- [Russian blog](https://rastuharem.netlify.app/ru/posts/): Russian-language articles.
+- [English blog](https://rastuharem.me/posts/): Articles about software, music, and personal interests.
+- [Russian blog](https://rastuharem.me/ru/posts/): Russian-language articles.
 
 ## Optional
 
-- [Photography](https://rastuharem.netlify.app/photography/): Photo portfolio.
-- [Russian photography page](https://rastuharem.netlify.app/ru/photography/): Russian-language photo portfolio.
+- [Photography](https://rastuharem.me/photography/): Photo portfolio.
+- [Russian photography page](https://rastuharem.me/ru/photography/): Russian-language photo portfolio.
 - [SoundCloud](https://soundcloud.com/rastuharem): Music.
